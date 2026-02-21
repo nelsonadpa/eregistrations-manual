@@ -1,0 +1,1138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Manual de Usuario - Bitacora y Permisos Eventuales | Cuba eRegistrations</title>
+<style>
+  :root {
+    --primary: #1a5276;
+    --primary-light: #2980b9;
+    --accent: #e67e22;
+    --accent-light: #f39c12;
+    --success: #27ae60;
+    --danger: #c0392b;
+    --warning: #f1c40f;
+    --bg: #f8f9fa;
+    --text: #2c3e50;
+    --border: #dce1e5;
+    --card-bg: #ffffff;
+    --shadow: 0 2px 8px rgba(0,0,0,0.08);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+  }
+
+  /* Header */
+  .header {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    color: white;
+    padding: 2rem 0;
+    text-align: center;
+    position: relative;
+  }
+  .header::after {
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    left: 0;
+    right: 0;
+    height: 20px;
+    background: linear-gradient(to bottom right, var(--primary-light), transparent 50%),
+                linear-gradient(to bottom left, var(--primary-light), transparent 50%);
+  }
+  .header h1 { font-size: 2rem; margin-bottom: 0.5rem; }
+  .header .subtitle { font-size: 1.1rem; opacity: 0.9; }
+  .header .badge {
+    display: inline-block;
+    background: var(--accent);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    margin-top: 0.5rem;
+  }
+
+  /* Navigation */
+  .nav {
+    background: var(--card-bg);
+    border-bottom: 2px solid var(--border);
+    padding: 0.75rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: var(--shadow);
+  }
+  .nav ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .nav a {
+    text-decoration: none;
+    color: var(--primary);
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    transition: all 0.2s;
+  }
+  .nav a:hover { background: var(--primary); color: white; }
+
+  /* Main content */
+  .container {
+    max-width: 1200px;
+    margin: 2.5rem auto;
+    padding: 0 1.5rem;
+  }
+
+  /* Sections */
+  .section {
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow);
+    border-left: 4px solid var(--primary);
+  }
+  .section h2 {
+    color: var(--primary);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--border);
+  }
+  .section h3 {
+    color: var(--primary-light);
+    font-size: 1.2rem;
+    margin: 1.5rem 0 0.75rem;
+  }
+  .section h4 {
+    color: var(--text);
+    font-size: 1.05rem;
+    margin: 1rem 0 0.5rem;
+  }
+
+  /* Connection diagram */
+  .diagram {
+    background: #f0f4f8;
+    border-radius: 10px;
+    padding: 2rem;
+    margin: 1.5rem 0;
+    text-align: center;
+  }
+  .diagram-boxes {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .diagram-box {
+    background: white;
+    border: 2px solid var(--primary);
+    border-radius: 10px;
+    padding: 1.2rem 1.5rem;
+    min-width: 200px;
+    box-shadow: var(--shadow);
+  }
+  .diagram-box.hub {
+    border-color: var(--accent);
+    background: linear-gradient(135deg, #fff5eb, white);
+  }
+  .diagram-box.service {
+    border-color: var(--success);
+    background: linear-gradient(135deg, #eafaf1, white);
+  }
+  .diagram-box h4 { margin: 0 0 0.3rem; font-size: 1rem; }
+  .diagram-box p { font-size: 0.85rem; color: #666; margin: 0; }
+  .diagram-arrow {
+    font-size: 2rem;
+    color: var(--primary-light);
+    font-weight: bold;
+  }
+
+  /* Info cards */
+  .info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem;
+    margin: 1rem 0;
+  }
+  .info-card {
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 1.2rem;
+    border: 1px solid var(--border);
+  }
+  .info-card .label {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #7f8c8d;
+    margin-bottom: 0.25rem;
+  }
+  .info-card .value {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text);
+  }
+
+  /* Tables */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+    font-size: 0.92rem;
+  }
+  th {
+    background: var(--primary);
+    color: white;
+    padding: 0.75rem 1rem;
+    text-align: left;
+    font-weight: 600;
+  }
+  td {
+    padding: 0.65rem 1rem;
+    border-bottom: 1px solid var(--border);
+  }
+  tr:nth-child(even) td { background: #f8f9fa; }
+  tr:hover td { background: #eef2f7; }
+
+  /* Steps */
+  .steps {
+    counter-reset: step;
+    list-style: none;
+    padding: 0;
+  }
+  .steps li {
+    counter-increment: step;
+    padding: 1rem 1rem 1rem 3.5rem;
+    margin-bottom: 0.75rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+    border-left: 3px solid var(--primary-light);
+    position: relative;
+  }
+  .steps li::before {
+    content: counter(step);
+    position: absolute;
+    left: 0.8rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--primary-light);
+    color: white;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 0.85rem;
+  }
+  .steps li strong { color: var(--primary); }
+
+  /* Tags */
+  .tag {
+    display: inline-block;
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 600;
+  }
+  .tag-required { background: #fdecea; color: var(--danger); }
+  .tag-optional { background: #e8f5e9; color: var(--success); }
+  .tag-auto { background: #e3f2fd; color: var(--primary-light); }
+  .tag-bot { background: #f3e5f5; color: #7b1fa2; }
+  .tag-role { background: #fff3e0; color: #e65100; }
+  .tag-type { background: #e0f2f1; color: #00695c; }
+
+  /* Callouts */
+  .callout {
+    padding: 1rem 1.25rem;
+    border-radius: 8px;
+    margin: 1rem 0;
+    border-left: 4px solid;
+  }
+  .callout-info { background: #e3f2fd; border-color: var(--primary-light); }
+  .callout-warning { background: #fff8e1; border-color: var(--warning); }
+  .callout-success { background: #e8f5e9; border-color: var(--success); }
+  .callout-danger { background: #fdecea; border-color: var(--danger); }
+  .callout strong { display: block; margin-bottom: 0.25rem; }
+
+  /* Workflow */
+  .workflow {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+    margin: 1rem 0;
+    padding: 1rem;
+    background: #f0f4f8;
+    border-radius: 8px;
+  }
+  .workflow-step {
+    background: white;
+    border: 2px solid var(--primary-light);
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+    text-align: center;
+    min-width: 120px;
+  }
+  .workflow-step.user { border-color: var(--accent); }
+  .workflow-step.bot { border-color: #7b1fa2; }
+  .workflow-step.officer { border-color: var(--success); }
+  .workflow-step .step-label { font-size: 0.7rem; text-transform: uppercase; color: #999; }
+  .workflow-step .step-name { font-weight: 600; font-size: 0.9rem; }
+  .workflow-arrow { font-size: 1.2rem; color: #999; }
+
+  /* Form mockup */
+  .form-mockup {
+    background: #fafbfc;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 1rem 0;
+  }
+  .form-mockup .form-title {
+    font-weight: 600;
+    color: var(--primary);
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--primary-light);
+  }
+  .form-field {
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .form-field label {
+    min-width: 180px;
+    font-size: 0.9rem;
+    color: #555;
+  }
+  .form-field .field-input {
+    flex: 1;
+    height: 32px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background: white;
+    padding: 0 0.5rem;
+    font-size: 0.85rem;
+    color: #999;
+    display: flex;
+    align-items: center;
+  }
+  .form-field .field-input.select::after {
+    content: '\25BC';
+    margin-left: auto;
+    font-size: 0.7rem;
+  }
+
+  /* Footer */
+  .footer {
+    text-align: center;
+    padding: 2rem;
+    color: #999;
+    font-size: 0.85rem;
+    border-top: 1px solid var(--border);
+    margin-top: 2rem;
+  }
+
+  /* Print styles */
+  @media print {
+    .nav { display: none; }
+    .section { break-inside: avoid; box-shadow: none; border: 1px solid #ddd; }
+    body { font-size: 11pt; }
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .header h1 { font-size: 1.5rem; }
+    .diagram-boxes { flex-direction: column; }
+    .diagram-arrow { transform: rotate(90deg); }
+    .nav ul { flex-direction: column; }
+    .workflow { flex-direction: column; }
+    .workflow-arrow { transform: rotate(90deg); }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <h1>Manual de Usuario</h1>
+  <div class="subtitle">Bitacora y Permisos Eventuales de Comercio Exterior</div>
+  <div class="badge">Cuba - eRegistrations</div>
+</div>
+
+<!-- NAVIGATION -->
+<nav class="nav">
+  <ul>
+    <li><a href="#resumen">Resumen</a></li>
+    <li><a href="#relacion">Relacion entre servicios</a></li>
+    <li><a href="#bitacora">Bitacora</a></li>
+    <li><a href="#permisos">Permisos Eventuales</a></li>
+    <li><a href="#flujo">Flujo completo</a></li>
+    <li><a href="#formulario-pe">Formulario PE</a></li>
+    <li><a href="#roles">Roles y aprobacion</a></li>
+    <li><a href="#bots">Automatizaciones</a></li>
+    <li><a href="#documentos">Documentos</a></li>
+    <li><a href="#determinantes">Reglas de negocio</a></li>
+    <li><a href="#faq">Preguntas frecuentes</a></li>
+  </ul>
+</nav>
+
+<div class="container">
+
+<!-- 1. RESUMEN GENERAL -->
+<section class="section" id="resumen">
+  <h2>1. Resumen general</h2>
+  <p>Este manual cubre dos servicios interconectados del sistema eRegistrations de Cuba, administrados por el Ministerio de Comercio Exterior y la Inversion Extranjera (MINCEX):</p>
+
+  <div class="info-grid">
+    <div class="info-card">
+      <div class="label">Servicio 1</div>
+      <div class="value">Bitacora</div>
+      <p style="margin-top: 0.5rem; font-size: 0.9rem; color: #666;">Centro de operaciones del operador de comercio exterior. Desde aqui se gestionan las acreditaciones de empresas y se accede a todos los tramites disponibles.</p>
+    </div>
+    <div class="info-card">
+      <div class="label">Servicio 2</div>
+      <div class="value">Permisos Eventuales</div>
+      <p style="margin-top: 0.5rem; font-size: 0.9rem; color: #666;">Tramite para solicitar permisos de importacion o exportacion de caracter eventual (temporal). Produce el documento oficial "Permiso eventual".</p>
+    </div>
+    <div class="info-card">
+      <div class="label">Plataforma</div>
+      <div class="value">eRegistrations Cuba</div>
+      <p style="margin-top: 0.5rem; font-size: 0.9rem; color: #666;">Sistema de gobierno electronico de la UNCTAD para digitalizar tramites gubernamentales.</p>
+    </div>
+    <div class="info-card">
+      <div class="label">Documento producido</div>
+      <div class="value">Permiso Eventual</div>
+      <p style="margin-top: 0.5rem; font-size: 0.9rem; color: #666;">Certificado oficial que autoriza la importacion o exportacion eventual de productos especificos.</p>
+    </div>
+  </div>
+
+  <div class="callout callout-info">
+    <strong>Concepto clave</strong>
+    La <strong>Bitacora</strong> funciona como el "panel de control" del operador de comercio exterior. Desde ella, el usuario accede a todas las autorizaciones y tramites, incluyendo los Permisos Eventuales. No es posible solicitar un Permiso Eventual directamente &mdash; siempre se accede a traves de la Bitacora.
+  </div>
+</section>
+
+<!-- 2. RELACION ENTRE SERVICIOS -->
+<section class="section" id="relacion">
+  <h2>2. Relacion entre los servicios</h2>
+
+  <div class="diagram">
+    <div class="diagram-boxes">
+      <div class="diagram-box hub">
+        <h4>Bitacora</h4>
+        <p>Hub central del operador</p>
+        <p style="font-size: 0.75rem; margin-top: 0.5rem;">Acreditaciones + Servicios</p>
+      </div>
+      <div class="diagram-arrow">&rarr;</div>
+      <div class="diagram-box service">
+        <h4>Permisos Eventuales</h4>
+        <p>Solicitud y aprobacion de PE</p>
+        <p style="font-size: 0.75rem; margin-top: 0.5rem;">Formulario + Revision + Certificado</p>
+      </div>
+    </div>
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #666;">
+      La Bitacora lanza solicitudes de Permisos Eventuales mediante bots internos.<br>
+      El estado del tramite se refleja de vuelta en la Bitacora.
+    </p>
+  </div>
+
+  <h3>Servicios accesibles desde la Bitacora</h3>
+  <p>La Bitacora no solo gestiona Permisos Eventuales. Desde su pestana "Servicios", el operador accede a multiples tramites:</p>
+  <table>
+    <thead>
+      <tr><th>Servicio</th><th>Descripcion</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Permiso eventual</strong></td><td>Autorizacion temporal de importacion/exportacion (este manual)</td></tr>
+      <tr><td>Fitosanitario</td><td>Permisos fitosanitarios para productos agricolas</td></tr>
+      <tr><td>Zoosanitario</td><td>Permisos zoosanitarios para productos de origen animal</td></tr>
+      <tr><td>Equipos uso de energia</td><td>Permisos ONURE para equipos electricos</td></tr>
+      <tr><td>Certificado de origen</td><td>Certificados de origen de exportacion</td></tr>
+      <tr><td>Certificado sanitario</td><td>Certificados sanitarios para productos</td></tr>
+      <tr><td>Instrumentos de medicion</td><td>Permisos ONN para instrumentos de medicion</td></tr>
+      <tr><td>Donativos medicos</td><td>Autorizaciones CECMED para donativos medicos</td></tr>
+      <tr><td>Sustancias controladas</td><td>Permisos para sustancias controladas</td></tr>
+      <tr><td>Cert. aprobacion modelo</td><td>Certificado de aprobacion del modelo ONN</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Mecanismo de conexion</h3>
+  <div class="callout callout-info">
+    <strong>Bots internos</strong>
+    Cuando el usuario solicita un nuevo Permiso Eventual desde la Bitacora, un <strong>bot interno</strong> automaticamente crea la solicitud en el servicio de Permisos Eventuales, transfiriendo los datos de la empresa (nombre, NIT, estado de acreditacion). Hay dos bots clave:
+    <ul style="margin-top: 0.5rem; padding-left: 1.5rem;">
+      <li><strong>INTERNO permisos eventuales - nuevo:</strong> Crea una nueva solicitud de PE</li>
+      <li><strong>INTERNO permisos eventuales - modificar:</strong> Modifica un PE existente</li>
+    </ul>
+  </div>
+
+  <p>El campo <code>applicantStatusLlegaDeLaBitacora</code> en el formulario de Permisos Eventuales recibe el estado de acreditacion del operador desde la Bitacora, permitiendo que el sistema valide que el solicitante esta debidamente acreditado antes de procesar su solicitud.</p>
+</section>
+
+<!-- 3. BITACORA -->
+<section class="section" id="bitacora">
+  <h2>3. La Bitacora</h2>
+
+  <div class="info-grid">
+    <div class="info-card">
+      <div class="label">ID del servicio</div>
+      <div class="value" style="font-size: 0.85rem; font-family: monospace;">ffe746aac09241078bad48c9b95cdfe0</div>
+    </div>
+    <div class="info-card">
+      <div class="label">Campos totales</div>
+      <div class="value">549</div>
+    </div>
+    <div class="info-card">
+      <div class="label">Determinantes</div>
+      <div class="value">20</div>
+    </div>
+    <div class="info-card">
+      <div class="label">Bots</div>
+      <div class="value">61</div>
+    </div>
+  </div>
+
+  <h3>3.1 Estructura del formulario</h3>
+  <p>La Bitacora tiene dos pestanas principales:</p>
+
+  <h4>Pestana "Empresas"</h4>
+  <p>Aqui el operador gestiona sus acreditaciones con empresas:</p>
+  <div class="form-mockup">
+    <div class="form-title">Empresas acreditadas</div>
+    <table>
+      <thead><tr><th>Campo</th><th>Tipo</th><th>Descripcion</th></tr></thead>
+      <tbody>
+        <tr><td>Empresa</td><td><span class="tag tag-type">Texto</span></td><td>Nombre de la empresa acreditada</td></tr>
+        <tr><td>NIT</td><td><span class="tag tag-type">Texto</span></td><td>Numero de Identificacion Tributaria</td></tr>
+        <tr><td>Vigente hasta</td><td><span class="tag tag-type">Fecha</span></td><td>Fecha de expiracion de la acreditacion</td></tr>
+        <tr><td>Estado</td><td><span class="tag tag-type">Indicador</span></td><td>Activo / Expirado</td></tr>
+      </tbody>
+    </table>
+    <p style="font-size: 0.85rem; color: #666; margin-top: 0.5rem;"><strong>Acciones disponibles:</strong> Extender acreditacion, Compartir, Modificar nomenclatura, Terminar</p>
+  </div>
+
+  <div class="callout callout-warning">
+    <strong>Requisito previo</strong>
+    El operador debe tener al menos una acreditacion vigente (no expirada) para poder solicitar cualquier tramite, incluyendo Permisos Eventuales.
+  </div>
+
+  <h4>Pestana "Servicios"</h4>
+  <p>Una vez seleccionada y confirmada una empresa, el operador puede acceder a los tramites disponibles. Los permisos/autorizaciones existentes se muestran en una grilla con:</p>
+  <table>
+    <thead><tr><th>Campo</th><th>Descripcion</th></tr></thead>
+    <tbody>
+      <tr><td>Tipo</td><td>Tipo de permiso (Eventual, Fitosanitario, etc.)</td></tr>
+      <tr><td>Numero</td><td>Numero de referencia del permiso</td></tr>
+      <tr><td>Operacion</td><td>Importacion o Exportacion</td></tr>
+      <tr><td>Vigente hasta</td><td>Fecha de expiracion del permiso</td></tr>
+      <tr><td>Estado</td><td>Activo o Expirado</td></tr>
+    </tbody>
+  </table>
+  <p>Acciones: <strong>Modificar</strong> un permiso existente o <strong>Solicitar nueva autorizacion</strong> seleccionando el tipo de servicio deseado.</p>
+
+  <h3>3.2 Flujo de uso de la Bitacora</h3>
+  <ol class="steps">
+    <li><strong>Iniciar sesion</strong> en el sistema eRegistrations Cuba con sus credenciales.</li>
+    <li><strong>Seleccionar empresa:</strong> Si tiene multiples acreditaciones, elija la empresa para la cual desea operar. Si tiene una sola, se selecciona automaticamente.</li>
+    <li><strong>Confirmar empresa:</strong> Haga clic en "Confirmar y continuar" para acceder a los servicios.</li>
+    <li><strong>Ver permisos existentes:</strong> En la pestana "Servicios" vera la lista de permisos/autorizaciones vigentes y expirados.</li>
+    <li><strong>Solicitar nuevo tramite:</strong> Haga clic en el boton del servicio deseado (ej. "Permiso eventual") desde el menu desplegable de opciones.</li>
+  </ol>
+
+  <h3>3.3 Gestion de acreditaciones</h3>
+  <p>Desde la pestana "Empresas", el operador puede:</p>
+  <table>
+    <thead><tr><th>Accion</th><th>Descripcion</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Acreditarse en otra empresa</strong></td><td>Iniciar el proceso de acreditacion con una nueva empresa</td></tr>
+      <tr><td><strong>Solicitar nueva autorizacion</strong></td><td>Solicitar la autorizacion para operar en nombre de una empresa ya registrada</td></tr>
+      <tr><td><strong>Extender</strong></td><td>Renovar una acreditacion que esta proxima a expirar</td></tr>
+      <tr><td><strong>Compartir</strong></td><td>Compartir acceso a la acreditacion con otro operador</td></tr>
+      <tr><td><strong>Modificar nomenclatura</strong></td><td>Actualizar la nomenclatura de productos asociada a la empresa</td></tr>
+      <tr><td><strong>Terminar</strong></td><td>Finalizar una acreditacion vigente</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- 4. PERMISOS EVENTUALES -->
+<section class="section" id="permisos">
+  <h2>4. Permisos Eventuales</h2>
+
+  <div class="info-grid">
+    <div class="info-card">
+      <div class="label">ID del servicio</div>
+      <div class="value" style="font-size: 0.85rem; font-family: monospace;">2c918084887c7a8f01887c99ed2a6fd5</div>
+    </div>
+    <div class="info-card">
+      <div class="label">Campos totales</div>
+      <div class="value">779</div>
+    </div>
+    <div class="info-card">
+      <div class="label">Determinantes</div>
+      <div class="value">40</div>
+    </div>
+    <div class="info-card">
+      <div class="label">Bots</div>
+      <div class="value">17</div>
+    </div>
+  </div>
+
+  <h3>4.1 Que es un Permiso Eventual</h3>
+  <p>Un <strong>Permiso Eventual</strong> es una autorizacion temporal emitida por el MINCEX que permite a una empresa cubana realizar una operacion especifica de importacion o exportacion de productos. Se denomina "eventual" porque:</p>
+  <ul style="padding-left: 1.5rem; margin: 0.5rem 0;">
+    <li>Tiene una fecha de expiracion definida</li>
+    <li>Cubre una operacion comercial especifica (no es permanente)</li>
+    <li>Detalla los productos, cantidades, valores y paises involucrados</li>
+    <li>Puede ser para nuevos productos o para modificar permisos existentes</li>
+  </ul>
+
+  <h3>4.2 Tipos de solicitud</h3>
+  <p>Al iniciar una solicitud de Permiso Eventual, el sistema pregunta que desea hacer:</p>
+  <div class="info-grid">
+    <div class="info-card" style="border-left: 4px solid var(--success);">
+      <div class="label">Opcion 1</div>
+      <div class="value">Nuevo permiso</div>
+      <p style="margin-top: 0.5rem; font-size: 0.85rem; color: #666;">Solicitar un permiso completamente nuevo para una operacion de importacion o exportacion.</p>
+    </div>
+    <div class="info-card" style="border-left: 4px solid var(--accent);">
+      <div class="label">Opcion 2</div>
+      <div class="value">Modificar permiso existente</div>
+      <p style="margin-top: 0.5rem; font-size: 0.85rem; color: #666;">Modificar un permiso previamente autorizado: cambiar productos, cantidades, valores o datos de la operacion.</p>
+    </div>
+  </div>
+
+  <h3>4.3 Registro producido</h3>
+  <table>
+    <thead><tr><th>Registro</th><th>ID</th><th>Descripcion</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><strong>Permiso eventual</strong></td>
+        <td style="font-family: monospace; font-size: 0.8rem;">2c91808d973b9d7a01975ecc39050772</td>
+        <td>Certificado oficial del permiso de importacion/exportacion eventual</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- 5. FLUJO COMPLETO -->
+<section class="section" id="flujo">
+  <h2>5. Flujo completo paso a paso</h2>
+
+  <h3>5.1 Solicitud de nuevo Permiso Eventual</h3>
+  <ol class="steps">
+    <li><strong>Acceder a la Bitacora:</strong> Inicie sesion y seleccione la empresa para la cual desea solicitar el permiso.</li>
+    <li><strong>Seleccionar servicio:</strong> En la pestana "Servicios", haga clic en "Permiso eventual" del menu de opciones.</li>
+    <li><strong>Se crea la solicitud:</strong> El sistema automaticamente crea una nueva solicitud en el servicio de Permisos Eventuales, transfiriendo los datos de la empresa (nombre, NIT, estado de acreditacion, si pertenece a la Zona del Mariel).</li>
+    <li><strong>Elegir tipo de solicitud:</strong> Seleccione "Nuevo permiso" o "Modificar permiso existente".</li>
+    <li><strong>Completar datos de la operacion:</strong> Tipo de operacion (importacion/exportacion), condicion, paises, clientes/proveedores.</li>
+    <li><strong>Agregar productos:</strong> En la lista de productos, agregue cada producto con su capitulo arancelario, subpartida, descripcion, unidad de medida, valor y cantidad.</li>
+    <li><strong>Fundamentacion:</strong> Escriba la fundamentacion de la solicitud y adjunte documentos de respaldo si los tiene.</li>
+    <li><strong>Carta ZED Mariel (si aplica):</strong> Si la empresa pertenece a la Zona Especial de Desarrollo del Mariel, descargue la carta modelo, completela y subaila firmada.</li>
+    <li><strong>Datos de contacto:</strong> Complete nombre del elaborador, telefono y email.</li>
+    <li><strong>Confirmar y enviar:</strong> Marque "Confirmo la exactitud de la informacion declarada" y haga clic en "Enviar".</li>
+  </ol>
+
+  <h3>5.2 Flujo de aprobacion (back-office)</h3>
+  <div class="workflow">
+    <div class="workflow-step user">
+      <div class="step-label">Solicitante</div>
+      <div class="step-name">Envia solicitud</div>
+    </div>
+    <div class="workflow-arrow">&rarr;</div>
+    <div class="workflow-step officer">
+      <div class="step-label">Revision</div>
+      <div class="step-name">Revision inicial</div>
+    </div>
+    <div class="workflow-arrow">&rarr;</div>
+    <div class="workflow-step officer">
+      <div class="step-label">Solicitud</div>
+      <div class="step-name">Procesamiento</div>
+    </div>
+    <div class="workflow-arrow">&rarr;</div>
+    <div class="workflow-step user">
+      <div class="step-label">Datos comp.</div>
+      <div class="step-name">Complementarios</div>
+    </div>
+    <div class="workflow-arrow">&rarr;</div>
+    <div class="workflow-step officer">
+      <div class="step-label">Permiso eventual</div>
+      <div class="step-name">Aprobacion</div>
+    </div>
+    <div class="workflow-arrow">&rarr;</div>
+    <div class="workflow-step bot">
+      <div class="step-label">Bot</div>
+      <div class="step-name">Genera certificado</div>
+    </div>
+  </div>
+
+  <h3>5.3 Solicitud de modificacion de PE existente</h3>
+  <ol class="steps">
+    <li><strong>Acceder desde la Bitacora:</strong> En la pestana "Servicios", localice el permiso eventual existente y haga clic en "Modificar".</li>
+    <li><strong>Cargar datos existentes:</strong> El sistema carga automaticamente los datos del permiso original (operacion, productos autorizados, etc.).</li>
+    <li><strong>Pestana "Operacion previamente autorizada":</strong> Se muestran los datos originales del permiso: operacion, paises, clientes/proveedores y la lista de productos autorizados.</li>
+    <li><strong>Pestana "Modificaciones solicitadas":</strong> Ingrese los cambios deseados: nueva operacion, nuevos paises, nuevos productos o modificaciones a productos existentes.</li>
+    <li><strong>Productos modificados:</strong> En la grilla de productos modificados, actualice capitulo, producto, descripcion, UM, valor y cantidad.</li>
+    <li><strong>Completar fundamentacion y enviar:</strong> Justifique las modificaciones y envie la solicitud.</li>
+  </ol>
+</section>
+
+<!-- 6. FORMULARIO PE -->
+<section class="section" id="formulario-pe">
+  <h2>6. Campos del formulario de Permisos Eventuales</h2>
+
+  <h3>6.1 Datos de la empresa (automaticos desde Bitacora)</h3>
+  <table>
+    <thead><tr><th>Campo</th><th>Tipo</th><th>Obligatorio</th><th>Descripcion</th></tr></thead>
+    <tbody>
+      <tr><td>Nombre de la empresa</td><td><span class="tag tag-type">Texto</span></td><td><span class="tag tag-auto">Auto</span></td><td>Se carga automaticamente desde la Bitacora</td></tr>
+      <tr><td>NIT</td><td><span class="tag tag-type">Texto</span></td><td><span class="tag tag-auto">Auto</span></td><td>Numero de identificacion tributaria</td></tr>
+      <tr><td>Empresa del Mariel</td><td><span class="tag tag-type">Si/No</span></td><td><span class="tag tag-auto">Auto</span></td><td>Indica si pertenece a la ZED Mariel</td></tr>
+      <tr><td>Status llega de la Bitacora</td><td><span class="tag tag-type">Estado</span></td><td><span class="tag tag-auto">Auto</span></td><td>Estado de acreditacion del operador</td></tr>
+    </tbody>
+  </table>
+
+  <h3>6.2 Datos de la operacion (nuevo permiso)</h3>
+  <table>
+    <thead><tr><th>Campo</th><th>Tipo</th><th>Obligatorio</th><th>Descripcion</th></tr></thead>
+    <tbody>
+      <tr><td>Tipo de operacion</td><td><span class="tag tag-type">Lista</span></td><td><span class="tag tag-required">Si</span></td><td>Importacion o Exportacion</td></tr>
+      <tr><td>Condicion de la operacion</td><td><span class="tag tag-type">Lista</span></td><td><span class="tag tag-required">Si</span></td><td>Regimen especial aplicable</td></tr>
+      <tr><td>Observaciones</td><td><span class="tag tag-type">Texto</span></td><td><span class="tag tag-optional">No</span></td><td>Notas adicionales</td></tr>
+      <tr><td>Fecha de expiracion</td><td><span class="tag tag-type">Fecha</span></td><td><span class="tag tag-optional">No</span></td><td>Fecha limite del permiso</td></tr>
+    </tbody>
+  </table>
+
+  <h3>6.3 Datos de paises y contrapartes (importacion)</h3>
+  <table>
+    <thead><tr><th>Campo</th><th>Tipo</th><th>Obligatorio</th><th>Descripcion</th></tr></thead>
+    <tbody>
+      <tr><td>Pais de origen</td><td><span class="tag tag-type">Lista</span></td><td><span class="tag tag-required">Si</span></td><td>Pais de donde proviene la mercancia</td></tr>
+      <tr><td>Pais de embarque</td><td><span class="tag tag-type">Lista</span></td><td><span class="tag tag-required">Si</span></td><td>Pais desde donde se embarca</td></tr>
+      <tr><td>Proveedor extranjero</td><td><span class="tag tag-type">Texto</span></td><td><span class="tag tag-required">Si</span></td><td>Nombre del proveedor en el exterior</td></tr>
+      <tr><td>Cliente nacional</td><td><span class="tag tag-type">Texto</span></td><td><span class="tag tag-required">Si</span></td><td>Empresa cubana que recibe la mercancia</td></tr>
+      <tr><td>Forma de gestion no estatal</td><td><span class="tag tag-type">Check</span></td><td><span class="tag tag-optional">No</span></td><td>Si el cliente es un negocio privado</td></tr>
+    </tbody>
+  </table>
+
+  <h3>6.4 Datos de paises y contrapartes (exportacion)</h3>
+  <table>
+    <thead><tr><th>Campo</th><th>Tipo</th><th>Obligatorio</th><th>Descripcion</th></tr></thead>
+    <tbody>
+      <tr><td>Pais de destino</td><td><span class="tag tag-type">Lista</span></td><td><span class="tag tag-required">Si</span></td><td>Pais hacia donde se exporta</td></tr>
+      <tr><td>Cliente extranjero</td><td><span class="tag tag-type">Texto</span></td><td><span class="tag tag-required">Si</span></td><td>Comprador en el exterior</td></tr>
+      <tr><td>Proveedor nacional</td><td><span class="tag tag-type">Texto</span></td><td><span class="tag tag-required">Si</span></td><td>Empresa cubana que provee la mercancia</td></tr>
+      <tr><td>Forma de gestion no estatal</td><td><span class="tag tag-type">Check</span></td><td><span class="tag tag-optional">No</span></td><td>Si el proveedor es un negocio privado</td></tr>
+    </tbody>
+  </table>
+
+  <h3>6.5 Lista de productos</h3>
+  <p>La grilla de productos permite agregar multiples lineas. Cada producto incluye:</p>
+  <table>
+    <thead><tr><th>Campo</th><th>Tipo</th><th>Obligatorio</th><th>Descripcion</th></tr></thead>
+    <tbody>
+      <tr><td>Capitulo</td><td><span class="tag tag-type">Lista</span></td><td><span class="tag tag-required">Si</span></td><td>Capitulo del arancel (clasificacion arancelaria)</td></tr>
+      <tr><td>Subpartidas</td><td><span class="tag tag-type">Lista</span></td><td><span class="tag tag-required">Si</span></td><td>Subpartida arancelaria del producto</td></tr>
+      <tr><td>Descripcion</td><td><span class="tag tag-type">Texto</span></td><td><span class="tag tag-required">Si</span></td><td>Descripcion detallada del producto</td></tr>
+      <tr><td>UM</td><td><span class="tag tag-type">Texto</span></td><td><span class="tag tag-auto">Auto</span></td><td>Unidad de medida (se carga automaticamente)</td></tr>
+      <tr><td>Valor</td><td><span class="tag tag-type">Numero</span></td><td><span class="tag tag-required">Si</span></td><td>Valor monetario del producto</td></tr>
+      <tr><td>Cantidad</td><td><span class="tag tag-type">Numero</span></td><td><span class="tag tag-required">Si</span></td><td>Cantidad a importar/exportar</td></tr>
+      <tr><td>Codigo</td><td><span class="tag tag-type">Texto</span></td><td><span class="tag tag-auto">Auto</span></td><td>Codigo arancelario (se genera automaticamente)</td></tr>
+    </tbody>
+  </table>
+  <p style="margin-top: 0.5rem;"><strong>Valor total:</strong> Se calcula automaticamente como la suma de los valores de todos los productos.</p>
+
+  <h3>6.6 Fundamentacion y documentos</h3>
+  <table>
+    <thead><tr><th>Campo</th><th>Tipo</th><th>Obligatorio</th><th>Descripcion</th></tr></thead>
+    <tbody>
+      <tr><td>Fundamentacion</td><td><span class="tag tag-type">Texto largo</span></td><td><span class="tag tag-required">Si</span></td><td>Justificacion de la solicitud del permiso</td></tr>
+      <tr><td>Documento que avale la fundamentacion</td><td><span class="tag tag-type">Archivo</span></td><td><span class="tag tag-optional">No</span></td><td>Archivo PDF o documento de respaldo</td></tr>
+      <tr><td>Carta ZED Mariel</td><td><span class="tag tag-type">Archivo</span></td><td><span class="tag tag-required">Condicional</span></td><td>Obligatorio solo si la empresa pertenece a la Zona del Mariel</td></tr>
+    </tbody>
+  </table>
+
+  <h3>6.7 Datos de contacto</h3>
+  <table>
+    <thead><tr><th>Campo</th><th>Tipo</th><th>Obligatorio</th></tr></thead>
+    <tbody>
+      <tr><td>Elaborado por</td><td><span class="tag tag-type">Texto</span></td><td><span class="tag tag-required">Si</span></td></tr>
+      <tr><td>Telefono</td><td><span class="tag tag-type">Texto</span></td><td><span class="tag tag-required">Si</span></td></tr>
+      <tr><td>Email</td><td><span class="tag tag-type">Texto</span></td><td><span class="tag tag-required">Si</span></td></tr>
+    </tbody>
+  </table>
+
+  <h3>6.8 Campos del permiso existente (modificacion)</h3>
+  <p>Al modificar un PE existente, se muestran dos pestanas adicionales:</p>
+
+  <h4>Pestana: Operacion previamente autorizada</h4>
+  <p>Muestra los datos originales del permiso: operacion, regimen, paises, contrapartes, productos autorizados y datos de contratacion (numero de contrato, numero de factura, cantidad de embarques, fecha del ultimo embarque).</p>
+
+  <h4>Pestana: Modificaciones solicitadas</h4>
+  <p>Permite editar la operacion, paises, contrapartes y agregar/modificar productos. Incluye una grilla separada para "Productos modificados" con los mismos campos que la lista de productos nuevos.</p>
+</section>
+
+<!-- 7. ROLES Y APROBACION -->
+<section class="section" id="roles">
+  <h2>7. Roles y proceso de aprobacion</h2>
+
+  <h3>7.1 Roles de la Bitacora</h3>
+  <table>
+    <thead><tr><th>Rol</th><th>Tipo</th><th>Descripcion</th></tr></thead>
+    <tbody>
+      <tr><td><span class="tag tag-role">Applicant</span></td><td>Usuario</td><td>El operador de comercio exterior que gestiona sus acreditaciones y tramites</td></tr>
+    </tbody>
+  </table>
+  <p style="margin-top: 0.5rem; font-size: 0.9rem; color: #666;">La Bitacora solo tiene un rol porque es un servicio de autoservicio del operador. La aprobacion ocurre en los servicios individuales como Permisos Eventuales.</p>
+
+  <h3>7.2 Roles de Permisos Eventuales</h3>
+  <table>
+    <thead><tr><th>Rol</th><th>Tipo</th><th>Asignado a</th><th>Descripcion</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><span class="tag tag-role">Revision</span></td>
+        <td>Usuario</td>
+        <td>Oficial MINCEX</td>
+        <td>Revision inicial de la solicitud. Es el rol de inicio del flujo.</td>
+      </tr>
+      <tr>
+        <td><span class="tag tag-role">Solicitud</span></td>
+        <td>Usuario</td>
+        <td>Oficial MINCEX</td>
+        <td>Procesamiento de la solicitud, asignacion de numero.</td>
+      </tr>
+      <tr>
+        <td><span class="tag tag-role">Datos complementarios</span></td>
+        <td>Usuario</td>
+        <td>Solicitante</td>
+        <td>El solicitante puede ser requerido a proporcionar datos adicionales.</td>
+      </tr>
+      <tr>
+        <td><span class="tag tag-role">Permiso eventual</span></td>
+        <td>Usuario</td>
+        <td>Oficial MINCEX</td>
+        <td>Decision final: aprobacion o rechazo del permiso.</td>
+      </tr>
+      <tr>
+        <td><span class="tag tag-role">Applicant</span></td>
+        <td>Usuario</td>
+        <td>Solicitante</td>
+        <td>Vista del solicitante con acceso a sus tramites.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>7.3 Roles automatizados (Bots)</h3>
+  <table>
+    <thead><tr><th>Rol Bot</th><th>Descripcion</th></tr></thead>
+    <tbody>
+      <tr><td><span class="tag tag-bot">Actualizar PE</span></td><td>Automatiza la actualizacion de datos del permiso eventual en la base de datos</td></tr>
+      <tr><td><span class="tag tag-bot">Crear nuevo PE</span></td><td>Automatiza la creacion del registro de permiso eventual en GDB</td></tr>
+      <tr><td><span class="tag tag-bot">Actualizar productos</span></td><td>Actualiza la lista de productos autorizados en la base de datos</td></tr>
+      <tr><td><span class="tag tag-bot">Crear nuevos productos</span></td><td>Crea nuevos registros de productos en la base de datos</td></tr>
+      <tr><td><span class="tag tag-bot">Permiso</span></td><td>Genera y registra el certificado final del permiso</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- 8. BOTS/AUTOMATIZACIONES -->
+<section class="section" id="bots">
+  <h2>8. Automatizaciones (Bots)</h2>
+
+  <h3>8.1 Bots del servicio Permisos Eventuales</h3>
+  <table>
+    <thead><tr><th>Bot</th><th>Tipo</th><th>Funcion</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><strong>PERMISO EVENTUAL Crear</strong></td>
+        <td><span class="tag tag-bot">Datos (GDB)</span></td>
+        <td>Crea el registro del permiso eventual en la base de datos general (GDB)</td>
+      </tr>
+      <tr>
+        <td><strong>PERMISO EVENTUAL Leer</strong></td>
+        <td><span class="tag tag-bot">Datos (GDB)</span></td>
+        <td>Lee datos de un permiso eventual existente desde GDB</td>
+      </tr>
+      <tr>
+        <td><strong>PERMISO EVENTUAL Actualizar</strong></td>
+        <td><span class="tag tag-bot">Datos (GDB)</span></td>
+        <td>Actualiza los datos del permiso en GDB</td>
+      </tr>
+      <tr>
+        <td><strong>PE Crear entries</strong></td>
+        <td><span class="tag tag-bot">Datos (GDB)</span></td>
+        <td>Crea los registros de productos (entries) en GDB</td>
+      </tr>
+      <tr>
+        <td><strong>PE Actualizar entries</strong></td>
+        <td><span class="tag tag-bot">Datos (GDB)</span></td>
+        <td>Actualiza los registros de productos existentes en GDB</td>
+      </tr>
+      <tr>
+        <td><strong>PE Listar productos</strong></td>
+        <td><span class="tag tag-bot">Datos (GDB)</span></td>
+        <td>Lista los productos asociados a un permiso desde GDB</td>
+      </tr>
+      <tr>
+        <td><strong>PE Listar</strong></td>
+        <td><span class="tag tag-bot">Datos (GDB)</span></td>
+        <td>Lista permisos eventuales desde GDB</td>
+      </tr>
+      <tr>
+        <td><strong>UNIDAD DE MEDIDA Leer</strong></td>
+        <td><span class="tag tag-bot">Datos (GDB)</span></td>
+        <td>Obtiene la unidad de medida correspondiente a una subpartida arancelaria</td>
+      </tr>
+      <tr>
+        <td><strong>Cargar el certificado</strong></td>
+        <td><span class="tag tag-bot">Documento</span></td>
+        <td>Genera el PDF del certificado de permiso eventual y lo carga en el sistema</td>
+      </tr>
+      <tr>
+        <td><strong>Mostrar certificado de PE</strong></td>
+        <td><span class="tag tag-bot">Documento</span></td>
+        <td>Muestra/descarga el PDF del certificado generado</td>
+      </tr>
+      <tr>
+        <td><strong>Carta ZEDmariel</strong></td>
+        <td><span class="tag tag-bot">Documento</span></td>
+        <td>Genera la carta modelo para empresas de la ZED Mariel</td>
+      </tr>
+      <tr>
+        <td><strong>Certificado de NUEVO PE</strong></td>
+        <td><span class="tag tag-bot">Interno</span></td>
+        <td>Transfiere datos del formulario de revision al certificado</td>
+      </tr>
+      <tr>
+        <td><strong>Certificado permiso modificado</strong></td>
+        <td><span class="tag tag-bot">Interno</span></td>
+        <td>Transfiere datos de la modificacion al certificado</td>
+      </tr>
+      <tr>
+        <td><strong>VerDatossolicitud</strong></td>
+        <td><span class="tag tag-bot">Interno</span></td>
+        <td>Carga y muestra los datos de la solicitud original</td>
+      </tr>
+      <tr>
+        <td><strong>MINCEX XLS nuevos</strong></td>
+        <td><span class="tag tag-bot">Integracion</span></td>
+        <td>Genera archivo Excel para MINCEX con productos nuevos</td>
+      </tr>
+      <tr>
+        <td><strong>MINCEX XLS modificaciones</strong></td>
+        <td><span class="tag tag-bot">Integracion</span></td>
+        <td>Genera archivo Excel para MINCEX con modificaciones</td>
+      </tr>
+      <tr>
+        <td><strong>MINCEX DB Crear ejecucion</strong></td>
+        <td><span class="tag tag-bot">Integracion</span></td>
+        <td>Registra la ejecucion del permiso en la base de datos MINCEX</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>8.2 Bots clave de la Bitacora (relacionados con PE)</h3>
+  <table>
+    <thead><tr><th>Bot</th><th>Tipo</th><th>Funcion</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><strong>INTERNO permisos eventuales - nuevo</strong></td>
+        <td><span class="tag tag-bot">Interno</span></td>
+        <td>Crea una nueva solicitud de PE desde la Bitacora, transfiriendo datos de la empresa</td>
+      </tr>
+      <tr>
+        <td><strong>INTERNO permisos eventuales - modificar</strong></td>
+        <td><span class="tag tag-bot">Interno</span></td>
+        <td>Abre una solicitud de modificacion de PE existente desde la Bitacora</td>
+      </tr>
+      <tr>
+        <td><strong>Permiso eventual LISTAR</strong></td>
+        <td><span class="tag tag-bot">Datos (GDB)</span></td>
+        <td>Lista los permisos eventuales del operador para mostrarlos en la Bitacora</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout callout-info">
+    <strong>Integracion con MINCEX</strong>
+    El servicio de Permisos Eventuales se integra directamente con los sistemas del MINCEX a traves de tres bots dedicados: uno para generar Excel con productos nuevos, otro para modificaciones, y un tercero para registrar la ejecucion del permiso en la base de datos central del MINCEX.
+  </div>
+</section>
+
+<!-- 9. DOCUMENTOS -->
+<section class="section" id="documentos">
+  <h2>9. Documentos generados</h2>
+
+  <h3>9.1 Documentos del servicio Permisos Eventuales</h3>
+  <table>
+    <thead><tr><th>Documento</th><th>Descripcion</th><th>Cuando se genera</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><strong>Permiso eventual</strong></td>
+        <td>Certificado oficial en formato PDF que autoriza la operacion de importacion o exportacion eventual. Contiene todos los datos de la operacion, productos, cantidades y valores aprobados.</td>
+        <td>Al aprobar la solicitud en el rol "Permiso eventual"</td>
+      </tr>
+      <tr>
+        <td><strong>Carta para ZED Mariel</strong></td>
+        <td>Carta modelo dirigida a la Oficina de la Zona Especial de Desarrollo del Mariel. El solicitante la descarga, completa y sube firmada como requisito.</td>
+        <td>Disponible para descarga durante la solicitud (solo empresas del Mariel)</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout callout-success">
+    <strong>Generacion automatica</strong>
+    El certificado de Permiso Eventual se genera automaticamente por el bot "Cargar el certificado" una vez aprobada la solicitud. El solicitante puede visualizarlo y descargarlo desde su panel a traves del bot "Mostrar certificado de PE".
+  </div>
+</section>
+
+<!-- 10. DETERMINANTES / REGLAS DE NEGOCIO -->
+<section class="section" id="determinantes">
+  <h2>10. Reglas de negocio (Determinantes)</h2>
+
+  <h3>10.1 Determinantes de la Bitacora</h3>
+  <p>Las reglas principales de la Bitacora controlan la visibilidad y habilitacion de funciones segun el estado de la acreditacion:</p>
+  <table>
+    <thead><tr><th>Regla</th><th>Tipo</th><th>Efecto</th></tr></thead>
+    <tbody>
+      <tr><td>Acreditacion = expirada</td><td>Grilla</td><td>Marca visualmente las acreditaciones expiradas</td></tr>
+      <tr><td>Contador acreditaciones = 0</td><td>Numerico</td><td>Muestra mensaje si el operador no tiene acreditaciones</td></tr>
+      <tr><td>Contador acreditaciones > 0</td><td>Numerico</td><td>Habilita el acceso a los servicios</td></tr>
+      <tr><td>Contador acreditaciones > 1</td><td>Numerico</td><td>Muestra selector de empresas si tiene mas de una</td></tr>
+      <tr><td>Empresa seleccionada distinto de vacio</td><td>Texto</td><td>Habilita la pestana de servicios</td></tr>
+      <tr><td>Vigencia > hoy (empresa seleccionada)</td><td>Fecha</td><td>Valida que la acreditacion no este expirada</td></tr>
+      <tr><td>User is logged in</td><td>Booleano</td><td>Controla la visibilidad del formulario</td></tr>
+      <tr><td>Form is valid</td><td>Booleano</td><td>Habilita el envio del formulario</td></tr>
+    </tbody>
+  </table>
+
+  <h3>10.2 Determinantes de Permisos Eventuales</h3>
+  <p>Los permisos eventuales tienen 40 reglas de negocio que controlan el flujo. Las principales son:</p>
+
+  <h4>Control de flujo</h4>
+  <table>
+    <thead><tr><th>Regla</th><th>Tipo</th><th>Efecto</th></tr></thead>
+    <tbody>
+      <tr><td>status bitacora = TRUE</td><td>Radio</td><td>Verifica que el operador esta acreditado via Bitacora</td></tr>
+      <tr><td>status bitacora = NOT TRUE</td><td>Radio</td><td>Bloquea el acceso si no esta acreditado</td></tr>
+      <tr><td>Que necesita = nuevo permiso</td><td>Radio</td><td>Muestra el formulario de nuevo PE</td></tr>
+      <tr><td>Que necesita = modificar permiso existente</td><td>Radio</td><td>Muestra las pestanas de modificacion</td></tr>
+      <tr><td>User is logged in</td><td>Booleano</td><td>Controla visibilidad general</td></tr>
+      <tr><td>Form is valid</td><td>Booleano</td><td>Habilita el envio</td></tr>
+    </tbody>
+  </table>
+
+  <h4>Tipo de operacion</h4>
+  <table>
+    <thead><tr><th>Regla</th><th>Efecto</th></tr></thead>
+    <tbody>
+      <tr><td>Operacion = importar (nuevos - parte A)</td><td>Muestra campos de importacion en el formulario de nuevos productos</td></tr>
+      <tr><td>Operacion = exportar (nuevos - parte A)</td><td>Muestra campos de exportacion en el formulario de nuevos productos</td></tr>
+      <tr><td>Operacion = importar (modificados - parte A/B)</td><td>Muestra campos de importacion en la seccion de modificaciones</td></tr>
+      <tr><td>Operacion = exportar (modificados - parte A/B)</td><td>Muestra campos de exportacion en la seccion de modificaciones</td></tr>
+    </tbody>
+  </table>
+
+  <h4>Validaciones</h4>
+  <table>
+    <thead><tr><th>Regla</th><th>Efecto</th></tr></thead>
+    <tbody>
+      <tr><td>Confirmo la exactitud = SI (formulario / rol)</td><td>El solicitante debe confirmar la veracidad de los datos</td></tr>
+      <tr><td>Fundamentacion != empty</td><td>Valida que la fundamentacion no este vacia</td></tr>
+      <tr><td>cliente extranjero != empty</td><td>Valida datos del cliente extranjero</td></tr>
+      <tr><td>cliente nacional != empty</td><td>Valida datos del cliente nacional</td></tr>
+      <tr><td>Contador productos nuevos > 0</td><td>Valida que hay al menos un producto</td></tr>
+      <tr><td>Cantidad de productos modificados > 0</td><td>Valida que hay productos modificados (en modo edicion)</td></tr>
+    </tbody>
+  </table>
+
+  <h4>Zona del Mariel</h4>
+  <table>
+    <thead><tr><th>Regla</th><th>Efecto</th></tr></thead>
+    <tbody>
+      <tr><td>EMPRESA pertenece Zona Mariel</td><td>Muestra la seccion de carta ZED Mariel y campos adicionales</td></tr>
+      <tr><td>Comunicacion con MINCEX PE = true/false</td><td>Controla la integracion con los sistemas del MINCEX</td></tr>
+    </tbody>
+  </table>
+
+  <h4>Estado de la solicitud</h4>
+  <table>
+    <thead><tr><th>Regla</th><th>Efecto</th></tr></thead>
+    <tbody>
+      <tr><td>Quiere = realizarOperacion</td><td>El solicitante desea continuar con la operacion</td></tr>
+      <tr><td>Quiere = CancelarOperacion</td><td>El solicitante desea cancelar la solicitud</td></tr>
+      <tr><td>Que quiere hacer con esta solicitud = Continuar</td><td>Retoma una solicitud en progreso</td></tr>
+      <tr><td>va a aprobar solicitudPermiso</td><td>Indica que el oficial aprobara la solicitud</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- 11. PREGUNTAS FRECUENTES -->
+<section class="section" id="faq">
+  <h2>11. Preguntas frecuentes</h2>
+
+  <h3>Sobre la Bitacora</h3>
+
+  <h4>Puedo solicitar un Permiso Eventual sin la Bitacora?</h4>
+  <p>No. La Bitacora es el punto de entrada obligatorio. El sistema verifica que el operador tenga una acreditacion vigente antes de permitir cualquier solicitud.</p>
+
+  <h4>Que pasa si mi acreditacion esta expirada?</h4>
+  <p>No podra solicitar nuevos tramites. Debe renovar (extender) su acreditacion desde la pestana "Empresas" de la Bitacora haciendo clic en "Extender".</p>
+
+  <h4>Puedo operar con multiples empresas?</h4>
+  <p>Si. Puede acreditarse en multiples empresas. Al acceder a la Bitacora, debera seleccionar con cual empresa desea operar antes de acceder a los servicios.</p>
+
+  <h3>Sobre los Permisos Eventuales</h3>
+
+  <h4>Cual es la diferencia entre nuevo permiso y modificar?</h4>
+  <p><strong>Nuevo permiso:</strong> Para una operacion completamente nueva. <strong>Modificar:</strong> Para cambiar productos, cantidades, valores o datos de un permiso ya aprobado.</p>
+
+  <h4>Que es la "Carta ZED Mariel"?</h4>
+  <p>Es un documento requerido unicamente para empresas ubicadas en la Zona Especial de Desarrollo del Mariel. El sistema genera una carta modelo que debe ser completada, firmada y subida al formulario.</p>
+
+  <h4>Como selecciono los productos?</h4>
+  <p>Primero seleccione el <strong>Capitulo</strong> arancelario, luego las <strong>Subpartidas</strong> disponibles dentro de ese capitulo. La unidad de medida se carga automaticamente segun la subpartida seleccionada.</p>
+
+  <h4>Cuantos productos puedo agregar?</h4>
+  <p>No hay limite fijo. Puede agregar tantos productos como necesite en la grilla de productos. El valor total se calcula automaticamente.</p>
+
+  <h4>Que pasa despues de enviar la solicitud?</h4>
+  <p>La solicitud pasa al equipo de Revision del MINCEX. El flujo es: Revision &rarr; Procesamiento (asignacion de numero) &rarr; posible solicitud de Datos complementarios &rarr; Decision final (aprobacion/rechazo) &rarr; Generacion automatica del certificado.</p>
+
+  <h4>Pueden pedirme datos adicionales?</h4>
+  <p>Si. En el rol "Datos complementarios", el oficial puede solicitar al operador que proporcione informacion adicional antes de continuar con la aprobacion.</p>
+
+  <h4>Como descargo mi permiso aprobado?</h4>
+  <p>Una vez aprobado, el certificado PDF se genera automaticamente. Puede visualizarlo y descargarlo desde su panel en el sistema.</p>
+
+  <h4>Puedo cancelar una solicitud en curso?</h4>
+  <p>Si, el sistema incluye la opcion "Cancelar operacion" que permite al solicitante cancelar una solicitud antes de que sea procesada.</p>
+</section>
+
+</div><!-- /container -->
+
+<!-- FOOTER -->
+<div class="footer">
+  <p><strong>Republica de Cuba - Ministerio de Comercio Exterior y la Inversion Extranjera (MINCEX)</strong></p>
+  <p>Sistema eRegistrations | Plataforma UNCTAD</p>
+  <p style="margin-top: 0.5rem;">Manual generado el 21 de febrero de 2026 | Version 1.0</p>
+</div>
+
+</body>
+</html>
