@@ -752,7 +752,7 @@ flowchart TD
     <p>When ARC requests corrections, the system uses <strong>selective routing</strong> — only the affected evaluation domains are re-activated, not the entire pipeline.</p>
     <div class="mermaid">
 flowchart LR
-  ARC[ARC sends back<br/>for corrections] --> CI[Applicant<br/>Corrects &amp; Resubmits]
+  ARC[ARC sends back<br/>for corrections] --> CI[Applicant<br/>Corrects and Resubmits]
   CI --> SEL{Selective<br/>Routing}
   SEL -->|Legal affected| LE[Legal Eval]
   SEL -->|Business affected| BE[Business Eval]
@@ -762,7 +762,10 @@ flowchart LR
   BE --> BA[Business Approval]
   TE --> TA[Technical Approval]
   CE --> CA[Compliance Approval]
-  LA & BA & TA & CA --> ARC2[ARC<br/>Re-reviews]
+  LA --> ARC2[ARC<br/>Re-reviews]
+  BA --> ARC2
+  TA --> ARC2
+  CA --> ARC2
 
   style ARC fill:#7B1FA2,color:white
   style CI fill:#FF9800,color:white
@@ -1082,43 +1085,7 @@ flowchart LR
 </div><!-- /reveal -->
 
 <script>
-  // Initialize Mermaid
-  mermaid.initialize({
-    startOnLoad: false,
-    theme: 'dark',
-    themeVariables: {
-      primaryColor: '#006847',
-      primaryTextColor: '#fff',
-      primaryBorderColor: '#FFD700',
-      lineColor: '#81c784',
-      secondaryColor: '#003d2b',
-      tertiaryColor: '#1a237e',
-      fontSize: '14px'
-    },
-    flowchart: {
-      useMaxWidth: true,
-      htmlLabels: true,
-      curve: 'basis'
-    }
-  });
-
-  // Render Mermaid diagrams
-  async function renderMermaid() {
-    const mermaidEls = document.querySelectorAll('.mermaid');
-    for (let i = 0; i < mermaidEls.length; i++) {
-      const el = mermaidEls[i];
-      const code = el.textContent.trim();
-      if (!code) continue;
-      try {
-        const { svg } = await mermaid.render('mermaid-' + i, code);
-        el.innerHTML = svg;
-      } catch (e) {
-        console.warn('Mermaid render error:', e);
-      }
-    }
-  }
-
-  // Initialize Reveal.js
+  // Initialize Reveal.js first
   Reveal.initialize({
     hash: true,
     slideNumber: 'c/t',
@@ -1134,11 +1101,26 @@ flowchart LR
     maxScale: 2.0,
     plugins: []
   }).then(() => {
-    renderMermaid();
-    // Re-render on slide change (for lazy loading)
-    Reveal.on('slidechanged', () => {
-      setTimeout(renderMermaid, 100);
+    // Then initialize and run Mermaid
+    mermaid.initialize({
+      startOnLoad: false,
+      theme: 'dark',
+      themeVariables: {
+        primaryColor: '#006847',
+        primaryTextColor: '#fff',
+        primaryBorderColor: '#FFD700',
+        lineColor: '#81c784',
+        secondaryColor: '#003d2b',
+        tertiaryColor: '#1a237e',
+        fontSize: '14px'
+      },
+      flowchart: {
+        useMaxWidth: true,
+        htmlLabels: true,
+        curve: 'basis'
+      }
     });
+    mermaid.run({ querySelector: '.mermaid' }).catch(e => console.warn('Mermaid:', e));
   });
 </script>
 </body>
