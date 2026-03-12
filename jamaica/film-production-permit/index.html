@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Film Production Permit - Jamaica Film Registration Service</title>
+<title>Jamaica Film Registration Service - Manual</title>
 <style>
   /* ── Reset & Base ── */
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -94,7 +94,7 @@
   /* ── Main content ── */
   .main {
     margin-left: 280px;
-    max-width: 900px;
+    max-width: 920px;
     padding: 40px 48px 80px;
   }
 
@@ -253,6 +253,81 @@
   .badge-required { background: #ffeaea; color: #c0392b; }
   .badge-optional { background: #eaf6ea; color: #27863a; }
 
+  /* ── Result documents cards ── */
+  .doc-card {
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 24px;
+    margin: 20px 0;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  }
+  .doc-card h4 {
+    margin-top: 0;
+    font-size: 18px;
+    color: #111;
+    border-bottom: 2px solid #FED100;
+    padding-bottom: 6px;
+    margin-bottom: 12px;
+  }
+  .doc-card ul {
+    margin-left: 20px;
+  }
+  .doc-card ol {
+    margin-left: 20px;
+  }
+
+  /* ── Contact card ── */
+  .contact-card {
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin: 16px 0;
+  }
+  .contact-card h4 {
+    margin-top: 0;
+    color: #009B3A;
+    font-size: 15px;
+    margin-bottom: 8px;
+  }
+  .contact-card p {
+    margin-bottom: 4px;
+    font-size: 14px;
+  }
+
+  /* ── FAQ toggle ── */
+  details {
+    margin-bottom: 8px;
+    border: 1px solid #e8e8e8;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  details summary {
+    padding: 12px 16px;
+    font-weight: 600;
+    font-size: 15px;
+    cursor: pointer;
+    background: #fafafa;
+    list-style: none;
+  }
+  details summary::-webkit-details-marker { display: none; }
+  details summary::before {
+    content: "+ ";
+    color: #009B3A;
+    font-weight: 700;
+    margin-right: 4px;
+  }
+  details[open] summary::before { content: "- "; }
+  details[open] summary {
+    border-bottom: 1px solid #e8e8e8;
+    background: #f0faf0;
+  }
+  details .faq-body {
+    padding: 12px 16px;
+    font-size: 14.5px;
+  }
+
   /* ── Mobile ── */
   .menu-toggle {
     display: none;
@@ -307,14 +382,14 @@
 <aside class="sidebar" role="navigation" aria-label="Table of Contents">
   <div class="sidebar-header">
     <div class="flag-bar"><span></span><span></span><span></span></div>
-    <h1>Film Production Permit</h1>
-    <p>Jamaica Film Registration Service</p>
+    <h1>Film Registration Service</h1>
+    <p>Jamaica -- JAMPRO</p>
   </div>
   <nav>
-    <a href="#overview">Overview</a>
+    <a href="#what-you-get">What You Get</a>
     <a href="#how-it-works">How It Works</a>
 
-    <a class="section-heading">For Applicants</a>
+    <a class="section-heading">How to Apply</a>
     <a class="sub" href="#step1">1. Project Overview</a>
     <a class="sub" href="#step2">2. Applicant &amp; Local Contacts</a>
     <a class="sub" href="#step3">3. Personnel &amp; Budget</a>
@@ -323,45 +398,84 @@
     <a class="sub" href="#step6">6. Payment</a>
     <a class="sub" href="#step7">7. Review &amp; Send</a>
 
-    <a class="section-heading">For the Film Commission</a>
-    <a class="sub" href="#officer">Reviewing Applications</a>
-
-    <a href="#result">The Result</a>
+    <a href="#officer">For the Film Commission</a>
+    <a href="#fees">Fees &amp; Payment</a>
+    <a href="#contacts">Contacts &amp; Help</a>
     <a href="#regulations">Regulations</a>
-    <a href="#database">Database</a>
-    <a href="#faq">Tips &amp; FAQs</a>
+    <a href="#faq">FAQ</a>
   </nav>
 </aside>
 
 <!-- ════════════ MAIN CONTENT ════════════ -->
 <div class="main">
 
-  <!-- ── OVERVIEW ── -->
-  <section id="overview">
-    <h2>Overview</h2>
-    <p>Welcome to the Jamaica <strong>Film Registration Service</strong> -- a fully digital service that lets film producers apply online for official permission to shoot in Jamaica, and lets the Jamaica Film Commission review and approve applications electronically.</p>
+  <!-- ── 1. WHAT YOU GET ── -->
+  <section id="what-you-get">
+    <h2>What You Get</h2>
+    <p>The Film Registration Service gives you <strong>two official documents</strong> from JAMPRO (Jamaica Promotions Corporation). These are what you are applying for.</p>
 
-    <h4>Who needs this permit?</h4>
-    <p>Any individual or company planning to produce a film, television show, commercial, documentary, music video, or similar audiovisual project on Jamaican soil. This includes both local and international productions.</p>
+    <!-- Document 1 -->
+    <div class="doc-card">
+      <h4>Document 1: Film Registration Letter</h4>
+      <p>An official letter from <strong>Jackie Jackson, Film Commissioner / Mgr. Film, Animation and Music</strong>, confirming your production is registered with JAMPRO under a registration number (e.g., 07580/25R).</p>
+      <p>The letter states your filming dates and duration, and sets out the following conditions:</p>
+      <ul>
+        <li><strong>(a)</strong> Use local equipment, facilities, and services when competitively priced.</li>
+        <li><strong>(b)</strong> Hire Jamaican personnel (actors, musicians, technicians, skilled and non-skilled).</li>
+        <li><strong>(c)</strong> Adhere to all laws of Jamaica and obtain necessary licenses and permits.</li>
+        <li><strong>(d)</strong> During filming, this registration letter should be produced to support requests for use of venues and applications to various agencies.</li>
+      </ul>
 
-    <h4>What does the process look like?</h4>
-    <ul>
-      <li>You fill out a six-step online form with your production details.</li>
-      <li>You pay a non-refundable administrative fee of <strong>USD $300</strong>.</li>
-      <li>The Jamaica Film Commission (JAMPRO) reviews your application.</li>
-      <li>Once approved, you receive your Film Production Permit.</li>
-    </ul>
+      <h4>Bond Waiver Conditions (if importing equipment)</h4>
+      <p>If you requested equipment import, the letter also includes these bond waiver conditions:</p>
+      <ol>
+        <li>You are responsible for re-exporting all items listed in the Schedule.</li>
+        <li>Transport costs to deliver items to Jamaica Customs Office at the Airport are on you.</li>
+        <li>Jamaica Customs can charge duties and GCT on items not verified for export.</li>
+      </ol>
 
-    <h4>How long does it take?</h4>
-    <p>Processing takes between <strong>5 and 10 working days</strong>, depending on whether you are importing equipment or need special authorizations (drones, firearms for props, airport filming, etc.).</p>
+      <p>The letter is CC'd to your <strong>Local Production Manager</strong> and <strong>Local Producer</strong>.</p>
 
-    <div class="tip">You can save your application at any time and come back to finish it later. Your progress is saved automatically as you move between steps.</div>
+      <figure>
+        <img src="images/result-film-registration-letter.png" alt="Film Registration Letter - page 1">
+        <figcaption>Film Registration Letter (page 1): Official registration confirmation with conditions.</figcaption>
+      </figure>
+      <figure>
+        <img src="images/result-registration-letter-2.png" alt="Film Registration Letter - page 2">
+        <figcaption>Film Registration Letter (page 2): Bond waiver conditions and signatures.</figcaption>
+      </figure>
+    </div>
+
+    <!-- Document 2 -->
+    <div class="doc-card">
+      <h4>Document 2: Waiver of Duty Letter (Bond Waiver)</h4>
+      <p>You only get this document if you are importing equipment. It is addressed to:</p>
+      <p><strong>Collector of Customs Kingston, Jamaica Customs House, New Port East, Kingston 13</strong></p>
+
+      <p>The letter:</p>
+      <ul>
+        <li>References a Tax Relief Advisory Reference (e.g., #010108/1672702 dated August 19, 2010) issued by the Ministry of Finance to JAMPRO.</li>
+        <li>States that the temporary importation of equipment/props/wardrobe listed in the attached schedule is required for the duration of the project.</li>
+        <li>Names the local entity operating in Jamaica that handles the import.</li>
+        <li>Specifies arrival details: airport, flight, date, and passengers accompanying equipment.</li>
+        <li>Requests customs to process items pursuant to Tax Relief Advisory.</li>
+        <li>Commits JAMPRO to ensuring re-exportation of items.</li>
+        <li>Names the customs broker handling documentation.</li>
+      </ul>
+
+      <p>CC'd to: <strong>Darlene Morrison</strong> (Financial Secretary, Ministry of Finance and Public Service), Producer, Local Production Manager, and Local Customs Broker.</p>
+
+      <figure>
+        <img src="images/result-bond-waiver.png" alt="Waiver of Duty Letter (Bond Waiver)">
+        <figcaption>The Bond Waiver letter addressed to Jamaica Customs, authorizing duty-free temporary importation of your equipment.</figcaption>
+      </figure>
+    </div>
   </section>
 
-  <!-- ── HOW IT WORKS ── -->
+  <!-- ── 2. HOW IT WORKS ── -->
   <section id="how-it-works">
     <h2>How It Works</h2>
-    <p>Once you submit your application, it moves through a defined processing pipeline at the Film Commission. Here is the flow from start to finish:</p>
+    <p>After you submit your application, it moves through a processing pipeline at the Film Commission:</p>
 
     <div class="workflow-steps">
       <div class="wf-step">Review<small>Film Commission</small></div>
@@ -379,482 +493,325 @@
     </div>
 
     <ol>
-      <li><strong>Review</strong> -- A Film Commission officer reviews your submitted information for completeness and accuracy.</li>
-      <li><strong>Payment</strong> -- You pay the USD $300 administrative fee (if you haven't already paid during the application).</li>
-      <li><strong>Approval</strong> -- The application is formally approved by the Film Commission.</li>
-      <li><strong>Register at Film Commission</strong> -- Your production is registered in the official records.</li>
-      <li><strong>Equipment Create / Upload Certificate</strong> -- If you are importing equipment, the necessary customs documentation and certificates are generated.</li>
+      <li><strong>Review</strong> -- A Film Commission officer checks your application for completeness.</li>
+      <li><strong>Payment</strong> -- You pay the USD $300 fee (if you haven't already).</li>
+      <li><strong>Approval</strong> -- The application is formally approved.</li>
+      <li><strong>Register</strong> -- Your production is registered in the official records.</li>
+      <li><strong>Equipment Create / Upload Certificate</strong> -- If importing equipment, customs documentation is generated.</li>
     </ol>
 
+    <p>Processing takes <strong>5 to 10 working days</strong>. Equipment imports or special permits (drones, firearms) may push it closer to 10 days.</p>
+
     <figure>
-      <img src="images/screencapture-bpa-jamaica-eregistrations-org-services-2d3c18a3-be2b-4533-a898-ed0bd946afd3-roles-2026-03-11-22_55_57.png" alt="Processing roles workflow diagram showing Review, Payment, Approval, Register at Film Commission, Equipment Create, and Upload Certificate stages">
-      <figcaption>The processing pipeline as configured in the Film Registration Service system. Each box represents a processing role handled by the Film Commission.</figcaption>
+      <img src="images/screencapture-bpa-jamaica-eregistrations-org-services-2d3c18a3-be2b-4533-a898-ed0bd946afd3-roles-2026-03-11-22_55_57.png" alt="Processing roles workflow diagram">
+      <figcaption>The processing pipeline as configured in the system. Each box is a processing role handled by the Film Commission.</figcaption>
     </figure>
   </section>
 
   <!-- ══════════════════════════════════════ -->
-  <!--        FOR APPLICANTS                  -->
+  <!--        HOW TO APPLY                    -->
   <!-- ══════════════════════════════════════ -->
 
   <!-- ── STEP 1 ── -->
   <section id="step1">
-    <h2>1. Project Overview</h2>
-    <p>This is the first step of your application. You will provide the basic details about your film production, including what you're making, when, and where in Jamaica you plan to film.</p>
-
-    <div class="warning">Have your filming dates and planned locations ready before you start. You will also need a short synopsis of your project.</div>
+    <h2>Step 1: Project Overview</h2>
+    <p>Basic details about your production: what you are making, when, and where in Jamaica.</p>
 
     <h3>Production</h3>
     <table class="field-table">
       <tr><th>Field</th><th>What to enter</th></tr>
       <tr>
         <td><strong>Title</strong> <span class="badge badge-required">Required</span></td>
-        <td>The official working title of your production (e.g., "Caribbean Storm: The Kingston Protocol").</td>
+        <td>Working title of your production.</td>
       </tr>
       <tr>
         <td><strong>Type</strong> <span class="badge badge-required">Required</span></td>
-        <td>Select the type of production from the dropdown: Feature Film, Documentary, TV Series, Commercial, Music Video, etc.</td>
+        <td>Feature Film, Documentary, TV Series, Commercial, Music Video, etc.</td>
       </tr>
       <tr>
         <td><strong>Short synopsis</strong> <span class="badge badge-required">Required</span></td>
-        <td>A brief description of your project (up to 800 characters). This helps the Film Commission understand the nature of your production.</td>
+        <td>Brief description, up to 800 characters.</td>
       </tr>
     </table>
 
     <h3>Timeline &amp; Locations</h3>
-    <p>Provide the filming dates that correspond <strong>only to activities taking place in Jamaica</strong>. Do not include filming periods in other countries.</p>
+    <p>Enter only the dates that correspond to filming <strong>in Jamaica</strong>.</p>
     <table class="field-table">
       <tr><th>Field</th><th>What to enter</th></tr>
-      <tr>
-        <td><strong>Filming start date</strong></td>
-        <td>The date your Jamaica filming begins (e.g., 16 Jun 2026).</td>
-      </tr>
-      <tr>
-        <td><strong>Filming end date</strong></td>
-        <td>The date your Jamaica filming wraps (e.g., 30 Aug 2026).</td>
-      </tr>
-      <tr>
-        <td><strong>Parish</strong></td>
-        <td>Select the primary parish from the dropdown (e.g., Kingston).</td>
-      </tr>
-      <tr>
-        <td><strong>Specific production locations</strong></td>
-        <td>List all the specific locations where filming will take place. Be as detailed as you can -- for example: "Downtown Kingston -- New Kingston business district (chase sequences, office interiors)".</td>
-      </tr>
+      <tr><td><strong>Filming start date</strong></td><td>When your Jamaica filming begins.</td></tr>
+      <tr><td><strong>Filming end date</strong></td><td>When your Jamaica filming wraps.</td></tr>
+      <tr><td><strong>Parish</strong></td><td>Primary parish from the dropdown.</td></tr>
+      <tr><td><strong>Specific production locations</strong></td><td>All filming locations, as detailed as possible.</td></tr>
     </table>
 
-    <div class="tip">The form includes an interactive map of Jamaica showing popular filming destinations like Montego Bay, Negril, Blue Mountains, Kingston, and Spanish Town. Use it as a reference to describe your locations.</div>
+    <div class="tip">You can save your application at any time and come back later. Progress is saved automatically as you move between steps.</div>
 
     <figure>
-      <img src="images/screencapture-jamaica-eregistrations-org-services-2d3c18a3-be2b-4533-a898-ed0bd946afd3-2026-03-11-22_52_19.png" alt="Step 1 blank form showing Production fields, Timeline, and Locations map">
-      <figcaption>Step 1 as it appears when you first open the form -- empty fields for Production, Timeline, and Locations with the Jamaica map.</figcaption>
+      <img src="images/screencapture-jamaica-eregistrations-org-services-2d3c18a3-be2b-4533-a898-ed0bd946afd3-2026-03-11-22_52_19.png" alt="Step 1 blank form">
+      <figcaption>Step 1: Empty form -- Production, Timeline, and Locations with the Jamaica map.</figcaption>
     </figure>
-
     <figure>
-      <img src="images/screencapture-jamaica-eregistrations-org-services-2d3c18a3-be2b-4533-a898-ed0bd946afd3-2026-03-11-22_53_01.png" alt="Step 1 filled in with sample production data including title, type, synopsis, dates, and locations">
-      <figcaption>Step 1 filled out with sample data: a Feature Film titled "Caribbean Storm: The Kingston Protocol" filming from June to August 2026 across multiple Kingston locations.</figcaption>
+      <img src="images/screencapture-jamaica-eregistrations-org-services-2d3c18a3-be2b-4533-a898-ed0bd946afd3-2026-03-11-22_53_01.png" alt="Step 1 filled in with sample data">
+      <figcaption>Step 1 filled out: Feature Film filming June-August 2026 across Kingston locations.</figcaption>
     </figure>
-
-    <p>Once you have completed all fields, click the <strong>"Next"</strong> button in the bottom-right corner to continue.</p>
   </section>
 
   <!-- ── STEP 2 ── -->
   <section id="step2">
-    <h2>2. Applicant &amp; Local Contacts</h2>
-    <p>In this step, you provide information about who is applying (your company or yourself) and your local production support team in Jamaica.</p>
+    <h2>Step 2: Applicant &amp; Local Contacts</h2>
+    <p>Who is applying, and who is your local support team in Jamaica.</p>
 
-    <h3>Applicant &amp; Production Entity</h3>
+    <h3>Applicant</h3>
     <table class="field-table">
       <tr><th>Field</th><th>What to enter</th></tr>
-      <tr>
-        <td><strong>Type of applicant</strong></td>
-        <td>Select "Company" or "Individual".</td>
-      </tr>
-      <tr>
-        <td><strong>Nationality</strong></td>
-        <td>Select the country of your company's registration or your nationality (e.g., United States of America).</td>
-      </tr>
-      <tr>
-        <td><strong>Contact person's name</strong></td>
-        <td>The primary person responsible for this application (e.g., "Samantha K. Chen").</td>
-      </tr>
-      <tr>
-        <td><strong>Phone number</strong></td>
-        <td>Include country code (e.g., +1-30-555-7842).</td>
-      </tr>
-      <tr>
-        <td><strong>Address</strong></td>
-        <td>Full mailing address of the applicant or production company.</td>
-      </tr>
-      <tr>
-        <td><strong>Email</strong></td>
-        <td>A valid email address for correspondence about this application.</td>
-      </tr>
+      <tr><td><strong>Type of applicant</strong></td><td>Company or Individual.</td></tr>
+      <tr><td><strong>Nationality</strong></td><td>Country of registration or your nationality.</td></tr>
+      <tr><td><strong>Contact person's name</strong></td><td>Primary contact for this application.</td></tr>
+      <tr><td><strong>Phone number</strong></td><td>Include country code.</td></tr>
+      <tr><td><strong>Address</strong></td><td>Full mailing address.</td></tr>
+      <tr><td><strong>Email</strong></td><td>For correspondence about this application.</td></tr>
     </table>
 
     <h3>Local Production Support</h3>
-    <p>The Jamaica Film Commission, through JAMPRO, provides informational lists of local fixers, location managers, and production service providers. The form includes links to these lists for your reference. JAMPRO does not endorse any specific individual or company.</p>
-
-    <div class="info">The form provides links to view lists of <strong>location managers</strong> and <strong>production service providers</strong> available in Jamaica. These are provided for reference only.</div>
-
     <table class="field-table">
       <tr><th>Field</th><th>What to enter</th></tr>
-      <tr>
-        <td><strong>Production service provider</strong></td>
-        <td>Name and email of the local production services company supporting your shoot (e.g., "Island Light Film Services Ltd.").</td>
-      </tr>
-      <tr>
-        <td><strong>Location manager</strong></td>
-        <td>Name and email of your on-the-ground location manager in Jamaica.</td>
-      </tr>
-      <tr>
-        <td><strong>Equipment rental manager</strong></td>
-        <td>Name and email of the person handling local equipment rentals and logistics.</td>
-      </tr>
+      <tr><td><strong>Production service provider</strong></td><td>Local company name and email.</td></tr>
+      <tr><td><strong>Location manager</strong></td><td>Name and email of your Jamaica location manager.</td></tr>
+      <tr><td><strong>Equipment rental manager</strong></td><td>Name and email of the person handling local equipment.</td></tr>
     </table>
 
-    <div class="tip">If you don't yet have local contacts, use the JAMPRO reference lists linked on the form to find production service providers and location managers in Jamaica.</div>
+    <div class="tip">Don't have local contacts yet? The form links to JAMPRO reference lists of production service providers and location managers in Jamaica.</div>
 
     <figure>
-      <img src="images/screencapture-jamaica-eregistrations-org-services-2d3c18a3-be2b-4533-a898-ed0bd946afd3-2026-03-11-22_53_09.png" alt="Step 2 form showing Applicant and Production Entity fields and Local production support fields">
-      <figcaption>Step 2: Enter your company/applicant details at the top and your local Jamaica production support contacts below.</figcaption>
+      <img src="images/screencapture-jamaica-eregistrations-org-services-2d3c18a3-be2b-4533-a898-ed0bd946afd3-2026-03-11-22_53_09.png" alt="Step 2 form">
+      <figcaption>Step 2: Applicant details at the top, local production support contacts below.</figcaption>
     </figure>
   </section>
 
   <!-- ── STEP 3 ── -->
   <section id="step3">
-    <h2>3. Personnel &amp; Budget</h2>
-    <p>This step collects basic figures about the size of your crew and the financial scope of your production. This information helps the Film Commission understand the economic impact of your project.</p>
+    <h2>Step 3: Personnel &amp; Budget</h2>
+    <p>Crew size and financial scope. This helps the Film Commission assess economic impact.</p>
 
-    <h3>Personnel</h3>
     <table class="field-table">
       <tr><th>Field</th><th>What to enter</th></tr>
-      <tr>
-        <td><strong>Number of Jamaican Personnel</strong></td>
-        <td>How many Jamaican nationals will be part of the production crew (e.g., 85).</td>
-      </tr>
-      <tr>
-        <td><strong>Number of Non-Jamaican Personnel</strong></td>
-        <td>How many foreign crew members will be working on the production in Jamaica (e.g., 42).</td>
-      </tr>
+      <tr><td><strong>Number of Jamaican Personnel</strong></td><td>Jamaican nationals on the crew.</td></tr>
+      <tr><td><strong>Number of Non-Jamaican Personnel</strong></td><td>Foreign crew members in Jamaica.</td></tr>
+      <tr><td><strong>Total production budget</strong></td><td>Overall budget in USD.</td></tr>
+      <tr><td><strong>Budgeted expenditure in Jamaica</strong></td><td>Portion spent in Jamaica, in USD.</td></tr>
     </table>
-
-    <h3>Budget</h3>
-    <table class="field-table">
-      <tr><th>Field</th><th>What to enter</th></tr>
-      <tr>
-        <td><strong>Total production budget</strong></td>
-        <td>The overall budget for the entire production in USD (e.g., USD 12,500,000).</td>
-      </tr>
-      <tr>
-        <td><strong>Budgeted expenditure in Jamaica</strong></td>
-        <td>The portion of your budget that will be spent in Jamaica in USD (e.g., USD 4,800,000).</td>
-      </tr>
-    </table>
-
-    <div class="info">Both budget fields are entered in USD. These figures are used for statistical and economic impact assessment purposes.</div>
 
     <figure>
-      <img src="images/screencapture-jamaica-eregistrations-org-services-2d3c18a3-be2b-4533-a898-ed0bd946afd3-2026-03-11-22_53_16.png" alt="Step 3 showing Personnel numbers and Budget fields in USD">
-      <figcaption>Step 3: Enter the number of Jamaican and non-Jamaican personnel, along with total and Jamaica-specific budget figures.</figcaption>
+      <img src="images/screencapture-jamaica-eregistrations-org-services-2d3c18a3-be2b-4533-a898-ed0bd946afd3-2026-03-11-22_53_16.png" alt="Step 3 personnel and budget">
+      <figcaption>Step 3: Personnel numbers and budget figures.</figcaption>
     </figure>
   </section>
 
   <!-- ── STEP 4 ── -->
   <section id="step4">
-    <h2>4. Equipment Import</h2>
-    <p>If you plan to temporarily import filming equipment into Jamaica, this step collects all the details the Film Commission and Jamaica Customs need. If you are <strong>not</strong> importing any equipment, select "No" and skip ahead.</p>
+    <h2>Step 4: Equipment Import</h2>
+    <p>If you are temporarily importing filming equipment into Jamaica. Not importing anything? Select "No" and skip ahead.</p>
 
-    <div class="warning">You will need your customs broker information and your equipment lists prepared as PDF files before starting this step. A customs broker is <strong>mandatory</strong> for temporary importation of equipment into Jamaica.</div>
+    <div class="warning">You need your customs broker information and equipment lists (as PDFs) before starting this step. A customs broker is mandatory for temporary importation.</div>
 
-    <h3>Initial Questions</h3>
-    <table class="field-table">
-      <tr><th>Question</th><th>What it means</th></tr>
-      <tr>
-        <td><strong>Will you temporarily import equipment for this production?</strong></td>
-        <td>Select "Yes" if you are bringing filming equipment into Jamaica from abroad. Selecting "Yes" will open the full equipment import section. A separate duty waiver application will be generated for each port of entry.</td>
-      </tr>
-      <tr>
-        <td><strong>Do you already know your import methods and dates?</strong></td>
-        <td>Select "Yes" if you already know the shipping methods (air cargo, sea cargo) and expected arrival dates.</td>
-      </tr>
-    </table>
-
-    <h3>Shipping Details</h3>
-    <p>Equipment may enter Jamaica through different shipping methods and ports of entry. For each shipment, provide:</p>
-    <table class="field-table">
-      <tr><th>Field</th><th>What to enter</th></tr>
-      <tr>
-        <td><strong>Shipping method</strong></td>
-        <td>Select "By air cargo" or "By sea cargo".</td>
-      </tr>
-      <tr>
-        <td><strong>Port of entry</strong></td>
-        <td>Select the entry port (e.g., Norman Manley International Airport for air cargo, or Kingston for sea cargo).</td>
-      </tr>
-      <tr>
-        <td><strong>Arrival date</strong></td>
-        <td>Expected date of arrival in Jamaica.</td>
-      </tr>
-    </table>
-
-    <h3>Customs Broker</h3>
-    <p>Having a licensed customs broker is <strong>mandatory</strong> for the temporary importation of equipment. If you do not already have a broker, you can consult the official list of approved customs brokers available through Jamaica Customs.</p>
-    <table class="field-table">
-      <tr><th>Field</th><th>What to enter</th></tr>
-      <tr><td><strong>Name</strong></td><td>Customs brokerage company name.</td></tr>
-      <tr><td><strong>Customs broker email</strong></td><td>Broker's email address.</td></tr>
-      <tr><td><strong>Phone</strong></td><td>Broker's phone number.</td></tr>
-    </table>
-
-    <h3>Equipment &amp; Warehouse Lists</h3>
-    <p>You must provide two documents as PDF uploads. You can either upload your own files or use the downloadable templates provided on the form:</p>
+    <h3>What you need to provide</h3>
     <ul>
-      <li><strong>Equipment list</strong> -- A complete inventory of all equipment being imported. Download the template from the form if needed. Lists should include item descriptions (e.g., "Cameras, lighting, sound, grip, drones and other equipment").</li>
-      <li><strong>Warehouse list</strong> -- A list of warehouse or storage locations for your equipment in Jamaica. Download the template from the form if needed. Lists should include item descriptions (e.g., "Cameras, catering, furniture and wardrobe accessories").</li>
+      <li><strong>Shipping method</strong> -- Air cargo or sea cargo, per shipment.</li>
+      <li><strong>Port of entry</strong> -- E.g., Norman Manley International Airport.</li>
+      <li><strong>Arrival date</strong> -- Expected date per shipment.</li>
+      <li><strong>Customs broker</strong> -- Name, email, and phone of your licensed broker.</li>
+      <li><strong>Equipment list</strong> -- PDF inventory of all equipment being imported (template available on the form).</li>
+      <li><strong>Warehouse list</strong> -- PDF of storage locations in Jamaica (template available on the form).</li>
     </ul>
 
-    <div class="tip">Download the official equipment list and warehouse list templates from the form -- they are pre-formatted so the Film Commission can review your inventory quickly.</div>
+    <div class="tip">Download the official equipment list and warehouse list templates from the form -- they are pre-formatted for quick review by the Film Commission.</div>
 
     <figure>
-      <img src="images/screencapture-jamaica-eregistrations-org-services-2d3c18a3-be2b-4533-a898-ed0bd946afd3-2026-03-11-22_53_32.png" alt="Step 4 showing equipment import details, customs broker section, and file upload areas for equipment and warehouse lists">
-      <figcaption>Step 4: Temporary import section showing shipping methods, customs broker details, and upload areas for equipment and warehouse lists.</figcaption>
+      <img src="images/screencapture-jamaica-eregistrations-org-services-2d3c18a3-be2b-4533-a898-ed0bd946afd3-2026-03-11-22_53_32.png" alt="Step 4 equipment import">
+      <figcaption>Step 4: Shipping methods, customs broker details, and upload areas for equipment and warehouse lists.</figcaption>
     </figure>
   </section>
 
   <!-- ── STEP 5 ── -->
   <section id="step5">
-    <h2>5. Special Activities &amp; Permits</h2>
-    <p>This step asks whether your production involves any activities that require additional permits or authorizations beyond the standard Film Production Permit.</p>
+    <h2>Step 5: Special Activities &amp; Permits</h2>
+    <p>Check all that apply to your production:</p>
 
-    <h3>Does your project involve any of the below?</h3>
-    <p>Check all that apply:</p>
     <table class="field-table">
       <tr><th>Activity</th><th>When to check it</th></tr>
-      <tr>
-        <td><strong>Drones</strong></td>
-        <td>If you plan to use unmanned aerial vehicles (UAVs) for aerial shots.</td>
-      </tr>
-      <tr>
-        <td><strong>Radios</strong></td>
-        <td>If your crew will use walkie-talkies or other radio communication equipment.</td>
-      </tr>
-      <tr>
-        <td><strong>Cellular phones</strong></td>
-        <td>If you need to bring and operate non-Jamaican cellular devices.</td>
-      </tr>
-      <tr>
-        <td><strong>Guns and explosives</strong></td>
-        <td>If your production involves prop firearms, blank rounds, pyrotechnics, or simulated explosions.</td>
-      </tr>
-      <tr>
-        <td><strong>Underwater filming equipment</strong></td>
-        <td>If you plan to use specialized underwater cameras or diving equipment for filming.</td>
-      </tr>
-      <tr>
-        <td><strong>Filming in airports</strong></td>
-        <td>If any scenes will be shot inside or around Jamaican airport facilities.</td>
-      </tr>
+      <tr><td><strong>Drones</strong></td><td>Aerial shots with UAVs.</td></tr>
+      <tr><td><strong>Radios</strong></td><td>Walkie-talkies or radio equipment.</td></tr>
+      <tr><td><strong>Cellular phones</strong></td><td>Non-Jamaican cellular devices.</td></tr>
+      <tr><td><strong>Guns and explosives</strong></td><td>Prop firearms, blank rounds, pyrotechnics.</td></tr>
+      <tr><td><strong>Underwater filming equipment</strong></td><td>Underwater cameras or diving equipment.</td></tr>
+      <tr><td><strong>Filming in airports</strong></td><td>Scenes inside or around airport facilities.</td></tr>
     </table>
 
-    <div class="warning">If your production involves any of the items listed above, you must obtain the relevant permits <strong>after</strong> your Film Production Permit is approved. The form will display contact details for the agencies that issue those permits so you can apply to them directly.</div>
+    <div class="warning">These require separate permits from the relevant Jamaican authorities, applied for <strong>after</strong> your Film Registration is approved. The form shows contact details for each agency.</div>
 
     <figure>
-      <img src="images/screencapture-jamaica-eregistrations-org-services-2d3c18a3-be2b-4533-a898-ed0bd946afd3-2026-03-11-22_53_51.png" alt="Step 5 showing checkboxes for special equipment and activities: Drones, Radios, Cellular phones, Guns and explosives, Underwater filming equipment, Filming in airports">
-      <figcaption>Step 5: Check any special activities your production requires. In this example, Radios and Guns and explosives are selected.</figcaption>
+      <img src="images/screencapture-jamaica-eregistrations-org-services-2d3c18a3-be2b-4533-a898-ed0bd946afd3-2026-03-11-22_53_51.png" alt="Step 5 special activities">
+      <figcaption>Step 5: Checkboxes for special activities. In this example, Radios and Guns and explosives are selected.</figcaption>
     </figure>
   </section>
 
   <!-- ── STEP 6 ── -->
   <section id="step6">
-    <h2>6. Payment</h2>
-    <p>A <strong>non-refundable administrative fee of USD $300</strong> is required for every application. You have two options for when to pay:</p>
-
+    <h2>Step 6: Payment</h2>
+    <p><strong>USD $300</strong> non-refundable administrative fee. Two options:</p>
     <ul>
-      <li><strong>Pay now and upload the receipt</strong> -- Complete the payment immediately, then upload a copy of your receipt or proof of transfer.</li>
-      <li><strong>Pay later when requested during the review process</strong> -- Submit your application first and pay when the JAMPRO officer reviewing your application requests it.</li>
+      <li><strong>Pay now</strong> -- Complete payment and upload the receipt.</li>
+      <li><strong>Pay later</strong> -- Submit first, pay when the officer requests it during review.</li>
     </ul>
 
-    <h3>How to pay</h3>
-    <p>Payment can be made by:</p>
-    <ul>
-      <li><strong>Online payment</strong> via the Jamaica Business Gateway (JBDC).</li>
-      <li><strong>Cash or cheque</strong> payable to JAMPRO.</li>
-      <li><strong>Wire transfer</strong> -- When making a wire transfer, include your production title or applicant name as the payment reference.</li>
-    </ul>
-
-    <h3>Wire Transfer Details</h3>
-    <p>The form displays full banking details for wire transfers, including:</p>
-    <ul>
-      <li>Beneficiary bank name, address, and SWIFT code</li>
-      <li>USD account number and JMD account number</li>
-      <li>Correspondent bank details for international transfers (Bank of New York Mellon for USD, Barclays Bank PLC London for Euro, Toronto-Dominion Bank for CAD)</li>
-    </ul>
-
-    <div class="tip">If you choose to pay now, upload your receipt as a PDF or image file using the upload area on the form. You can drag and drop or click to browse.</div>
-
-    <div class="warning">The USD $300 fee is non-refundable regardless of the outcome of your application. Make sure your application is complete before submitting.</div>
+    <p>Payment methods: online (Jamaica Business Gateway), cash/cheque (payable to JAMPRO), or wire transfer. Wire transfer banking details are displayed on the form.</p>
 
     <figure>
-      <img src="images/screencapture-jamaica-eregistrations-org-services-2d3c18a3-be2b-4533-a898-ed0bd946afd3-2026-03-11-22_54_06.png" alt="Step 6 showing payment options, proof of payment upload, and wire transfer bank account details">
-      <figcaption>Step 6: Payment section showing the two payment timing options, receipt upload area, and detailed wire transfer banking information.</figcaption>
+      <img src="images/screencapture-jamaica-eregistrations-org-services-2d3c18a3-be2b-4533-a898-ed0bd946afd3-2026-03-11-22_54_06.png" alt="Step 6 payment">
+      <figcaption>Step 6: Payment timing options, receipt upload, and wire transfer banking details.</figcaption>
     </figure>
   </section>
 
   <!-- ── STEP 7 ── -->
   <section id="step7">
-    <h2>7. Review &amp; Send</h2>
-    <p>After completing all six form steps, click the <strong>"Send"</strong> tab at the top of the page. Before submitting, you must review and accept the Applicant Undertaking.</p>
-
-    <h3>Applicant Undertaking</h3>
-    <p>You are agreeing to the following conditions:</p>
-    <ul>
-      <li>All information provided must be accurate and complete.</li>
-      <li>The Jamaica Film Commission must be notified of any changes to production plans.</li>
-      <li>All equipment must be declared and properly documented.</li>
-      <li>Insurance coverage must be maintained throughout the production period.</li>
-      <li>All necessary permits must be obtained before filming begins.</li>
-      <li>Local laws and regulations must be respected at all times.</li>
-    </ul>
-
-    <h3>Final Declarations</h3>
-    <p>You must check <strong>both</strong> checkboxes to confirm:</p>
+    <h2>Step 7: Review &amp; Send</h2>
+    <p>Click the <strong>"Send"</strong> tab. You must check <strong>two declaration boxes</strong> confirming:</p>
     <ol>
-      <li>That the information provided is true and accurate to the best of your knowledge, and that you understand providing false information may result in rejection and potential legal consequences.</li>
-      <li>That you understand and accept all the requirements.</li>
+      <li>The information is true and accurate, and you understand false information may result in rejection.</li>
+      <li>You understand and accept all requirements.</li>
     </ol>
-
-    <p>Once both boxes are checked, click the green <strong>"Send application"</strong> button to submit.</p>
-
-    <div class="info">After you click "Send application", your application enters the processing pipeline. You will receive email notifications as it moves through the Review, Payment, and Approval stages.</div>
+    <p>Then click the green <strong>"Send application"</strong> button. You will receive email notifications as your application moves through Review, Payment, and Approval.</p>
 
     <figure>
-      <img src="images/screencapture-jamaica-eregistrations-org-services-2d3c18a3-be2b-4533-a898-ed0bd946afd3-2026-03-11-22_56_56.png" alt="Send tab showing the Applicant Undertaking declarations and Send application button">
-      <figcaption>The Send tab: review the undertaking conditions, check both declaration boxes, then click "Send application" to submit.</figcaption>
+      <img src="images/screencapture-jamaica-eregistrations-org-services-2d3c18a3-be2b-4533-a898-ed0bd946afd3-2026-03-11-22_56_56.png" alt="Send tab with declarations">
+      <figcaption>The Send tab: check both declaration boxes, then click "Send application".</figcaption>
     </figure>
   </section>
 
-  <!-- ══════════════════════════════════════ -->
-  <!--    FOR THE FILM COMMISSION             -->
-  <!-- ══════════════════════════════════════ -->
-
+  <!-- ── FOR THE FILM COMMISSION ── -->
   <section id="officer">
-    <h2>Reviewing Applications</h2>
-    <p>This section is for Jamaica Film Commission officers who review submitted Film Production Permit applications.</p>
+    <h2>For the Film Commission</h2>
+    <p>When an applicant submits their form, it appears in your processing queue. The processing view shows all submitted data in read-only mode, organized the same way the applicant filled it out.</p>
 
-    <h3>What you see when an application arrives</h3>
-    <p>When an applicant submits their form, it appears in your processing queue. Opening it shows a <strong>"Processing"</strong> view with two tabs -- the data view and a status tab. All submitted information is displayed in read-only mode, organized in the same order the applicant filled it out:</p>
+    <h3>What you review</h3>
+    <p>Production details, timeline, applicant info, local contacts, personnel, budget, equipment import details, and special activities -- all on one page.</p>
 
-    <ol>
-      <li><strong>Production</strong> -- Title, type, and synopsis.</li>
-      <li><strong>Timeline &amp; Locations</strong> -- Filming dates, parish, and specific location descriptions.</li>
-      <li><strong>Applicant &amp; Production Entity</strong> -- Company type, nationality, contact person, address, and email. Also indicates if it is a student project.</li>
-      <li><strong>Local production support</strong> -- Production service provider, location manager, and equipment rental manager names and contact information.</li>
-      <li><strong>Personnel</strong> -- Number of Jamaican and non-Jamaican personnel.</li>
-      <li><strong>Budget</strong> -- Total production budget and budgeted expenditure in Jamaica.</li>
-      <li><strong>Equipment import details</strong> -- Whether equipment is being imported, shipping methods, ports of entry, arrival dates.</li>
-      <li><strong>Special activities</strong> -- Which special permits are needed (drones, radios, firearms, etc.).</li>
-    </ol>
-
-    <h3>Film Commission Review</h3>
-    <p>At the bottom of the processing view, you will see a <strong>"Film commission review"</strong> section with a summary confirming that production details have been verified, equipment import determinations match the uploaded files, and local production service provider details have been confirmed.</p>
-
-    <h3>Actions available</h3>
-    <p>At the bottom of the page, you have two action buttons:</p>
+    <h3>Actions</h3>
     <ul>
-      <li><strong>"Request insulation compliance"</strong> -- Use this if additional information or compliance documentation is needed from the applicant before proceeding.</li>
-      <li><strong>"Send to approval"</strong> -- Use this to move the application forward to the Approval stage once you are satisfied that everything is in order.</li>
+      <li><strong>"Request insulation compliance"</strong> -- Ask the applicant for corrections or additional documentation.</li>
+      <li><strong>"Send to approval"</strong> -- Move the application forward once everything checks out.</li>
     </ul>
 
-    <div class="tip">Review the equipment lists and customs broker details carefully. If the equipment list does not match the shipping details, use "Request insulation compliance" to ask the applicant for corrections before approving.</div>
+    <div class="tip">Review equipment lists against shipping details carefully. If they don't match, use "Request insulation compliance" before approving.</div>
 
     <figure>
-      <img src="images/screencapture-jamaica-eregistrations-org-part-b-2d3c18a3-be2b-4533-a898-ed0bd946afd3-my-a94b5593-1dc7-11f1-b54a-86aca301226d-2026-03-11-23_00_40.png" alt="Officer processing view showing all submitted application data in read-only mode with Review and Send to approval buttons at the bottom">
-      <figcaption>The Film Commission officer's processing view: all application data displayed for review, with action buttons at the bottom.</figcaption>
+      <img src="images/screencapture-jamaica-eregistrations-org-part-b-2d3c18a3-be2b-4533-a898-ed0bd946afd3-my-a94b5593-1dc7-11f1-b54a-86aca301226d-2026-03-11-23_00_40.png" alt="Film Commission officer processing view">
+      <figcaption>The Film Commission officer's processing view with action buttons at the bottom.</figcaption>
     </figure>
   </section>
 
-  <!-- ── THE RESULT ── -->
-  <section id="result">
-    <h2>The Result</h2>
-    <p>Once your application is approved and all processing steps are completed, you receive:</p>
+  <!-- ── FEES & PAYMENT ── -->
+  <section id="fees">
+    <h2>Fees &amp; Payment</h2>
 
-    <h3>Film Production Permit Certificate</h3>
-    <p>An official digital certificate issued by the Jamaica Film Commission (JAMPRO) authorizing your production to film in Jamaica. This certificate includes:</p>
-    <ul>
-      <li>Your production title and type</li>
-      <li>Approved filming dates and locations</li>
-      <li>Applicant and production company details</li>
-      <li>Unique permit registration number</li>
-    </ul>
+    <table class="field-table">
+      <tr><th>Item</th><th>Details</th></tr>
+      <tr><td><strong>Fee</strong></td><td>USD $300 -- non-refundable administrative fee.</td></tr>
+      <tr><td><strong>Online</strong></td><td>Jamaica Business Gateway (JBDC).</td></tr>
+      <tr><td><strong>Cash / Cheque</strong></td><td>Payable to JAMPRO.</td></tr>
+      <tr><td><strong>Wire transfer</strong></td><td>Include your production title as the payment reference. Full banking details (beneficiary bank, SWIFT code, USD/JMD accounts, correspondent banks) are displayed on the form in Step 6.</td></tr>
+      <tr><td><strong>When to pay</strong></td><td>You can pay during the application (upload receipt) or later when the reviewing officer requests it.</td></tr>
+    </table>
 
-    <h3>Equipment Import Authorization</h3>
-    <p>If you declared equipment imports, you also receive customs clearance documentation that allows your filming equipment to enter Jamaica duty-free on a temporary basis. This is coordinated between the Film Commission and Jamaica Customs.</p>
-
-    <div class="info">Your certificate is delivered digitally through the platform. You can download and print it from your Dashboard at any time.</div>
-
-    <h3>What happens next?</h3>
-    <ul>
-      <li>Present your permit to local authorities if requested at any filming location.</li>
-      <li>If you checked special activities (drones, firearms, etc.), apply for those additional permits separately using the agency contacts provided.</li>
-      <li>Notify the Jamaica Film Commission of any changes to your production plans, dates, or locations.</li>
-    </ul>
+    <div class="warning">The USD $300 fee is non-refundable regardless of the outcome of your application.</div>
   </section>
 
-  <!-- ── REGULATIONS (Coming Soon) ── -->
+  <!-- ── CONTACTS & HELP ── -->
+  <section id="contacts">
+    <h2>Contacts &amp; Help</h2>
+    <p>JAMPRO offices worldwide. Website: <strong>www.tradeandinvestjamaica.org</strong></p>
+
+    <div class="contact-card">
+      <h4>Head Office</h4>
+      <p>18 Trafalgar Road, Kingston 10, Jamaica W.I.</p>
+      <p>T: +1 876 978 7755; 978-3337 | F: +1 876 946 0090</p>
+      <p>E: info@jamprocorp.com</p>
+      <p>Toll Free: +1 888 INVESTJA / 468-4352 (Local) | +1 877 JAMVEST / 526-8378 (Overseas)</p>
+    </div>
+
+    <div class="contact-card">
+      <h4>Western Regional Office</h4>
+      <p>Montego Bay Convention Centre, Rose Hall, Montego Bay, St. James, Jamaica W.I.</p>
+      <p>T: +1 876 952 3420 | F: +1 876 952 1384</p>
+      <p>E: jampromobay@jamprocorp.com</p>
+    </div>
+
+    <div class="contact-card">
+      <h4>North American Regional Office</h4>
+      <p><strong>New York:</strong> 767 3rd Avenue, Second Floor, New York, NY 10017, USA</p>
+      <p>T: 646-213-0101 | E: JamproNewYork@jamprocorp.com</p>
+      <p><strong>Toronto:</strong> 303 Eglinton Avenue East, 2nd Floor, Toronto, Ontario, M4P 1L3, Canada</p>
+      <p>T: 416 932 2200 (main) / 416-598-3008 | F: 416 932 2207</p>
+      <p>E: jamprocanada@jamprocorp.com | Toll Free: 1 877 744 2208</p>
+    </div>
+
+    <div class="contact-card">
+      <h4>European Regional Office</h4>
+      <p>1 Prince Consort Road, London SW7 2BZ, England</p>
+      <p>T: +44 20 7 584 8894 | F: +44 20 7 823 9886</p>
+      <p>E: jamprouk@jamprocorp.com</p>
+    </div>
+  </section>
+
+  <!-- ── REGULATIONS ── -->
   <section id="regulations">
     <h2>Regulations</h2>
-    <p><em>Coming soon</em> -- This section will cover the legal framework, relevant Jamaican laws, and regulatory requirements governing film production in Jamaica.</p>
+    <p><em>Coming soon</em> -- This section will cover the legal framework and regulatory requirements governing film production in Jamaica.</p>
   </section>
 
-  <!-- ── DATABASE (Coming Soon) ── -->
-  <section id="database">
-    <h2>Database</h2>
-    <p><em>Coming soon</em> -- This section will document the underlying data structure and fields used by the Film Registration Service.</p>
-  </section>
-
-  <!-- ── TIPS & FAQ ── -->
+  <!-- ── FAQ ── -->
   <section id="faq">
-    <h2>Tips &amp; FAQs</h2>
+    <h2>FAQ</h2>
 
-    <h3>Before You Start</h3>
-    <ul>
-      <li>Create your account on the Jamaica Film Registration Service portal at <strong>jamaica.eregistrations.org (Jamaica Film Registration Service)</strong> before starting the application.</li>
-      <li>Gather your production details: title, synopsis, filming dates, specific locations, and crew size.</li>
-      <li>If importing equipment, prepare your equipment list and warehouse list as PDF files.</li>
-      <li>Identify a licensed Jamaican customs broker if you are importing equipment.</li>
-      <li>Have your production company details and contact person information at hand.</li>
-    </ul>
+    <details>
+      <summary>Can I save my application and come back later?</summary>
+      <div class="faq-body">Yes. Progress is saved as you move between steps. Close the browser and return through your Dashboard anytime.</div>
+    </details>
 
-    <h3>Frequently Asked Questions</h3>
+    <details>
+      <summary>What if I don't know my exact filming locations yet?</summary>
+      <div class="faq-body">Provide what you can (e.g., "Kingston area" or "North coast beaches"). Update the Film Commission when plans are finalized.</div>
+    </details>
 
-    <h4>Can I save my application and come back later?</h4>
-    <p>Yes. Your progress is saved as you move between steps. You can close the browser and return to your application at any time through your Dashboard.</p>
+    <details>
+      <summary>Is the USD $300 fee refundable?</summary>
+      <div class="faq-body">No. The fee is non-refundable regardless of outcome.</div>
+    </details>
 
-    <h4>What if I don't know my exact filming locations yet?</h4>
-    <p>Provide as much detail as you can. You can list general areas (e.g., "Kingston area" or "North coast beaches") and update the Film Commission when your plans are finalized.</p>
+    <details>
+      <summary>What if I'm not importing equipment?</summary>
+      <div class="faq-body">Select "No" in Step 4. The equipment section is skipped and your application may process faster.</div>
+    </details>
 
-    <h4>Is the USD $300 fee refundable?</h4>
-    <p>No. The administrative fee is non-refundable regardless of the outcome of your application.</p>
+    <details>
+      <summary>Do I need separate permits for drones or firearms?</summary>
+      <div class="faq-body">Yes. The Film Registration does not cover specialized activities. Check the relevant items in Step 5 and apply to the agencies listed after your registration is approved.</div>
+    </details>
 
-    <h4>Can I pay later instead of during the application?</h4>
-    <p>Yes. You can select "Pay later when requested during the review process" in Step 6. The Film Commission officer will request payment during the review stage.</p>
+    <details>
+      <summary>How will I know when my registration is approved?</summary>
+      <div class="faq-body">Email notifications at each stage. You can also check status anytime through your Dashboard.</div>
+    </details>
 
-    <h4>What if I'm not importing any equipment?</h4>
-    <p>In Step 4, simply select "No" when asked if you will temporarily import equipment. The rest of the equipment section will be skipped, and your application may be processed more quickly.</p>
+    <details>
+      <summary>How long does processing take?</summary>
+      <div class="faq-body">5 to 10 working days. Equipment imports or special permits may push it closer to 10 days.</div>
+    </details>
 
-    <h4>Do I need separate permits for drones or firearms?</h4>
-    <p>Yes. The Film Production Permit does not cover specialized activities. If you check any items in Step 5 (drones, radios, firearms, etc.), you will need to apply separately to the relevant Jamaican authorities after your Film Production Permit is approved. The form will show contact details for those agencies.</p>
-
-    <h4>How will I know when my permit is approved?</h4>
-    <p>You will receive email notifications at each stage of processing. You can also check the status of your application at any time by logging in to your Film Registration Service Dashboard.</p>
-
-    <h4>What is the processing time?</h4>
-    <p>Standard processing takes <strong>5 to 10 working days</strong>. Applications that involve equipment importation or special permits may take closer to 10 days due to additional verification requirements.</p>
-
-    <h4>Who do I contact if I have questions?</h4>
-    <p>Reach out to the Jamaica Film Commission through JAMPRO. Contact details are available on the Film Registration Service portal and in any email notifications you receive about your application.</p>
-
-    <div class="tip">The Film Registration Service system sends automatic email notifications at each stage. Keep an eye on your inbox (and spam folder) for updates on your application status.</div>
+    <details>
+      <summary>Who do I contact with questions?</summary>
+      <div class="faq-body">The Jamaica Film Commission through JAMPRO. See the <a href="#contacts">Contacts &amp; Help</a> section for office details worldwide.</div>
+    </details>
   </section>
 
 </div><!-- end .main -->
