@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Jamaica Film Registration Service - Manual</title>
+<title>Film Production Permit — Jamaica Film Registration Service</title>
 <style>
   /* ── Reset & Base ── */
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -12,824 +12,898 @@
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
     color: #1a1a1a;
     background: #f8f9fa;
-    line-height: 1.65;
+    line-height: 1.7;
   }
 
   /* ── Sidebar ── */
   .sidebar {
     position: fixed;
     top: 0; left: 0;
-    width: 280px;
+    width: 272px;
     height: 100vh;
     background: #111;
-    color: #ccc;
+    color: #bbb;
     overflow-y: auto;
-    z-index: 100;
+    z-index: 200;
     display: flex;
     flex-direction: column;
     border-right: 3px solid #FED100;
+    transition: transform 0.3s ease;
   }
   .sidebar-header {
     padding: 24px 20px 16px;
-    border-bottom: 1px solid #333;
+    border-bottom: 1px solid #292929;
     flex-shrink: 0;
   }
-  .sidebar-header .flag-bar {
-    display: flex;
-    gap: 0;
-    height: 4px;
-    border-radius: 2px;
-    overflow: hidden;
-    margin-bottom: 16px;
+  .flag-bar {
+    display: flex; height: 4px; border-radius: 2px; overflow: hidden; margin-bottom: 16px;
   }
   .flag-bar span:nth-child(1) { flex: 1; background: #009B3A; }
   .flag-bar span:nth-child(2) { flex: 1; background: #FED100; }
-  .flag-bar span:nth-child(3) { flex: 1; background: #111; }
+  .flag-bar span:nth-child(3) { flex: 1; background: #111; border: 1px solid #333; }
   .sidebar-header h1 {
-    font-size: 15px;
-    font-weight: 700;
-    color: #FED100;
-    letter-spacing: 0.02em;
+    font-size: 14px; font-weight: 700; color: #FED100; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px;
   }
   .sidebar-header p {
-    font-size: 12px;
-    color: #888;
-    margin-top: 4px;
+    font-size: 12px; color: #888; line-height: 1.4;
   }
-
-  .sidebar nav {
-    padding: 12px 0;
-    flex: 1;
-  }
+  .sidebar nav { flex: 1; padding: 12px 0; overflow-y: auto; }
   .sidebar nav a {
-    display: block;
-    padding: 7px 20px;
-    color: #bbb;
-    text-decoration: none;
-    font-size: 13.5px;
-    transition: background 0.15s, color 0.15s;
-    border-left: 3px solid transparent;
+    display: block; padding: 9px 20px; color: #bbb; text-decoration: none; font-size: 13.5px; border-left: 3px solid transparent; transition: all 0.15s;
   }
-  .sidebar nav a:hover {
-    background: #1a1a1a;
-    color: #FED100;
-    border-left-color: #FED100;
-  }
-  .sidebar nav a.section-heading {
-    font-weight: 700;
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: #666;
-    padding-top: 18px;
-    pointer-events: none;
+  .sidebar nav a:hover,
+  .sidebar nav a.active {
+    color: #FED100; background: rgba(254, 209, 0, 0.06); border-left-color: #FED100;
   }
   .sidebar nav a.sub {
-    padding-left: 32px;
-    font-size: 13px;
-    color: #999;
+    padding-left: 36px; font-size: 12.5px; color: #888;
   }
   .sidebar nav a.sub:hover { color: #FED100; }
 
-  /* ── Main content ── */
-  .main {
-    margin-left: 280px;
-    max-width: 920px;
-    padding: 40px 48px 80px;
+  /* ── Hamburger ── */
+  .hamburger {
+    display: none; position: fixed; top: 14px; left: 14px; z-index: 300;
+    background: #111; border: 2px solid #FED100; border-radius: 6px;
+    width: 42px; height: 42px; cursor: pointer; flex-direction: column; justify-content: center; align-items: center; gap: 5px;
   }
+  .hamburger span { display: block; width: 20px; height: 2px; background: #FED100; border-radius: 1px; transition: 0.2s; }
+  .overlay {
+    display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 150;
+  }
+
+  /* ── Main Content ── */
+  .main { margin-left: 272px; max-width: 860px; padding: 48px 48px 100px; }
 
   /* ── Sections ── */
-  section {
+  section { margin-bottom: 64px; }
+  section h2 {
+    font-size: 28px; font-weight: 800; color: #111; margin-bottom: 8px; line-height: 1.25;
+  }
+  section h2 .accent { color: #009B3A; }
+  section > .subtitle {
+    font-size: 15px; color: #666; margin-bottom: 24px; font-style: italic;
+  }
+  section h3 {
+    font-size: 20px; font-weight: 700; color: #111; margin: 32px 0 12px;
+  }
+  p { margin-bottom: 16px; }
+
+  /* ── Hero ── */
+  .hero {
+    background: linear-gradient(135deg, #111 0%, #1a1a1a 100%);
+    color: #fff;
+    padding: 56px 48px;
+    border-radius: 12px;
     margin-bottom: 56px;
-    scroll-margin-top: 24px;
-  }
-  h2 {
-    font-size: 28px;
-    font-weight: 700;
-    color: #111;
-    margin-bottom: 12px;
-    padding-bottom: 8px;
-    border-bottom: 3px solid #FED100;
-  }
-  h3 {
-    font-size: 20px;
-    font-weight: 600;
-    color: #222;
-    margin: 32px 0 10px;
-  }
-  h4 {
-    font-size: 16px;
-    font-weight: 600;
-    color: #333;
-    margin: 20px 0 8px;
-  }
-  p { margin-bottom: 12px; }
-  ul, ol { margin: 8px 0 16px 24px; }
-  li { margin-bottom: 6px; }
-
-  /* ── Callout boxes ── */
-  .tip, .warning, .info {
-    padding: 14px 18px;
-    border-radius: 8px;
-    margin: 16px 0;
-    font-size: 14.5px;
-    line-height: 1.6;
-  }
-  .tip {
-    background: #f0faf0;
-    border-left: 4px solid #009B3A;
-  }
-  .tip::before { content: "Tip: "; font-weight: 700; color: #009B3A; }
-  .warning {
-    background: #fff9e6;
-    border-left: 4px solid #FED100;
-  }
-  .warning::before { content: "Important: "; font-weight: 700; color: #b8960a; }
-  .info {
-    background: #eef4ff;
-    border-left: 4px solid #3b7dd8;
-  }
-  .info::before { content: "Note: "; font-weight: 700; color: #3b7dd8; }
-
-  /* ── Screenshot figures ── */
-  figure {
-    margin: 20px 0;
-    background: #fff;
-    border: 1px solid #e0e0e0;
-    border-radius: 10px;
+    border-bottom: 4px solid #FED100;
+    position: relative;
     overflow: hidden;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
   }
-  figure img {
-    display: block;
-    width: 100%;
-    max-width: 800px;
-    height: auto;
-    margin: 0 auto;
+  .hero::before {
+    content: '';
+    position: absolute; top: -60px; right: -60px;
+    width: 200px; height: 200px;
+    background: radial-gradient(circle, rgba(254,209,0,0.12) 0%, transparent 70%);
+    border-radius: 50%;
   }
-  figcaption {
-    padding: 10px 16px;
-    font-size: 13px;
-    color: #666;
-    background: #fafafa;
-    border-top: 1px solid #eee;
-    text-align: center;
-    font-style: italic;
+  .hero h2 {
+    font-size: 36px; color: #FED100; margin-bottom: 16px; position: relative;
+  }
+  .hero p { color: #ccc; font-size: 17px; line-height: 1.7; max-width: 640px; position: relative; }
+  .hero a { color: #FED100; }
+
+  /* ── Result Cards ── */
+  .result-cards {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin: 24px 0;
+  }
+  .result-card {
+    background: #fff; border-radius: 10px; padding: 24px; border: 1px solid #e0e0e0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  }
+  .result-card.full { grid-column: 1 / -1; }
+  .result-card h4 {
+    font-size: 16px; font-weight: 700; color: #111; margin-bottom: 12px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .result-card h4 .badge {
+    display: inline-block; font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 4px; text-transform: uppercase;
+  }
+  .badge-green { background: #e6f7ed; color: #009B3A; }
+  .badge-gold { background: #fef9e7; color: #9a7b00; }
+  .result-card ul { list-style: none; padding: 0; }
+  .result-card ul li {
+    padding: 6px 0; font-size: 14px; color: #444; border-bottom: 1px solid #f0f0f0;
+    padding-left: 20px; position: relative;
+  }
+  .result-card ul li::before {
+    content: ''; position: absolute; left: 0; top: 13px; width: 8px; height: 8px;
+    border-radius: 50%; background: #009B3A;
+  }
+  .result-card ul li:last-child { border-bottom: none; }
+
+  /* ── Screenshot ── */
+  .screenshot {
+    margin: 20px 0 28px; border-radius: 8px; overflow: hidden;
+    border: 1px solid #e0e0e0; box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+  }
+  .screenshot img { width: 100%; height: auto; display: block; }
+  .screenshot-pair {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 20px 0 28px;
+  }
+  .screenshot-pair .screenshot { margin: 0; }
+
+  /* ── Application Steps ── */
+  .app-step {
+    background: #fff; border-radius: 10px; padding: 28px 28px 20px; margin-bottom: 28px;
+    border: 1px solid #e0e0e0; border-left: 4px solid #009B3A;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+  }
+  .app-step .step-label {
+    font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;
+    color: #009B3A; margin-bottom: 6px;
+  }
+  .app-step h3 { margin-top: 0; margin-bottom: 8px; }
+  .app-step p { color: #444; font-size: 15px; }
+
+  /* ── Regulation Step Cards ── */
+  .reg-cards { display: flex; flex-direction: column; gap: 20px; margin-top: 24px; }
+  .reg-card {
+    background: #fff; border-radius: 10px; overflow: hidden;
+    border: 1px solid #e0e0e0; box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    display: grid; grid-template-columns: 6px 1fr;
+  }
+  .reg-card .card-accent { background: #009B3A; }
+  .reg-card.institution-online .card-accent { background: #3b82f6; }
+  .reg-card.institution-jampro .card-accent { background: #009B3A; }
+  .reg-card.institution-commission .card-accent { background: #FED100; }
+  .reg-card .card-body { padding: 24px; }
+  .reg-card .card-header {
+    display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; flex-wrap: wrap; gap: 8px;
+  }
+  .reg-card .card-header h4 {
+    font-size: 18px; font-weight: 700; color: #111; margin: 0;
+  }
+  .reg-card .card-header .institution-tag {
+    font-size: 12px; font-weight: 600; padding: 4px 12px; border-radius: 20px;
+    text-transform: uppercase; letter-spacing: 0.3px;
+  }
+  .tag-online { background: #eff6ff; color: #2563eb; }
+  .tag-jampro { background: #e6f7ed; color: #047832; }
+  .tag-commission { background: #fef9e7; color: #9a7b00; }
+  .reg-card .card-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 12px 24px;
+  }
+  .reg-card .card-field { }
+  .reg-card .card-field.full { grid-column: 1 / -1; }
+  .reg-card .card-field-label {
+    font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px;
+    color: #888; margin-bottom: 4px; display: flex; align-items: center; gap: 6px;
+  }
+  .reg-card .card-field-value {
+    font-size: 14px; color: #333; line-height: 1.5;
+  }
+  .field-icon {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 18px; height: 18px; border-radius: 4px; font-size: 11px;
+  }
+  .icon-docs { background: #eff6ff; color: #2563eb; }
+  .icon-cost { background: #e6f7ed; color: #047832; }
+  .icon-time { background: #fef9e7; color: #9a7b00; }
+  .icon-result { background: #f3e8ff; color: #7c3aed; }
+  .icon-law { background: #fef2f2; color: #dc2626; }
+
+  /* ── Timeline ── */
+  .timeline-visual {
+    background: #fff; border-radius: 10px; padding: 32px; margin: 24px 0;
+    border: 1px solid #e0e0e0; display: flex; align-items: center; gap: 0;
+    justify-content: center; flex-wrap: wrap;
+  }
+  .timeline-node {
+    text-align: center; flex: 0 0 auto; padding: 0 12px;
+  }
+  .timeline-node .days {
+    font-size: 28px; font-weight: 800; color: #009B3A;
+  }
+  .timeline-node .label {
+    font-size: 13px; color: #666; margin-top: 4px;
+  }
+  .timeline-arrow {
+    font-size: 24px; color: #ccc; flex: 0 0 auto; padding: 0 4px;
+  }
+  .timeline-range {
+    text-align: center; padding: 16px 0 0;
+    font-size: 15px; color: #555; width: 100%;
   }
 
-  /* ── Workflow diagram ── */
-  .workflow-steps {
-    display: flex;
-    align-items: center;
-    gap: 0;
-    flex-wrap: wrap;
-    margin: 24px 0;
-    padding: 20px;
-    background: #fff;
-    border-radius: 10px;
-    border: 1px solid #e0e0e0;
+  /* ── Contact Cards ── */
+  .contact-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 24px 0;
   }
-  .wf-step {
-    background: #111;
-    color: #FED100;
-    padding: 10px 18px;
-    border-radius: 8px;
-    font-weight: 600;
-    font-size: 14px;
-    text-align: center;
-    min-width: 100px;
-  }
-  .wf-step small {
-    display: block;
-    font-weight: 400;
-    font-size: 11px;
-    color: #aaa;
-    margin-top: 2px;
-  }
-  .wf-arrow {
-    font-size: 22px;
-    color: #bbb;
-    padding: 0 6px;
-  }
-  .wf-branch {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    gap: 0;
-    margin-top: 12px;
-    padding-right: 0;
-  }
-
-  /* ── Field table ── */
-  .field-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 12px 0 20px;
-    font-size: 14px;
-  }
-  .field-table th {
-    text-align: left;
-    background: #111;
-    color: #FED100;
-    padding: 8px 12px;
-    font-weight: 600;
-  }
-  .field-table td {
-    padding: 8px 12px;
-    border-bottom: 1px solid #eee;
-    vertical-align: top;
-  }
-  .field-table tr:hover td { background: #fafafa; }
-
-  /* ── Badge / tag ── */
-  .badge {
-    display: inline-block;
-    padding: 2px 10px;
-    border-radius: 999px;
-    font-size: 12px;
-    font-weight: 600;
-  }
-  .badge-required { background: #ffeaea; color: #c0392b; }
-  .badge-optional { background: #eaf6ea; color: #27863a; }
-
-  /* ── Result documents cards ── */
-  .doc-card {
-    background: #fff;
-    border: 1px solid #e0e0e0;
-    border-radius: 10px;
-    padding: 24px;
-    margin: 20px 0;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
-  }
-  .doc-card h4 {
-    margin-top: 0;
-    font-size: 18px;
-    color: #111;
-    border-bottom: 2px solid #FED100;
-    padding-bottom: 6px;
-    margin-bottom: 12px;
-  }
-  .doc-card ul {
-    margin-left: 20px;
-  }
-  .doc-card ol {
-    margin-left: 20px;
-  }
-
-  /* ── Contact card ── */
   .contact-card {
-    background: #fff;
-    border: 1px solid #e0e0e0;
-    border-radius: 10px;
-    padding: 20px 24px;
-    margin: 16px 0;
+    background: #fff; border-radius: 10px; padding: 20px; border: 1px solid #e0e0e0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+  }
+  .contact-card.primary {
+    grid-column: 1 / -1; border-left: 4px solid #FED100;
   }
   .contact-card h4 {
-    margin-top: 0;
-    color: #009B3A;
-    font-size: 15px;
-    margin-bottom: 8px;
+    font-size: 15px; font-weight: 700; color: #111; margin-bottom: 8px;
   }
   .contact-card p {
-    margin-bottom: 4px;
-    font-size: 14px;
+    font-size: 13.5px; color: #555; margin-bottom: 4px; line-height: 1.5;
+  }
+  .contact-card a { color: #009B3A; text-decoration: none; }
+  .contact-card a:hover { text-decoration: underline; }
+
+  /* ── FAQ ── */
+  .faq-item {
+    background: #fff; border-radius: 8px; margin-bottom: 8px; border: 1px solid #e0e0e0; overflow: hidden;
+  }
+  .faq-item summary {
+    padding: 16px 20px; font-weight: 600; font-size: 15px; color: #111; cursor: pointer;
+    list-style: none; display: flex; justify-content: space-between; align-items: center;
+  }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::after {
+    content: '+'; font-size: 20px; font-weight: 400; color: #999; transition: 0.2s; flex-shrink: 0; margin-left: 12px;
+  }
+  .faq-item[open] summary::after { content: '\2212'; color: #009B3A; }
+  .faq-item[open] summary { border-bottom: 1px solid #f0f0f0; }
+  .faq-item .faq-body { padding: 16px 20px; font-size: 14.5px; color: #444; line-height: 1.7; }
+
+  /* ── Link button ── */
+  .cta-link {
+    display: inline-block; background: #009B3A; color: #fff; padding: 12px 28px;
+    border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 15px;
+    transition: background 0.15s;
+  }
+  .cta-link:hover { background: #007a2e; }
+
+  /* ── Workflow image ── */
+  .workflow-img {
+    margin: 20px 0; border-radius: 8px; overflow: hidden; border: 1px solid #e0e0e0;
+  }
+  .workflow-img img { width: 100%; height: auto; display: block; }
+
+  /* ── Divider ── */
+  .section-divider {
+    border: none; border-top: 2px solid #f0f0f0; margin: 56px 0;
   }
 
-  /* ── FAQ toggle ── */
-  details {
-    margin-bottom: 8px;
-    border: 1px solid #e8e8e8;
-    border-radius: 8px;
-    overflow: hidden;
-  }
-  details summary {
-    padding: 12px 16px;
-    font-weight: 600;
-    font-size: 15px;
-    cursor: pointer;
-    background: #fafafa;
-    list-style: none;
-  }
-  details summary::-webkit-details-marker { display: none; }
-  details summary::before {
-    content: "+ ";
-    color: #009B3A;
-    font-weight: 700;
-    margin-right: 4px;
-  }
-  details[open] summary::before { content: "- "; }
-  details[open] summary {
-    border-bottom: 1px solid #e8e8e8;
-    background: #f0faf0;
-  }
-  details .faq-body {
-    padding: 12px 16px;
-    font-size: 14.5px;
-  }
+  /* ── Utility ── */
+  strong { font-weight: 700; }
+  a { color: #009B3A; }
 
-  /* ── Mobile ── */
-  .menu-toggle {
-    display: none;
-    position: fixed;
-    top: 12px; left: 12px;
-    z-index: 200;
-    background: #111;
-    color: #FED100;
-    border: none;
-    border-radius: 8px;
-    padding: 10px 14px;
-    font-size: 18px;
-    cursor: pointer;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-  }
-  .overlay {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.5);
-    z-index: 90;
-  }
-
-  @media (max-width: 860px) {
-    .sidebar {
-      transform: translateX(-100%);
-      transition: transform 0.25s ease;
-    }
+  /* ── Responsive ── */
+  @media (max-width: 900px) {
+    .sidebar { transform: translateX(-100%); }
     .sidebar.open { transform: translateX(0); }
+    .hamburger { display: flex; }
     .overlay.open { display: block; }
-    .menu-toggle { display: block; }
-    .main {
-      margin-left: 0;
-      padding: 60px 20px 60px;
-    }
+    .main { margin-left: 0; padding: 32px 20px 80px; }
+    .hero { padding: 40px 24px; }
+    .hero h2 { font-size: 28px; }
+    .result-cards { grid-template-columns: 1fr; }
+    .screenshot-pair { grid-template-columns: 1fr; }
+    .contact-grid { grid-template-columns: 1fr; }
+    .reg-card .card-grid { grid-template-columns: 1fr; }
+    .timeline-visual { flex-direction: column; gap: 8px; }
+    .timeline-arrow { transform: rotate(90deg); }
   }
 
   /* ── Print ── */
   @media print {
-    .sidebar, .menu-toggle { display: none; }
-    .main { margin-left: 0; }
+    .sidebar, .hamburger, .overlay { display: none !important; }
+    .main { margin-left: 0; max-width: 100%; padding: 24px; }
+    .hero { background: #fff !important; color: #111 !important; border: 2px solid #111; }
+    .hero h2 { color: #111 !important; }
+    .hero p { color: #333 !important; }
+    section { break-inside: avoid; }
+    .app-step, .reg-card, .result-card, .contact-card { break-inside: avoid; }
+    .faq-item { break-inside: avoid; }
+    .screenshot, .screenshot-pair { break-inside: avoid; }
   }
 </style>
 </head>
 <body>
 
-<!-- Mobile menu toggle -->
-<button class="menu-toggle" onclick="toggleSidebar()" aria-label="Toggle navigation">&#9776;</button>
-<div class="overlay" onclick="toggleSidebar()"></div>
+<!-- ── Hamburger (mobile) ── -->
+<button class="hamburger" id="hamburger" aria-label="Open navigation menu" aria-expanded="false">
+  <span></span><span></span><span></span>
+</button>
+<div class="overlay" id="overlay"></div>
 
-<!-- ════════════ SIDEBAR ════════════ -->
-<aside class="sidebar" role="navigation" aria-label="Table of Contents">
+<!-- ══════════════════════════════════════════════
+     SIDEBAR
+     ══════════════════════════════════════════════ -->
+<aside class="sidebar" id="sidebar" role="navigation" aria-label="Manual navigation">
   <div class="sidebar-header">
     <div class="flag-bar"><span></span><span></span><span></span></div>
-    <h1>Film Registration Service</h1>
-    <p>Jamaica -- JAMPRO</p>
+    <h1>Film Registration</h1>
+    <p>Jamaica eRegistrations Manual</p>
   </div>
   <nav>
+    <a href="#filming-in-jamaica">Filming in Jamaica?</a>
     <a href="#what-you-get">What You Get</a>
-    <a href="#how-it-works">How It Works</a>
-
-    <a class="section-heading">How to Apply</a>
-    <a class="sub" href="#step1">1. Project Overview</a>
-    <a class="sub" href="#step2">2. Applicant &amp; Local Contacts</a>
-    <a class="sub" href="#step3">3. Personnel &amp; Budget</a>
-    <a class="sub" href="#step4">4. Equipment Import</a>
-    <a class="sub" href="#step5">5. Special Activities &amp; Permits</a>
-    <a class="sub" href="#step6">6. Payment</a>
-    <a class="sub" href="#step7">7. Review &amp; Send</a>
-
-    <a href="#officer">For the Film Commission</a>
-    <a href="#fees">Fees &amp; Payment</a>
-    <a href="#contacts">Contacts &amp; Help</a>
+    <a href="#where-to-start">Where to Start</a>
+    <a href="#the-application">The Application</a>
+    <a href="#step-1" class="sub">1. Project Overview</a>
+    <a href="#step-2" class="sub">2. Applicant &amp; Contacts</a>
+    <a href="#step-3" class="sub">3. Personnel &amp; Budget</a>
+    <a href="#step-4" class="sub">4. Equipment Import</a>
+    <a href="#step-5" class="sub">5. Special Activities</a>
+    <a href="#step-6" class="sub">6. Payment</a>
+    <a href="#step-7" class="sub">7. Review &amp; Send</a>
+    <a href="#what-happens-next">What Happens Next</a>
+    <a href="#timeline">Timeline</a>
     <a href="#regulations">Regulations</a>
+    <a href="#contacts">Contacts &amp; Help</a>
     <a href="#faq">FAQ</a>
   </nav>
 </aside>
 
-<!-- ════════════ MAIN CONTENT ════════════ -->
-<div class="main">
+<!-- ══════════════════════════════════════════════
+     MAIN CONTENT
+     ══════════════════════════════════════════════ -->
+<main class="main" id="top">
 
-  <!-- ── 1. WHAT YOU GET ── -->
-  <section id="what-you-get">
-    <h2>What You Get</h2>
-    <p>The Film Registration Service gives you <strong>two official documents</strong> from JAMPRO (Jamaica Promotions Corporation). These are what you are applying for.</p>
-
-    <!-- Document 1 -->
-    <div class="doc-card">
-      <h4>Document 1: Film Registration Letter</h4>
-      <p>An official letter from <strong>Jackie Jackson, Film Commissioner / Mgr. Film, Animation and Music</strong>, confirming your production is registered with JAMPRO under a registration number (e.g., 07580/25R).</p>
-      <p>The letter states your filming dates and duration, and sets out the following conditions:</p>
-      <ul>
-        <li><strong>(a)</strong> Use local equipment, facilities, and services when competitively priced.</li>
-        <li><strong>(b)</strong> Hire Jamaican personnel (actors, musicians, technicians, skilled and non-skilled).</li>
-        <li><strong>(c)</strong> Adhere to all laws of Jamaica and obtain necessary licenses and permits.</li>
-        <li><strong>(d)</strong> During filming, this registration letter should be produced to support requests for use of venues and applications to various agencies.</li>
-      </ul>
-
-      <h4>Bond Waiver Conditions (if importing equipment)</h4>
-      <p>If you requested equipment import, the letter also includes these bond waiver conditions:</p>
-      <ol>
-        <li>You are responsible for re-exporting all items listed in the Schedule.</li>
-        <li>Transport costs to deliver items to Jamaica Customs Office at the Airport are on you.</li>
-        <li>Jamaica Customs can charge duties and GCT on items not verified for export.</li>
-      </ol>
-
-      <p>The letter is CC'd to your <strong>Local Production Manager</strong> and <strong>Local Producer</strong>.</p>
-
-      <figure>
-        <img src="images/result-film-registration-letter.png" alt="Film Registration Letter - page 1">
-        <figcaption>Film Registration Letter (page 1): Official registration confirmation with conditions.</figcaption>
-      </figure>
-      <figure>
-        <img src="images/result-registration-letter-2.png" alt="Film Registration Letter - page 2">
-        <figcaption>Film Registration Letter (page 2): Bond waiver conditions and signatures.</figcaption>
-      </figure>
-    </div>
-
-    <!-- Document 2 -->
-    <div class="doc-card">
-      <h4>Document 2: Waiver of Duty Letter (Bond Waiver)</h4>
-      <p>You only get this document if you are importing equipment. It is addressed to:</p>
-      <p><strong>Collector of Customs Kingston, Jamaica Customs House, New Port East, Kingston 13</strong></p>
-
-      <p>The letter:</p>
-      <ul>
-        <li>References a Tax Relief Advisory Reference (e.g., #010108/1672702 dated August 19, 2010) issued by the Ministry of Finance to JAMPRO.</li>
-        <li>States that the temporary importation of equipment/props/wardrobe listed in the attached schedule is required for the duration of the project.</li>
-        <li>Names the local entity operating in Jamaica that handles the import.</li>
-        <li>Specifies arrival details: airport, flight, date, and passengers accompanying equipment.</li>
-        <li>Requests customs to process items pursuant to Tax Relief Advisory.</li>
-        <li>Commits JAMPRO to ensuring re-exportation of items.</li>
-        <li>Names the customs broker handling documentation.</li>
-      </ul>
-
-      <p>CC'd to: <strong>Darlene Morrison</strong> (Financial Secretary, Ministry of Finance and Public Service), Producer, Local Production Manager, and Local Customs Broker.</p>
-
-      <figure>
-        <img src="images/result-bond-waiver.png" alt="Waiver of Duty Letter (Bond Waiver)">
-        <figcaption>The Bond Waiver letter addressed to Jamaica Customs, authorizing duty-free temporary importation of your equipment.</figcaption>
-      </figure>
+  <!-- ── 1. THE HOOK ── -->
+  <section id="filming-in-jamaica">
+    <div class="hero">
+      <h2>Filming in Jamaica?</h2>
+      <p>You want to produce a film in Jamaica. To do it legally and unlock tax benefits on your imported equipment, you need to register with <strong>JAMPRO</strong> (Jamaica Promotions Corporation) through the <strong>Film Registration Service</strong>.</p>
+      <p>The entire process is digital. You apply online, pay online, and receive your official documents online. No paper forms, no office visits.</p>
     </div>
   </section>
 
-  <!-- ── 2. HOW IT WORKS ── -->
-  <section id="how-it-works">
-    <h2>How It Works</h2>
-    <p>After you submit your application, it moves through a processing pipeline at the Film Commission:</p>
+  <!-- ── 2. WHAT YOU GET ── -->
+  <section id="what-you-get">
+    <h2>Here's what this <span class="accent">gives you</span></h2>
+    <p class="subtitle">Two official documents that let you film and import equipment duty-free.</p>
 
-    <div class="workflow-steps">
-      <div class="wf-step">Review<small>Film Commission</small></div>
-      <span class="wf-arrow">&#8594;</span>
-      <div class="wf-step">Payment<small>Applicant</small></div>
-      <span class="wf-arrow">&#8594;</span>
-      <div class="wf-step">Approval<small>Film Commission</small></div>
-      <span class="wf-arrow">&#8594;</span>
-      <div class="wf-step">Register<small>Film Commission</small></div>
-      <div class="wf-branch">
-        <div class="wf-step">Equipment Create<small>Film Commission</small></div>
-        <span class="wf-arrow" style="transform:scaleX(-1)">&#8594;</span>
-        <div class="wf-step">Upload Certificate<small>Film Commission</small></div>
+    <div class="result-cards">
+      <!-- Film Registration Letter -->
+      <div class="result-card">
+        <h4><span class="badge badge-green">Official</span> Film Registration Letter</h4>
+        <p style="font-size:14px;color:#555;margin-bottom:12px;">Signed by Jackie Jackson, Film Commissioner. This confirms your production is officially registered with Jamaica.</p>
+        <ul>
+          <li>Your unique registration number (e.g., 07580/25R)</li>
+          <li>Confirmed filming dates and duration</li>
+          <li>Conditions: use local services and personnel when competitive, follow all Jamaican laws, present this letter at filming venues and agencies</li>
+          <li>If importing equipment: bond waiver conditions &mdash; you must re-export everything, pay transport to customs, and duties apply if items aren't re-exported</li>
+          <li>CC'd to your Local Production Manager and Local Producer</li>
+        </ul>
+      </div>
+
+      <!-- Bond Waiver -->
+      <div class="result-card">
+        <h4><span class="badge badge-gold">Tax Relief</span> Waiver of Duty Letter</h4>
+        <p style="font-size:14px;color:#555;margin-bottom:12px;">Only issued if you're importing equipment. This is your ticket to duty-free temporary importation.</p>
+        <ul>
+          <li>Addressed to Collector of Customs Kingston</li>
+          <li>References Tax Relief Advisory from Ministry of Finance</li>
+          <li>Authorizes duty-free temporary importation of equipment, props, and wardrobe</li>
+          <li>Specifies your arrival details (airport, flight, date)</li>
+          <li>JAMPRO commits to ensuring re-exportation</li>
+          <li>Names your customs broker</li>
+          <li>CC'd to Financial Secretary (Ministry of Finance), Producer, Local Production Manager, Customs Broker</li>
+        </ul>
       </div>
     </div>
 
-    <ol>
-      <li><strong>Review</strong> -- A Film Commission officer checks your application for completeness.</li>
-      <li><strong>Payment</strong> -- You pay the USD $300 fee (if you haven't already).</li>
-      <li><strong>Approval</strong> -- The application is formally approved.</li>
-      <li><strong>Register</strong> -- Your production is registered in the official records.</li>
-      <li><strong>Equipment Create / Upload Certificate</strong> -- If importing equipment, customs documentation is generated.</li>
-    </ol>
-
-    <p>Processing takes <strong>5 to 10 working days</strong>. Equipment imports or special permits (drones, firearms) may push it closer to 10 days.</p>
-
-    <figure>
-      <img src="images/screencapture-bpa-jamaica-eregistrations-org-services-2d3c18a3-be2b-4533-a898-ed0bd946afd3-roles-2026-03-11-22_55_57.png" alt="Processing roles workflow diagram">
-      <figcaption>The processing pipeline as configured in the system. Each box is a processing role handled by the Film Commission.</figcaption>
-    </figure>
-  </section>
-
-  <!-- ══════════════════════════════════════ -->
-  <!--        HOW TO APPLY                    -->
-  <!-- ══════════════════════════════════════ -->
-
-  <!-- ── STEP 1 ── -->
-  <section id="step1">
-    <h2>Step 1: Project Overview</h2>
-    <p>Basic details about your production: what you are making, when, and where in Jamaica.</p>
-
-    <h3>Production</h3>
-    <table class="field-table">
-      <tr><th>Field</th><th>What to enter</th></tr>
-      <tr>
-        <td><strong>Title</strong> <span class="badge badge-required">Required</span></td>
-        <td>Working title of your production.</td>
-      </tr>
-      <tr>
-        <td><strong>Type</strong> <span class="badge badge-required">Required</span></td>
-        <td>Feature Film, Documentary, TV Series, Commercial, Music Video, etc.</td>
-      </tr>
-      <tr>
-        <td><strong>Short synopsis</strong> <span class="badge badge-required">Required</span></td>
-        <td>Brief description, up to 800 characters.</td>
-      </tr>
-    </table>
-
-    <h3>Timeline &amp; Locations</h3>
-    <p>Enter only the dates that correspond to filming <strong>in Jamaica</strong>.</p>
-    <table class="field-table">
-      <tr><th>Field</th><th>What to enter</th></tr>
-      <tr><td><strong>Filming start date</strong></td><td>When your Jamaica filming begins.</td></tr>
-      <tr><td><strong>Filming end date</strong></td><td>When your Jamaica filming wraps.</td></tr>
-      <tr><td><strong>Parish</strong></td><td>Primary parish from the dropdown.</td></tr>
-      <tr><td><strong>Specific production locations</strong></td><td>All filming locations, as detailed as possible.</td></tr>
-    </table>
-
-    <div class="tip">You can save your application at any time and come back later. Progress is saved automatically as you move between steps.</div>
-
-    <figure>
-      <img src="images/screencapture-jamaica-eregistrations-org-services-2d3c18a3-be2b-4533-a898-ed0bd946afd3-2026-03-11-22_52_19.png" alt="Step 1 blank form">
-      <figcaption>Step 1: Empty form -- Production, Timeline, and Locations with the Jamaica map.</figcaption>
-    </figure>
-    <figure>
-      <img src="images/screencapture-jamaica-eregistrations-org-services-2d3c18a3-be2b-4533-a898-ed0bd946afd3-2026-03-11-22_53_01.png" alt="Step 1 filled in with sample data">
-      <figcaption>Step 1 filled out: Feature Film filming June-August 2026 across Kingston locations.</figcaption>
-    </figure>
-  </section>
-
-  <!-- ── STEP 2 ── -->
-  <section id="step2">
-    <h2>Step 2: Applicant &amp; Local Contacts</h2>
-    <p>Who is applying, and who is your local support team in Jamaica.</p>
-
-    <h3>Applicant</h3>
-    <table class="field-table">
-      <tr><th>Field</th><th>What to enter</th></tr>
-      <tr><td><strong>Type of applicant</strong></td><td>Company or Individual.</td></tr>
-      <tr><td><strong>Nationality</strong></td><td>Country of registration or your nationality.</td></tr>
-      <tr><td><strong>Contact person's name</strong></td><td>Primary contact for this application.</td></tr>
-      <tr><td><strong>Phone number</strong></td><td>Include country code.</td></tr>
-      <tr><td><strong>Address</strong></td><td>Full mailing address.</td></tr>
-      <tr><td><strong>Email</strong></td><td>For correspondence about this application.</td></tr>
-    </table>
-
-    <h3>Local Production Support</h3>
-    <table class="field-table">
-      <tr><th>Field</th><th>What to enter</th></tr>
-      <tr><td><strong>Production service provider</strong></td><td>Local company name and email.</td></tr>
-      <tr><td><strong>Location manager</strong></td><td>Name and email of your Jamaica location manager.</td></tr>
-      <tr><td><strong>Equipment rental manager</strong></td><td>Name and email of the person handling local equipment.</td></tr>
-    </table>
-
-    <div class="tip">Don't have local contacts yet? The form links to JAMPRO reference lists of production service providers and location managers in Jamaica.</div>
-
-    <figure>
-      <img src="images/screencapture-jamaica-eregistrations-org-services-2d3c18a3-be2b-4533-a898-ed0bd946afd3-2026-03-11-22_53_09.png" alt="Step 2 form">
-      <figcaption>Step 2: Applicant details at the top, local production support contacts below.</figcaption>
-    </figure>
-  </section>
-
-  <!-- ── STEP 3 ── -->
-  <section id="step3">
-    <h2>Step 3: Personnel &amp; Budget</h2>
-    <p>Crew size and financial scope. This helps the Film Commission assess economic impact.</p>
-
-    <table class="field-table">
-      <tr><th>Field</th><th>What to enter</th></tr>
-      <tr><td><strong>Number of Jamaican Personnel</strong></td><td>Jamaican nationals on the crew.</td></tr>
-      <tr><td><strong>Number of Non-Jamaican Personnel</strong></td><td>Foreign crew members in Jamaica.</td></tr>
-      <tr><td><strong>Total production budget</strong></td><td>Overall budget in USD.</td></tr>
-      <tr><td><strong>Budgeted expenditure in Jamaica</strong></td><td>Portion spent in Jamaica, in USD.</td></tr>
-    </table>
-
-    <figure>
-      <img src="images/screencapture-jamaica-eregistrations-org-services-2d3c18a3-be2b-4533-a898-ed0bd946afd3-2026-03-11-22_53_16.png" alt="Step 3 personnel and budget">
-      <figcaption>Step 3: Personnel numbers and budget figures.</figcaption>
-    </figure>
-  </section>
-
-  <!-- ── STEP 4 ── -->
-  <section id="step4">
-    <h2>Step 4: Equipment Import</h2>
-    <p>If you are temporarily importing filming equipment into Jamaica. Not importing anything? Select "No" and skip ahead.</p>
-
-    <div class="warning">You need your customs broker information and equipment lists (as PDFs) before starting this step. A customs broker is mandatory for temporary importation.</div>
-
-    <h3>What you need to provide</h3>
-    <ul>
-      <li><strong>Shipping method</strong> -- Air cargo or sea cargo, per shipment.</li>
-      <li><strong>Port of entry</strong> -- E.g., Norman Manley International Airport.</li>
-      <li><strong>Arrival date</strong> -- Expected date per shipment.</li>
-      <li><strong>Customs broker</strong> -- Name, email, and phone of your licensed broker.</li>
-      <li><strong>Equipment list</strong> -- PDF inventory of all equipment being imported (template available on the form).</li>
-      <li><strong>Warehouse list</strong> -- PDF of storage locations in Jamaica (template available on the form).</li>
-    </ul>
-
-    <div class="tip">Download the official equipment list and warehouse list templates from the form -- they are pre-formatted for quick review by the Film Commission.</div>
-
-    <figure>
-      <img src="images/screencapture-jamaica-eregistrations-org-services-2d3c18a3-be2b-4533-a898-ed0bd946afd3-2026-03-11-22_53_32.png" alt="Step 4 equipment import">
-      <figcaption>Step 4: Shipping methods, customs broker details, and upload areas for equipment and warehouse lists.</figcaption>
-    </figure>
-  </section>
-
-  <!-- ── STEP 5 ── -->
-  <section id="step5">
-    <h2>Step 5: Special Activities &amp; Permits</h2>
-    <p>Check all that apply to your production:</p>
-
-    <table class="field-table">
-      <tr><th>Activity</th><th>When to check it</th></tr>
-      <tr><td><strong>Drones</strong></td><td>Aerial shots with UAVs.</td></tr>
-      <tr><td><strong>Radios</strong></td><td>Walkie-talkies or radio equipment.</td></tr>
-      <tr><td><strong>Cellular phones</strong></td><td>Non-Jamaican cellular devices.</td></tr>
-      <tr><td><strong>Guns and explosives</strong></td><td>Prop firearms, blank rounds, pyrotechnics.</td></tr>
-      <tr><td><strong>Underwater filming equipment</strong></td><td>Underwater cameras or diving equipment.</td></tr>
-      <tr><td><strong>Filming in airports</strong></td><td>Scenes inside or around airport facilities.</td></tr>
-    </table>
-
-    <div class="warning">These require separate permits from the relevant Jamaican authorities, applied for <strong>after</strong> your Film Registration is approved. The form shows contact details for each agency.</div>
-
-    <figure>
-      <img src="images/screencapture-jamaica-eregistrations-org-services-2d3c18a3-be2b-4533-a898-ed0bd946afd3-2026-03-11-22_53_51.png" alt="Step 5 special activities">
-      <figcaption>Step 5: Checkboxes for special activities. In this example, Radios and Guns and explosives are selected.</figcaption>
-    </figure>
-  </section>
-
-  <!-- ── STEP 6 ── -->
-  <section id="step6">
-    <h2>Step 6: Payment</h2>
-    <p><strong>USD $300</strong> non-refundable administrative fee. Two options:</p>
-    <ul>
-      <li><strong>Pay now</strong> -- Complete payment and upload the receipt.</li>
-      <li><strong>Pay later</strong> -- Submit first, pay when the officer requests it during review.</li>
-    </ul>
-
-    <p>Payment methods: online (Jamaica Business Gateway), cash/cheque (payable to JAMPRO), or wire transfer. Wire transfer banking details are displayed on the form.</p>
-
-    <figure>
-      <img src="images/screencapture-jamaica-eregistrations-org-services-2d3c18a3-be2b-4533-a898-ed0bd946afd3-2026-03-11-22_54_06.png" alt="Step 6 payment">
-      <figcaption>Step 6: Payment timing options, receipt upload, and wire transfer banking details.</figcaption>
-    </figure>
-  </section>
-
-  <!-- ── STEP 7 ── -->
-  <section id="step7">
-    <h2>Step 7: Review &amp; Send</h2>
-    <p>Click the <strong>"Send"</strong> tab. You must check <strong>two declaration boxes</strong> confirming:</p>
-    <ol>
-      <li>The information is true and accurate, and you understand false information may result in rejection.</li>
-      <li>You understand and accept all requirements.</li>
-    </ol>
-    <p>Then click the green <strong>"Send application"</strong> button. You will receive email notifications as your application moves through Review, Payment, and Approval.</p>
-
-    <figure>
-      <img src="images/screencapture-jamaica-eregistrations-org-services-2d3c18a3-be2b-4533-a898-ed0bd946afd3-2026-03-11-22_56_56.png" alt="Send tab with declarations">
-      <figcaption>The Send tab: check both declaration boxes, then click "Send application".</figcaption>
-    </figure>
-  </section>
-
-  <!-- ── FOR THE FILM COMMISSION ── -->
-  <section id="officer">
-    <h2>For the Film Commission</h2>
-    <p>When an applicant submits their form, it appears in your processing queue. The processing view shows all submitted data in read-only mode, organized the same way the applicant filled it out.</p>
-
-    <h3>What you review</h3>
-    <p>Production details, timeline, applicant info, local contacts, personnel, budget, equipment import details, and special activities -- all on one page.</p>
-
-    <h3>Actions</h3>
-    <ul>
-      <li><strong>"Request insulation compliance"</strong> -- Ask the applicant for corrections or additional documentation.</li>
-      <li><strong>"Send to approval"</strong> -- Move the application forward once everything checks out.</li>
-    </ul>
-
-    <div class="tip">Review equipment lists against shipping details carefully. If they don't match, use "Request insulation compliance" before approving.</div>
-
-    <figure>
-      <img src="images/screencapture-jamaica-eregistrations-org-part-b-2d3c18a3-be2b-4533-a898-ed0bd946afd3-my-a94b5593-1dc7-11f1-b54a-86aca301226d-2026-03-11-23_00_40.png" alt="Film Commission officer processing view">
-      <figcaption>The Film Commission officer's processing view with action buttons at the bottom.</figcaption>
-    </figure>
-  </section>
-
-  <!-- ── FEES & PAYMENT ── -->
-  <section id="fees">
-    <h2>Fees &amp; Payment</h2>
-
-    <table class="field-table">
-      <tr><th>Item</th><th>Details</th></tr>
-      <tr><td><strong>Fee</strong></td><td>USD $300 -- non-refundable administrative fee.</td></tr>
-      <tr><td><strong>Online</strong></td><td>Jamaica Business Gateway (JBDC).</td></tr>
-      <tr><td><strong>Cash / Cheque</strong></td><td>Payable to JAMPRO.</td></tr>
-      <tr><td><strong>Wire transfer</strong></td><td>Include your production title as the payment reference. Full banking details (beneficiary bank, SWIFT code, USD/JMD accounts, correspondent banks) are displayed on the form in Step 6.</td></tr>
-      <tr><td><strong>When to pay</strong></td><td>You can pay during the application (upload receipt) or later when the reviewing officer requests it.</td></tr>
-    </table>
-
-    <div class="warning">The USD $300 fee is non-refundable regardless of the outcome of your application.</div>
-  </section>
-
-  <!-- ── CONTACTS & HELP ── -->
-  <section id="contacts">
-    <h2>Contacts &amp; Help</h2>
-    <p>JAMPRO offices worldwide. Website: <strong>www.tradeandinvestjamaica.org</strong></p>
-
-    <div class="contact-card">
-      <h4>Head Office</h4>
-      <p>18 Trafalgar Road, Kingston 10, Jamaica W.I.</p>
-      <p>T: +1 876 978 7755; 978-3337 | F: +1 876 946 0090</p>
-      <p>E: info@jamprocorp.com</p>
-      <p>Toll Free: +1 888 INVESTJA / 468-4352 (Local) | +1 877 JAMVEST / 526-8378 (Overseas)</p>
+    <div class="screenshot-pair">
+      <div class="screenshot">
+        <img src="images/result-film-registration-letter.png" alt="Film Registration Letter from JAMPRO Film Commissioner" loading="lazy">
+      </div>
+      <div class="screenshot">
+        <img src="images/result-bond-waiver.png" alt="Bond Waiver Letter for duty-free equipment importation" loading="lazy">
+      </div>
     </div>
-
-    <div class="contact-card">
-      <h4>Western Regional Office</h4>
-      <p>Montego Bay Convention Centre, Rose Hall, Montego Bay, St. James, Jamaica W.I.</p>
-      <p>T: +1 876 952 3420 | F: +1 876 952 1384</p>
-      <p>E: jampromobay@jamprocorp.com</p>
-    </div>
-
-    <div class="contact-card">
-      <h4>North American Regional Office</h4>
-      <p><strong>New York:</strong> 767 3rd Avenue, Second Floor, New York, NY 10017, USA</p>
-      <p>T: 646-213-0101 | E: JamproNewYork@jamprocorp.com</p>
-      <p><strong>Toronto:</strong> 303 Eglinton Avenue East, 2nd Floor, Toronto, Ontario, M4P 1L3, Canada</p>
-      <p>T: 416 932 2200 (main) / 416-598-3008 | F: 416 932 2207</p>
-      <p>E: jamprocanada@jamprocorp.com | Toll Free: 1 877 744 2208</p>
-    </div>
-
-    <div class="contact-card">
-      <h4>European Regional Office</h4>
-      <p>1 Prince Consort Road, London SW7 2BZ, England</p>
-      <p>T: +44 20 7 584 8894 | F: +44 20 7 823 9886</p>
-      <p>E: jamprouk@jamprocorp.com</p>
+    <div class="screenshot" style="max-width:50%;">
+      <img src="images/result-registration-letter-2.png" alt="Film Registration Letter page 2" loading="lazy">
     </div>
   </section>
 
-  <!-- ── REGULATIONS ── -->
+  <hr class="section-divider">
+
+  <!-- ── 3. WHERE TO START ── -->
+  <section id="where-to-start">
+    <h2>Where to <span class="accent">start</span></h2>
+    <p>Go to <a href="https://jamaica.eregistrations.org" target="_blank" rel="noopener"><strong>jamaica.eregistrations.org</strong></a>, create an account, find the "Film Production Permit" service, and start your application. That's it.</p>
+    <a href="https://jamaica.eregistrations.org" target="_blank" rel="noopener" class="cta-link">Start Your Application</a>
+  </section>
+
+  <hr class="section-divider">
+
+  <!-- ── 4. THE APPLICATION ── -->
+  <section id="the-application">
+    <h2>The <span class="accent">Application</span></h2>
+    <p class="subtitle">Seven steps. All online. Here's exactly what you'll fill out.</p>
+
+    <!-- Step 1 -->
+    <div class="app-step" id="step-1">
+      <div class="step-label">Step 1</div>
+      <h3>Project Overview</h3>
+      <p>First, you'll tell us about your project. The title, type of production (feature film, documentary, commercial, music video, etc.), a short synopsis, your planned filming dates, and where in Jamaica you'll be shooting. You'll see an interactive map to select your locations.</p>
+      <div class="screenshot-pair">
+        <div class="screenshot">
+          <img src="images/screencapture-jamaica-eregistrations-org-services-2d3c18a3-be2b-4533-a898-ed0bd946afd3-2026-03-11-22_52_19.png" alt="Project Overview form - part 1" loading="lazy">
+        </div>
+        <div class="screenshot">
+          <img src="images/screencapture-jamaica-eregistrations-org-services-2d3c18a3-be2b-4533-a898-ed0bd946afd3-2026-03-11-22_53_01.png" alt="Project Overview form - location selection" loading="lazy">
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 2 -->
+    <div class="app-step" id="step-2">
+      <div class="step-label">Step 2</div>
+      <h3>Applicant &amp; Local Contacts</h3>
+      <p>Next, who's applying and who's your team on the ground? Enter your details as the applicant, plus your Local Production Manager and Local Producer in Jamaica. These are the people JAMPRO will CC on official correspondence.</p>
+      <div class="screenshot">
+        <img src="images/screencapture-jamaica-eregistrations-org-services-2d3c18a3-be2b-4533-a898-ed0bd946afd3-2026-03-11-22_53_09.png" alt="Applicant and Local Contacts form" loading="lazy">
+      </div>
+    </div>
+
+    <!-- Step 3 -->
+    <div class="app-step" id="step-3">
+      <div class="step-label">Step 3</div>
+      <h3>Personnel &amp; Budget</h3>
+      <p>How big is your crew and what's your budget? Enter the number of cast and crew, how many are local vs. international, and your estimated production budget in Jamaica.</p>
+      <div class="screenshot">
+        <img src="images/screencapture-jamaica-eregistrations-org-services-2d3c18a3-be2b-4533-a898-ed0bd946afd3-2026-03-11-22_53_16.png" alt="Personnel and Budget form" loading="lazy">
+      </div>
+    </div>
+
+    <!-- Step 4 -->
+    <div class="app-step" id="step-4">
+      <div class="step-label">Step 4</div>
+      <h3>Equipment Import</h3>
+      <p>Bringing equipment from abroad? This is the key step for your tax exemption. Enter your shipping details, your customs broker, and upload your equipment and warehouse lists as PDF files. This information feeds directly into your Bond Waiver letter.</p>
+      <div class="screenshot">
+        <img src="images/screencapture-jamaica-eregistrations-org-services-2d3c18a3-be2b-4533-a898-ed0bd946afd3-2026-03-11-22_53_32.png" alt="Equipment Import form" loading="lazy">
+      </div>
+    </div>
+
+    <!-- Step 5 -->
+    <div class="app-step" id="step-5">
+      <div class="step-label">Step 5</div>
+      <h3>Special Activities &amp; Permits</h3>
+      <p>Any special activities? Drones, firearms, underwater filming, pyrotechnics? Flag them here. Some of these require separate permits from other agencies, and JAMPRO will guide you through those.</p>
+      <div class="screenshot">
+        <img src="images/screencapture-jamaica-eregistrations-org-services-2d3c18a3-be2b-4533-a898-ed0bd946afd3-2026-03-11-22_53_51.png" alt="Special Activities and Permits form" loading="lazy">
+      </div>
+    </div>
+
+    <!-- Step 6 -->
+    <div class="app-step" id="step-6">
+      <div class="step-label">Step 6</div>
+      <h3>Payment</h3>
+      <p>Time to pay the fee. The administrative fee is <strong>USD $300</strong>, non-refundable. You can pay online, by cash or cheque, or wire transfer.</p>
+      <div class="screenshot">
+        <img src="images/screencapture-jamaica-eregistrations-org-services-2d3c18a3-be2b-4533-a898-ed0bd946afd3-2026-03-11-22_54_06.png" alt="Payment form" loading="lazy">
+      </div>
+    </div>
+
+    <!-- Step 7 -->
+    <div class="app-step" id="step-7">
+      <div class="step-label">Step 7</div>
+      <h3>Review &amp; Send</h3>
+      <p>Review everything and hit send. You'll see a summary of all your entries. Double-check your dates, equipment lists, and contact details. Once you submit, the Film Commission begins their review.</p>
+      <div class="screenshot">
+        <img src="images/screencapture-jamaica-eregistrations-org-services-2d3c18a3-be2b-4533-a898-ed0bd946afd3-2026-03-11-22_56_56.png" alt="Review and Submit page" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <hr class="section-divider">
+
+  <!-- ── 5. WHAT HAPPENS NEXT ── -->
+  <section id="what-happens-next">
+    <h2>What happens <span class="accent">next</span></h2>
+    <p class="subtitle">Behind the scenes at the Film Commission.</p>
+
+    <p>After you click send, here's what happens on the Film Commission's side. An officer reviews all your information in a single consolidated view. They check your production details, equipment lists, and special activity requests.</p>
+
+    <p>If something needs fixing, they'll send it back to you with specific correction requests. You'll get a notification, make the changes, and resubmit. If everything looks good, they move your application to approval.</p>
+
+    <p>The workflow follows this path:</p>
+
+    <div style="background:#fff; border-radius:10px; padding:24px; border:1px solid #e0e0e0; margin:20px 0; text-align:center;">
+      <div style="display:flex; align-items:center; justify-content:center; gap:8px; flex-wrap:wrap; font-size:14px; font-weight:600;">
+        <span style="background:#eff6ff; color:#2563eb; padding:8px 16px; border-radius:6px;">Review</span>
+        <span style="color:#ccc; font-size:20px;">&#8594;</span>
+        <span style="background:#fef9e7; color:#9a7b00; padding:8px 16px; border-radius:6px;">Payment</span>
+        <span style="color:#ccc; font-size:20px;">&#8594;</span>
+        <span style="background:#e6f7ed; color:#047832; padding:8px 16px; border-radius:6px;">Approval</span>
+        <span style="color:#ccc; font-size:20px;">&#8594;</span>
+        <span style="background:#f3e8ff; color:#7c3aed; padding:8px 16px; border-radius:6px;">Register</span>
+        <span style="color:#ccc; font-size:20px;">&#8594;</span>
+        <span style="background:#fef2f2; color:#dc2626; padding:8px 16px; border-radius:6px;">Equipment / Certificate</span>
+      </div>
+    </div>
+
+    <div class="screenshot">
+      <img src="images/screencapture-jamaica-eregistrations-org-part-b-2d3c18a3-be2b-4533-a898-ed0bd946afd3-my-a94b5593-1dc7-11f1-b54a-86aca301226d-2026-03-11-23_00_40.png" alt="Officer review interface showing consolidated application view" loading="lazy">
+    </div>
+
+    <div class="workflow-img">
+      <img src="images/screencapture-bpa-jamaica-eregistrations-org-services-2d3c18a3-be2b-4533-a898-ed0bd946afd3-roles-2026-03-11-22_55_57.png" alt="Workflow diagram showing the complete review and approval process" loading="lazy">
+    </div>
+  </section>
+
+  <hr class="section-divider">
+
+  <!-- ── 6. TIMELINE ── -->
+  <section id="timeline">
+    <h2>How long does it <span class="accent">take?</span></h2>
+
+    <div class="timeline-visual">
+      <div class="timeline-node">
+        <div class="days">5</div>
+        <div class="label">working days</div>
+      </div>
+      <div class="timeline-arrow">&#8594;</div>
+      <div class="timeline-node">
+        <div class="days">10</div>
+        <div class="label">working days</div>
+      </div>
+      <div class="timeline-range">
+        <p style="margin:0"><strong>Simple production</strong> (no equipment import, no special permits) &mdash; closer to <strong>5 days</strong>.</p>
+        <p style="margin:8px 0 0"><strong>Equipment imports or special activities</strong> (drones, firearms, pyrotechnics) &mdash; closer to <strong>10 days</strong>.</p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="section-divider">
+
+  <!-- ── 7. REGULATIONS ── -->
   <section id="regulations">
-    <h2>Regulations</h2>
-    <p><em>Coming soon</em> -- This section will cover the legal framework and regulatory requirements governing film production in Jamaica.</p>
+    <h2><span class="accent">Regulations</span></h2>
+    <p class="subtitle">The complete procedure, step by step. Each card shows exactly what's required, what it costs, and how long it takes.</p>
+
+    <div class="reg-cards">
+
+      <!-- Reg Step 1 -->
+      <div class="reg-card institution-online">
+        <div class="card-accent"></div>
+        <div class="card-body">
+          <div class="card-header">
+            <h4>Step 1: Create Account</h4>
+            <span class="institution-tag tag-online">Online</span>
+          </div>
+          <div class="card-grid">
+            <div class="card-field">
+              <div class="card-field-label"><span class="field-icon icon-docs">&#9998;</span> What you provide</div>
+              <div class="card-field-value">Email, name, password</div>
+            </div>
+            <div class="card-field">
+              <div class="card-field-label"><span class="field-icon icon-cost">$</span> What it costs</div>
+              <div class="card-field-value">Free</div>
+            </div>
+            <div class="card-field">
+              <div class="card-field-label"><span class="field-icon icon-time">&#9203;</span> How long</div>
+              <div class="card-field-value">Immediate</div>
+            </div>
+            <div class="card-field">
+              <div class="card-field-label"><span class="field-icon icon-result">&#10003;</span> What you get</div>
+              <div class="card-field-value">User account on jamaica.eregistrations.org</div>
+            </div>
+            <div class="card-field full">
+              <div class="card-field-label"><span class="field-icon icon-law">&#167;</span> Legal basis</div>
+              <div class="card-field-value">&mdash;</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Reg Step 2 -->
+      <div class="reg-card institution-online">
+        <div class="card-accent"></div>
+        <div class="card-body">
+          <div class="card-header">
+            <h4>Step 2: Fill Application Form</h4>
+            <span class="institution-tag tag-online">Online</span>
+          </div>
+          <div class="card-grid">
+            <div class="card-field full">
+              <div class="card-field-label"><span class="field-icon icon-docs">&#9998;</span> What you provide</div>
+              <div class="card-field-value">Production details, applicant info, personnel &amp; budget, equipment lists (PDF), special activities</div>
+            </div>
+            <div class="card-field">
+              <div class="card-field-label"><span class="field-icon icon-cost">$</span> What it costs</div>
+              <div class="card-field-value">Free</div>
+            </div>
+            <div class="card-field">
+              <div class="card-field-label"><span class="field-icon icon-time">&#9203;</span> How long</div>
+              <div class="card-field-value">30&ndash;60 minutes (depends on preparation)</div>
+            </div>
+            <div class="card-field">
+              <div class="card-field-label"><span class="field-icon icon-result">&#10003;</span> What you get</div>
+              <div class="card-field-value">Completed application</div>
+            </div>
+            <div class="card-field">
+              <div class="card-field-label"><span class="field-icon icon-law">&#167;</span> Legal basis</div>
+              <div class="card-field-value">&mdash;</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Reg Step 3 -->
+      <div class="reg-card institution-jampro">
+        <div class="card-accent"></div>
+        <div class="card-body">
+          <div class="card-header">
+            <h4>Step 3: Pay Administrative Fee</h4>
+            <span class="institution-tag tag-jampro">JAMPRO</span>
+          </div>
+          <div class="card-grid">
+            <div class="card-field full">
+              <div class="card-field-label"><span class="field-icon icon-docs">&#9998;</span> What you provide</div>
+              <div class="card-field-value">Payment via online gateway, cash/cheque, or wire transfer</div>
+            </div>
+            <div class="card-field">
+              <div class="card-field-label"><span class="field-icon icon-cost">$</span> What it costs</div>
+              <div class="card-field-value"><strong>USD $300</strong> (non-refundable)</div>
+            </div>
+            <div class="card-field">
+              <div class="card-field-label"><span class="field-icon icon-time">&#9203;</span> How long</div>
+              <div class="card-field-value">Immediate (online) or 1&ndash;3 days (wire transfer)</div>
+            </div>
+            <div class="card-field">
+              <div class="card-field-label"><span class="field-icon icon-result">&#10003;</span> What you get</div>
+              <div class="card-field-value">Payment receipt</div>
+            </div>
+            <div class="card-field">
+              <div class="card-field-label"><span class="field-icon icon-law">&#167;</span> Legal basis</div>
+              <div class="card-field-value">&mdash;</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Reg Step 4 -->
+      <div class="reg-card institution-commission">
+        <div class="card-accent"></div>
+        <div class="card-body">
+          <div class="card-header">
+            <h4>Step 4: Application Review</h4>
+            <span class="institution-tag tag-commission">Film Commission</span>
+          </div>
+          <div class="card-grid">
+            <div class="card-field">
+              <div class="card-field-label"><span class="field-icon icon-docs">&#9998;</span> What you provide</div>
+              <div class="card-field-value">Nothing &mdash; you wait</div>
+            </div>
+            <div class="card-field">
+              <div class="card-field-label"><span class="field-icon icon-cost">$</span> What it costs</div>
+              <div class="card-field-value">Free</div>
+            </div>
+            <div class="card-field">
+              <div class="card-field-label"><span class="field-icon icon-time">&#9203;</span> How long</div>
+              <div class="card-field-value">3&ndash;5 working days</div>
+            </div>
+            <div class="card-field">
+              <div class="card-field-label"><span class="field-icon icon-result">&#10003;</span> What you get</div>
+              <div class="card-field-value">Approval or request for corrections</div>
+            </div>
+            <div class="card-field full">
+              <div class="card-field-label"><span class="field-icon icon-law">&#167;</span> Legal basis</div>
+              <div class="card-field-value">Tax Relief Advisory Reference #010108/1672702 (August 19, 2010), Ministry of Finance</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Reg Step 5 -->
+      <div class="reg-card institution-commission">
+        <div class="card-accent"></div>
+        <div class="card-body">
+          <div class="card-header">
+            <h4>Step 5: Registration &amp; Certificates</h4>
+            <span class="institution-tag tag-commission">Film Commission</span>
+          </div>
+          <div class="card-grid">
+            <div class="card-field">
+              <div class="card-field-label"><span class="field-icon icon-docs">&#9998;</span> What you provide</div>
+              <div class="card-field-value">Nothing &mdash; you wait</div>
+            </div>
+            <div class="card-field">
+              <div class="card-field-label"><span class="field-icon icon-cost">$</span> What it costs</div>
+              <div class="card-field-value">Free</div>
+            </div>
+            <div class="card-field">
+              <div class="card-field-label"><span class="field-icon icon-time">&#9203;</span> How long</div>
+              <div class="card-field-value">1&ndash;2 working days</div>
+            </div>
+            <div class="card-field full">
+              <div class="card-field-label"><span class="field-icon icon-result">&#10003;</span> What you get</div>
+              <div class="card-field-value"><strong>Film Registration Letter</strong> + <strong>Bond Waiver</strong> (if importing equipment)</div>
+            </div>
+            <div class="card-field full">
+              <div class="card-field-label"><span class="field-icon icon-law">&#167;</span> Legal basis</div>
+              <div class="card-field-value">Jamaica Promotions Corporation Act; Tax Relief Advisory Reference #010108/1672702</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /reg-cards -->
   </section>
 
-  <!-- ── FAQ ── -->
+  <hr class="section-divider">
+
+  <!-- ── 8. CONTACTS ── -->
+  <section id="contacts">
+    <h2>Need help? <span class="accent">Here's who to call</span></h2>
+
+    <div class="contact-grid">
+      <!-- Head Office -->
+      <div class="contact-card primary">
+        <h4>JAMPRO Head Office</h4>
+        <p>18 Trafalgar Road, Kingston 10, Jamaica</p>
+        <p>T: <a href="tel:+18769787755">+1 876 978 7755</a></p>
+        <p>E: <a href="mailto:info@jamprocorp.com">info@jamprocorp.com</a></p>
+        <p>Toll Free: +1 888 INVESTJA (Local) | +1 877 JAMVEST (Overseas)</p>
+        <p>Web: <a href="https://www.tradeandinvestjamaica.org" target="_blank" rel="noopener">www.tradeandinvestjamaica.org</a></p>
+      </div>
+
+      <!-- Western -->
+      <div class="contact-card">
+        <h4>Western Regional</h4>
+        <p>Montego Bay Convention Centre, Rose Hall</p>
+        <p>T: <a href="tel:+18769523420">+1 876 952 3420</a></p>
+        <p>E: <a href="mailto:jampromobay@jamprocorp.com">jampromobay@jamprocorp.com</a></p>
+      </div>
+
+      <!-- New York -->
+      <div class="contact-card">
+        <h4>North America &mdash; New York</h4>
+        <p>767 3rd Ave, 2nd Floor, New York, NY 10017</p>
+        <p>T: <a href="tel:+16462130101">646-213-0101</a></p>
+        <p>E: <a href="mailto:JamproNewYork@jamprocorp.com">JamproNewYork@jamprocorp.com</a></p>
+      </div>
+
+      <!-- Toronto -->
+      <div class="contact-card">
+        <h4>North America &mdash; Toronto</h4>
+        <p>303 Eglinton Ave East, 2nd Floor, Toronto, M4P 1L3</p>
+        <p>T: <a href="tel:+14169322200">416 932 2200</a></p>
+        <p>E: <a href="mailto:jamprocanada@jamprocorp.com">jamprocanada@jamprocorp.com</a></p>
+        <p>Toll Free: 1 877 744 2208</p>
+      </div>
+
+      <!-- London -->
+      <div class="contact-card">
+        <h4>Europe &mdash; London</h4>
+        <p>1 Prince Consort Road, London, SW7 2BZ</p>
+        <p>T: <a href="tel:+442075848894">+44 20 7 584 8894</a></p>
+        <p>E: <a href="mailto:jamprouk@jamprocorp.com">jamprouk@jamprocorp.com</a></p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="section-divider">
+
+  <!-- ── 9. FAQ ── -->
   <section id="faq">
-    <h2>FAQ</h2>
+    <h2><span class="accent">FAQ</span></h2>
 
-    <details>
-      <summary>Can I save my application and come back later?</summary>
-      <div class="faq-body">Yes. Progress is saved as you move between steps. Close the browser and return through your Dashboard anytime.</div>
+    <details class="faq-item">
+      <summary>Do I need a bond waiver if I'm not importing equipment?</summary>
+      <div class="faq-body">No. The Bond Waiver letter is only issued if you're bringing equipment, props, or wardrobe from outside Jamaica. If you're using local equipment only, you'll receive just the Film Registration Letter.</div>
     </details>
 
-    <details>
-      <summary>What if I don't know my exact filming locations yet?</summary>
-      <div class="faq-body">Provide what you can (e.g., "Kingston area" or "North coast beaches"). Update the Film Commission when plans are finalized.</div>
+    <details class="faq-item">
+      <summary>Is the $300 fee refundable if my application is denied?</summary>
+      <div class="faq-body">No. The USD $300 administrative fee is non-refundable regardless of the outcome. Make sure your application is complete before submitting.</div>
     </details>
 
-    <details>
-      <summary>Is the USD $300 fee refundable?</summary>
-      <div class="faq-body">No. The fee is non-refundable regardless of outcome.</div>
+    <details class="faq-item">
+      <summary>Can I start filming before I receive my registration letter?</summary>
+      <div class="faq-body">No. You need the official Film Registration Letter before filming. The letter is what you present to venues, agencies, and authorities to prove your production is registered.</div>
     </details>
 
-    <details>
-      <summary>What if I'm not importing equipment?</summary>
-      <div class="faq-body">Select "No" in Step 4. The equipment section is skipped and your application may process faster.</div>
+    <details class="faq-item">
+      <summary>What happens if I don't re-export my equipment?</summary>
+      <div class="faq-body">If any imported items are not re-exported, standard import duties will apply to those items. JAMPRO commits to customs that everything will be re-exported, so failing to do so creates a legal and financial obligation.</div>
     </details>
 
-    <details>
-      <summary>Do I need separate permits for drones or firearms?</summary>
-      <div class="faq-body">Yes. The Film Registration does not cover specialized activities. Check the relevant items in Step 5 and apply to the agencies listed after your registration is approved.</div>
+    <details class="faq-item">
+      <summary>Do I need separate permits for drone filming or firearms?</summary>
+      <div class="faq-body">Yes. Special activities like drone operation, firearms use, underwater filming, and pyrotechnics require separate permits from the relevant Jamaican authorities. Flag these in Step 5 of your application and JAMPRO will guide you through the additional requirements.</div>
     </details>
 
-    <details>
-      <summary>How will I know when my registration is approved?</summary>
-      <div class="faq-body">Email notifications at each stage. You can also check status anytime through your Dashboard.</div>
+    <details class="faq-item">
+      <summary>Can I pay by wire transfer from outside Jamaica?</summary>
+      <div class="faq-body">Yes. Wire transfer is one of the three accepted payment methods (alongside online payment and cash/cheque). Wire transfers typically take 1 to 3 business days to process.</div>
     </details>
 
-    <details>
-      <summary>How long does processing take?</summary>
-      <div class="faq-body">5 to 10 working days. Equipment imports or special permits may push it closer to 10 days.</div>
+    <details class="faq-item">
+      <summary>What if the Film Commission requests corrections?</summary>
+      <div class="faq-body">You'll receive a notification with specific details about what needs to be fixed. Log back into jamaica.eregistrations.org, make the corrections, and resubmit. This doesn't reset the clock entirely, but it may add a few days to your timeline.</div>
     </details>
 
-    <details>
-      <summary>Who do I contact with questions?</summary>
-      <div class="faq-body">The Jamaica Film Commission through JAMPRO. See the <a href="#contacts">Contacts &amp; Help</a> section for office details worldwide.</div>
+    <details class="faq-item">
+      <summary>Who is my Local Production Manager?</summary>
+      <div class="faq-body">Your Local Production Manager is a Jamaica-based professional who acts as your on-the-ground contact. If you don't have one, JAMPRO can help connect you with local production services through the Film Commission.</div>
     </details>
   </section>
 
-</div><!-- end .main -->
+</main>
 
+<!-- ── Sidebar toggle script ── -->
 <script>
+(function() {
+  var hamburger = document.getElementById('hamburger');
+  var sidebar = document.getElementById('sidebar');
+  var overlay = document.getElementById('overlay');
+
   function toggleSidebar() {
-    document.querySelector('.sidebar').classList.toggle('open');
-    document.querySelector('.overlay').classList.toggle('open');
+    var isOpen = sidebar.classList.toggle('open');
+    overlay.classList.toggle('open', isOpen);
+    hamburger.setAttribute('aria-expanded', isOpen);
   }
-  // Close sidebar on link click (mobile)
-  document.querySelectorAll('.sidebar nav a:not(.section-heading)').forEach(function(a) {
-    a.addEventListener('click', function() {
-      if (window.innerWidth <= 860) {
-        document.querySelector('.sidebar').classList.remove('open');
-        document.querySelector('.overlay').classList.remove('open');
+
+  hamburger.addEventListener('click', toggleSidebar);
+  overlay.addEventListener('click', toggleSidebar);
+
+  // Close sidebar on nav click (mobile)
+  sidebar.querySelectorAll('nav a').forEach(function(link) {
+    link.addEventListener('click', function() {
+      if (window.innerWidth <= 900) {
+        sidebar.classList.remove('open');
+        overlay.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
       }
     });
   });
+
+  // Active section highlighting
+  var sections = document.querySelectorAll('section[id]');
+  var navLinks = sidebar.querySelectorAll('nav a');
+
+  function onScroll() {
+    var scrollPos = window.scrollY + 120;
+    var current = '';
+    sections.forEach(function(section) {
+      if (section.offsetTop <= scrollPos) {
+        current = section.getAttribute('id');
+      }
+    });
+    navLinks.forEach(function(link) {
+      link.classList.remove('active');
+      if (link.getAttribute('href') === '#' + current) {
+        link.classList.add('active');
+      }
+    });
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+})();
 </script>
+
 </body>
 </html>
