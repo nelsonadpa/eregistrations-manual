@@ -1,0 +1,13 @@
+{
+  "name": "eregistrations-manual",
+  "version": "1.0.0",
+  "description": "Reusable manual template for eRegistrations platforms",
+  "scripts": {
+    "build": "node build.js",
+    "build:lesotho": "node build.js lesotho"
+  },
+  "devDependencies": {
+    "cheerio": "^1.0.0",
+    "sharp": "^0.33.0"
+  }
+}
