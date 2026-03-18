@@ -256,34 +256,31 @@
             <!-- ==================== SECTION 4: STEP-BY-STEP GUIDE ==================== -->
             <div class="section" id="section-4">
                 <h2>4. Step-by-Step Guide</h2>
-                <p>Follow these steps after logging in to your OBFC account. If you do not have an account yet, see the <a href="getting-started.html">Getting Started guide</a>.</p>
 
                 <ol class="steps">
 
-                    <!-- Step 1 -->
                     <li class="step">
                         <div class="step-number">1</div>
                         <div class="step-content">
-                            <h4>Open the Register a Business service</h4>
-                            <p>From your dashboard, click <strong>Register a Business</strong>. This opens the service selection screen where you choose the type of business you want to register.</p>
+                            <h4>Click "Register a Business" from your dashboard</h4>
+                            <div class="screenshot-placeholder">
+                                <img src="screenshots/register-sole-proprietor/05-01-my-applications.png" alt="Dashboard showing the Register a Business service button">
+                            </div>
                         </div>
                     </li>
 
-                    <!-- Step 2 -->
                     <li class="step">
                         <div class="step-number">2</div>
                         <div class="step-content">
-                            <h4>Select Sole Proprietorship</h4>
-                            <p>In the business type guide, select <strong>Sole Proprietorship</strong>. The form will then tailor itself to the requirements for this business type.</p>
+                            <h4>Select "Sole Proprietorship"</h4>
+                            <p>The guide asks what type of business you want to register. Select <strong>Sole Proprietorship</strong>.</p>
                         </div>
                     </li>
 
-                    <!-- Step 3: Branching path via tabs -->
                     <li class="step">
                         <div class="step-number">3</div>
                         <div class="step-content">
                             <h4>Choose who you are registering for</h4>
-                            <p>Indicate whether you are registering the business for yourself or on behalf of someone else. Select the tab that applies to your situation.</p>
 
                             <div class="tab-group">
                                 <div class="tab-nav">
@@ -291,105 +288,94 @@
                                     <button class="tab-btn" onclick="switchTab(event, 'tab-someone')">For Someone Else</button>
                                 </div>
                                 <div class="tab-panel active" id="tab-myself" style="display:block" data-tab-label="For Myself">
-                                    <p>Select <strong>For myself</strong> when you are the owner of the business and you are completing the application personally.</p>
                                     <div class="screenshot-placeholder">
-                                        <img src="screenshots/register-sole-proprietor/04-01-register-for-myself.png" alt="Registration screen showing the 'For myself' option selected">
+                                        <img src="screenshots/register-sole-proprietor/04-01-register-for-myself.png" alt="Registration screen with 'For myself' selected">
                                     </div>
                                 </div>
                                 <div class="tab-panel" id="tab-someone" style="display:none" data-tab-label="For Someone Else">
-                                    <p>Select <strong>For someone else</strong> when you are an agent or representative completing the application on behalf of the business owner. You will need to provide the owner's details in the next step.</p>
                                     <div class="screenshot-placeholder">
-                                        <img src="screenshots/register-sole-proprietor/04-02-register-for-someone.png" alt="Registration screen showing the 'For someone else' option selected">
+                                        <img src="screenshots/register-sole-proprietor/04-02-register-for-someone.png" alt="Registration screen with 'For someone else' selected">
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </li>
 
-                    <!-- Step 3a -->
-                    <li class="step">
-                        <div class="step-number">3a</div>
-                        <div class="step-content">
-                            <h4>Enter owner's details</h4>
-                            <p>Fill in the personal details of the business owner, including full name, date of birth, nationality, and contact information. All fields marked as required must be completed before you can proceed.</p>
-                            <div class="screenshot-placeholder">
-                                <img src="screenshots/register-sole-proprietor/04-03-owner-details.png" alt="Owner's details form with fields for name, date of birth, nationality, and contact information">
-                            </div>
-                        </div>
-                    </li>
-
-                    <!-- Step 3b -->
-                    <li class="step">
-                        <div class="step-number">3b</div>
-                        <div class="step-content">
-                            <h4>Upload or scan your ID document</h4>
-                            <p>Upload a photo of your national ID or passport, or use your device camera to scan it directly. The system reads and extracts your personal data automatically, so you do not have to type it all in manually.</p>
-                            <div class="screenshot-placeholder">
-                                <img src="screenshots/register-sole-proprietor/04-04-scan-passport.png" alt="ID document upload screen showing camera scan and file upload options">
-                            </div>
-                            <p>After the scan is complete, the system displays the extracted data for you to review and confirm before continuing.</p>
-                            <div class="screenshot-placeholder">
-                                <img src="screenshots/register-sole-proprietor/04-05-data-extraction.png" alt="Automatic data extraction results showing name, date of birth, and document number filled in from the scanned ID">
-                            </div>
-                        </div>
-                    </li>
-
-                    <!-- Step 4 -->
                     <li class="step">
                         <div class="step-number">4</div>
                         <div class="step-content">
-                            <h4>Enter your business name</h4>
-                            <p>Type the name you want to trade under. The system checks availability in real time and will alert you if the name is already taken. Choose a name that is unique and clearly identifies your business.</p>
+                            <h4>Enter the owner's details</h4>
+                            <p>Fill in name, date of birth, nationality, and contact information.</p>
                             <div class="screenshot-placeholder">
-                                <img src="screenshots/register-sole-proprietor/04-06-business-name.png" alt="Business name entry field with real-time availability check indicator">
+                                <img src="screenshots/register-sole-proprietor/04-03-owner-details.png" alt="Owner's details form showing name, date of birth, nationality, and contact fields">
                             </div>
                         </div>
                     </li>
 
-                    <!-- Step 5 -->
                     <li class="step">
                         <div class="step-number">5</div>
                         <div class="step-content">
-                            <h4>Select your business activities</h4>
-                            <p>Search for and select the activities that describe what your business does. Your selections determine which licences apply and how fees are calculated, so choose carefully.</p>
+                            <h4>Upload or scan your ID</h4>
+                            <p>Upload your national ID or passport. The system extracts your data automatically.</p>
                             <div class="screenshot-placeholder">
-                                <img src="screenshots/register-sole-proprietor/04-07-activities.png" alt="Business activities selection screen with a searchable list of activity categories">
+                                <img src="screenshots/register-sole-proprietor/04-04-scan-passport.png" alt="ID document upload screen with camera scan and file upload options">
+                            </div>
+                            <div class="screenshot-placeholder">
+                                <img src="screenshots/register-sole-proprietor/04-05-data-extraction.png" alt="Automatic data extraction showing name and document number filled in from the scanned ID">
                             </div>
                         </div>
                     </li>
 
-                    <!-- Step 6 -->
                     <li class="step">
                         <div class="step-number">6</div>
                         <div class="step-content">
-                            <h4>Enter your main office address</h4>
-                            <p>Provide the physical address of your principal place of business in Lesotho. This address will appear on your Business ID certificate and licences.</p>
+                            <h4>Enter your business name</h4>
+                            <p>The system checks availability in real time.</p>
                             <div class="screenshot-placeholder">
-                                <img src="screenshots/register-sole-proprietor/04-08-main-office.png" alt="Main office address form with fields for street address, district, and postal code">
+                                <img src="screenshots/register-sole-proprietor/04-06-business-name.png" alt="Business name field with real-time availability check">
                             </div>
                         </div>
                     </li>
 
-                    <!-- Step 7 -->
                     <li class="step">
                         <div class="step-number">7</div>
                         <div class="step-content">
-                            <h4>Review and make payment</h4>
-                            <p>Review a summary of your application and the fees calculated based on your business size and activities. Complete payment online before submitting.</p>
+                            <h4>Select your business activities</h4>
+                            <p>Search and select the activities that describe what your business does.</p>
                             <div class="screenshot-placeholder">
-                                <img src="screenshots/register-sole-proprietor/04-09-payment.png" alt="Payment summary page showing itemised fees and online payment options including mobile money and bank transfer">
+                                <img src="screenshots/register-sole-proprietor/04-07-activities.png" alt="Business activities selection with searchable list">
                             </div>
                         </div>
                     </li>
 
-                    <!-- Step 8 -->
                     <li class="step">
                         <div class="step-number">8</div>
                         <div class="step-content">
-                            <h4>Submit your application</h4>
-                            <p>Once payment is confirmed, click <strong>Submit</strong> to send your application to the OBFC. You will receive a confirmation email with your application reference number.</p>
+                            <h4>Enter your main office address</h4>
                             <div class="screenshot-placeholder">
-                                <img src="screenshots/register-sole-proprietor/04-10-send.png" alt="Application submission confirmation screen with a reference number and next steps summary">
+                                <img src="screenshots/register-sole-proprietor/04-08-main-office.png" alt="Main office address form with street, district, and postal code fields">
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="step">
+                        <div class="step-number">9</div>
+                        <div class="step-content">
+                            <h4>Review and pay</h4>
+                            <p>Check the summary and pay online.</p>
+                            <div class="screenshot-placeholder">
+                                <img src="screenshots/register-sole-proprietor/04-09-payment.png" alt="Payment summary with itemised fees and online payment options">
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="step">
+                        <div class="step-number">10</div>
+                        <div class="step-content">
+                            <h4>Submit</h4>
+                            <p>Click <strong>Submit</strong>. You will receive a confirmation email with your reference number.</p>
+                            <div class="screenshot-placeholder">
+                                <img src="screenshots/register-sole-proprietor/04-10-send.png" alt="Application submission confirmation with reference number">
                             </div>
                         </div>
                     </li>
