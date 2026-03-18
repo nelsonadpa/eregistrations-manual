@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Manuals | OBFC Lesotho</title>
+    <meta name="description" content="Complete user manuals for all OBFC eRegistrations services in the Kingdom of Lesotho.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/manual.css">
+    <script src="assets/config.js"></script>
+    <style>
+        /* ============================================================
+           INDEX PAGE — CATALOG-SPECIFIC STYLES
+           ============================================================ */
+
+        /* --- Getting Started Card (prominent, full-width) --- */
+        .getting-started-card {
+            background: #E8F5E9;
+            border: 1px solid #C8E6C9;
+            border-radius: 16px;
+            padding: 36px 32px;
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            margin-bottom: 48px;
+            transition: box-shadow 0.25s ease, transform 0.2s ease;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .getting-started-card:hover {
+            box-shadow: 0 10px 32px rgba(46,125,50,0.15);
+            transform: translateY(-2px);
+            text-decoration: none;
+        }
+
+        .getting-started-icon {
+            width: 72px;
+            height: 72px;
+            border-radius: 16px;
+            background: rgba(76,175,116,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+            flex-shrink: 0;
+        }
+
+        .getting-started-body {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .getting-started-label {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #2E7D32;
+            margin-bottom: 8px;
+        }
+
+        .getting-started-card h3 {
+            font-size: 24px;
+            font-weight: 600;
+            color: #1B5E20;
+            margin-bottom: 8px;
+        }
+
+        .getting-started-card p {
+            font-size: 16px;
+            color: #388E3C;
+            margin-bottom: 0;
+            line-height: 1.6;
+        }
+
+        .getting-started-arrow {
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: #4CAF74;
+            color: #FFFFFF;
+            font-size: 22px;
+            transition: background 0.2s ease;
+        }
+
+        .getting-started-card:hover .getting-started-arrow {
+            background: #2E7D32;
+        }
+
+        /* --- Catalog Section --- */
+        .catalog-section {
+            padding: 48px 0 72px;
+        }
+
+        .section-title {
+            font-size: 26px;
+            font-weight: 600;
+            color: #1F2128;
+            margin-bottom: 6px;
+        }
+
+        .section-subtitle {
+            font-size: 15px;
+            color: #888;
+            margin-bottom: 28px;
+        }
+
+        /* --- Service Grid --- */
+        .toc-grid.service-grid {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        /* --- Service Card (link variant) --- */
+        a.toc-item {
+            text-decoration: none;
+        }
+
+        a.toc-item:hover {
+            text-decoration: none;
+        }
+
+        .toc-item .card-top {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 8px;
+            margin-bottom: 10px;
+        }
+
+        .toc-item .card-name {
+            font-family: 'Poppins', sans-serif;
+            font-size: 15px;
+            font-weight: 600;
+            color: #1F2128;
+            line-height: 1.4;
+            flex: 1;
+        }
+
+        /* Coming Soon state */
+        .toc-item.coming-soon {
+            opacity: 0.5;
+            pointer-events: none;
+            cursor: default;
+        }
+
+        .toc-item.coming-soon .card-name {
+            color: #999;
+        }
+
+        /* Badges */
+        .badge {
+            font-size: 11px;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            white-space: nowrap;
+            flex-shrink: 0;
+            align-self: flex-start;
+        }
+
+        .badge-active {
+            background: #E8F5E9;
+            color: #2E7D32;
+        }
+
+        .badge-soon {
+            background: #F5F5F5;
+            color: #999;
+        }
+
+        /* --- Responsive --- */
+        @media (max-width: 1024px) {
+            .toc-grid.service-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 640px) {
+            .getting-started-card {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 20px;
+                padding: 28px 24px;
+            }
+
+            .getting-started-arrow {
+                display: none;
+            }
+
+            .toc-grid.service-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ============================================================
+         HEADER
+         ============================================================ -->
+    <header class="site-header">
+        <div class="header-inner">
+            <div class="header-logos">
+                <a href="https://lesotho.eregistrations.dev/" title="OBFC Lesotho">
+                    <img src="https://lesotho.eregistrations.dev/_assets/v11/83b89d968e865c9d23a548390d2f71bd27ec2ecd.png" alt="OBFC Logo">
+                </a>
+                <div class="header-divider"></div>
+                <a href="https://lesotho.eregistrations.dev/" title="Kingdom of Lesotho">
+                    <img src="https://lesotho.eregistrations.dev/_assets/v11/62e7e38d29393d9e912a3aa2888bec679106a457.png" alt="MTI One-Stop Business Facilitation Centre" class="coat-of-arms">
+                </a>
+            </div>
+            <nav class="header-nav">
+                <a href="https://lesotho.eregistrations.dev/about/">About</a>
+                <a href="https://lesotho.eregistrations.dev/help/">Help &amp; Support</a>
+                <a href="https://services.businessregistrations.gov.ls/" class="btn-login">Login | Register</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ============================================================
+         HERO SECTION
+         ============================================================ -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-inner">
+                <div class="hero-content">
+                    <span class="hero-label">OBFC Lesotho</span>
+                    <h1>Service Manuals</h1>
+                    <p class="hero-description">Complete guides for all OBFC eRegistrations services. Step-by-step instructions to help you navigate business registration, licensing, and compliance in Lesotho.</p>
+                </div>
+                <div class="hero-image">
+                    <div class="hero-icon-circle">
+                        <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="8" y="4" width="34" height="46" rx="3" stroke-linecap="round" stroke-linejoin="round"/>
+                            <rect x="22" y="14" width="34" height="46" rx="3" stroke-linecap="round" stroke-linejoin="round"/>
+                            <line x1="30" y1="28" x2="48" y2="28" stroke-linecap="round"/>
+                            <line x1="30" y1="36" x2="48" y2="36" stroke-linecap="round"/>
+                            <line x1="30" y1="44" x2="42" y2="44" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         CATALOG
+         ============================================================ -->
+    <section class="catalog-section">
+        <div class="container">
+
+            <!-- ---- Getting Started (prominent card) ---- -->
+            <a href="getting-started.html" class="getting-started-card">
+                <div class="getting-started-icon">&#128100;</div>
+                <div class="getting-started-body">
+                    <span class="getting-started-label">Start here</span>
+                    <h3>Getting Started</h3>
+                    <p>Create your account and verify your identity — required before using any service.</p>
+                </div>
+                <div class="getting-started-arrow">&rarr;</div>
+            </a>
+
+            <!-- ---- Service Manuals Grid ---- -->
+            <h2 class="section-title">Service Manuals</h2>
+            <p class="section-subtitle">Select a service to view its complete step-by-step user manual.</p>
+
+            <div class="toc-grid service-grid">
+
+                <!-- Active: Register a Sole Proprietorship -->
+                <a href="register-sole-proprietor.html" class="toc-item">
+                    <div class="card-top">
+                        <span class="card-name">Register a Sole Proprietorship</span>
+                        <span class="badge badge-active">Active</span>
+                    </div>
+                </a>
+
+                <!-- Coming Soon: Register a Company -->
+                <div class="toc-item coming-soon">
+                    <div class="card-top">
+                        <span class="card-name">Register a Company</span>
+                        <span class="badge badge-soon">Coming Soon</span>
+                    </div>
+                </div>
+
+                <!-- Coming Soon: Register an External Company -->
+                <div class="toc-item coming-soon">
+                    <div class="card-top">
+                        <span class="card-name">Register an External Company</span>
+                        <span class="badge badge-soon">Coming Soon</span>
+                    </div>
+                </div>
+
+                <!-- Coming Soon: Name Reservation -->
+                <div class="toc-item coming-soon">
+                    <div class="card-top">
+                        <span class="card-name">Name Reservation</span>
+                        <span class="badge badge-soon">Coming Soon</span>
+                    </div>
+                </div>
+
+                <!-- Coming Soon: Annual Filing -->
+                <div class="toc-item coming-soon">
+                    <div class="card-top">
+                        <span class="card-name">Annual Filing</span>
+                        <span class="badge badge-soon">Coming Soon</span>
+                    </div>
+                </div>
+
+                <!-- Coming Soon: Renew / Close Business -->
+                <div class="toc-item coming-soon">
+                    <div class="card-top">
+                        <span class="card-name">Renew / Close Business</span>
+                        <span class="badge badge-soon">Coming Soon</span>
+                    </div>
+                </div>
+
+                <!-- Coming Soon: Renew / Close Licence -->
+                <div class="toc-item coming-soon">
+                    <div class="card-top">
+                        <span class="card-name">Renew / Close Licence</span>
+                        <span class="badge badge-soon">Coming Soon</span>
+                    </div>
+                </div>
+
+                <!-- Coming Soon: Change Financial Year -->
+                <div class="toc-item coming-soon">
+                    <div class="card-top">
+                        <span class="card-name">Change Financial Year</span>
+                        <span class="badge badge-soon">Coming Soon</span>
+                    </div>
+                </div>
+
+                <!-- Coming Soon: Delegate User Rights -->
+                <div class="toc-item coming-soon">
+                    <div class="card-top">
+                        <span class="card-name">Delegate User Rights</span>
+                        <span class="badge badge-soon">Coming Soon</span>
+                    </div>
+                </div>
+
+                <!-- Coming Soon: Update Business Data -->
+                <div class="toc-item coming-soon">
+                    <div class="card-top">
+                        <span class="card-name">Update Business Data</span>
+                        <span class="badge badge-soon">Coming Soon</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         FOOTER
+         ============================================================ -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+
+                <!-- Column 1: Logo & About -->
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <img src="https://lesotho.eregistrations.dev/_assets/v11/e8f8e0f4875113e3103aae78a6e2c99f11345f18.png" alt="OBFC Logo">
+                    </div>
+                    <p>One Business Facilitation Centre (OBFC) provides a single window for business registration and licensing services in the Kingdom of Lesotho.</p>
+                </div>
+
+                <!-- Column 2: Contact Details -->
+                <div class="footer-col">
+                    <h5>Contact Details</h5>
+                    <div class="footer-contact-item">
+                        <svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                        <span>LNDC Centre, Block A<br>Kingsway Road, Maseru</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92V21a2 2 0 0 1-2.18 2A19.86 19.86 0 0 1 3 5.18 2 2 0 0 1 5 3h4.09a1 1 0 0 1 1 .75l.72 3.59a1 1 0 0 1-.26.95L8.09 10.7a16 16 0 0 0 5.21 5.21l2.41-2.41a1 1 0 0 1 .95-.26l3.59.72a1 1 0 0 1 .75 1z"/></svg>
+                        <span>+266 2231 7454</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                        <span>info@obfc.org.ls</span>
+                    </div>
+                </div>
+
+                <!-- Column 3: Social Channels -->
+                <div class="footer-col">
+                    <h5>Follow Us</h5>
+                    <p>Stay connected with OBFC for the latest updates on business services.</p>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Facebook">
+                            <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                        </a>
+                        <a href="#" aria-label="Twitter / X">
+                            <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                        </a>
+                        <a href="#" aria-label="LinkedIn">
+                            <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2zM4 2a2 2 0 1 1 0 4 2 2 0 0 1 0-4z"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Column 4: Quick Links -->
+                <div class="footer-col">
+                    <h5>Quick Links</h5>
+                    <ul class="footer-links">
+                        <li><a href="https://lesotho.eregistrations.dev/">Home</a></li>
+                        <li><a href="https://lesotho.eregistrations.dev/about/">About OBFC</a></li>
+                        <li><a href="https://lesotho.eregistrations.dev/help/">Help &amp; Support</a></li>
+                        <li><a href="https://services.businessregistrations.gov.ls/">Login / Register</a></li>
+                        <li><a href="https://lesotho.eregistrations.dev/privacy/">Privacy Policy</a></li>
+                        <li><a href="https://lesotho.eregistrations.dev/terms/">Terms of Service</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- Implemented by -->
+            <div class="footer-implemented">
+                <span>Implemented by</span>
+                <a href="https://www.worldbank.org/" target="_blank" rel="noopener noreferrer">
+                    <img src="https://lesotho.eregistrations.dev/_assets/v11/742ddaa6ec00aadee1b93dffeefc513e3c77473c.png" alt="World Bank">
+                </a>
+                <a href="https://unctad.org/" target="_blank" rel="noopener noreferrer">
+                    <img src="https://lesotho.eregistrations.dev/_assets/v11/fd2d79a17613c98a31e05becdb641ca8c82159b4.png" alt="UNCTAD">
+                </a>
+            </div>
+
+            <!-- Copyright -->
+            <div class="footer-copyright">
+                &copy; 2025 One Business Facilitation Centre (OBFC), Kingdom of Lesotho. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/manual.js"></script>
+
+</body>
+</html>
