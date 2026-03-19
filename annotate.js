@@ -15,17 +15,25 @@
 const sharp = require('sharp');
 const path = require('path');
 
-async function annotate(inputPath, outputPath, xPct, yPct, wPct, hPct, shape = 'rect') {
+async function annotate(inputPath, outputPath, xVal, yVal, wVal, hVal, shape = 'rect', mode = 'px') {
     const metadata = await sharp(inputPath).metadata();
     const imgW = metadata.width;
     const imgH = metadata.height;
 
-    const x = Math.round((xPct / 100) * imgW);
-    const y = Math.round((yPct / 100) * imgH);
-    const w = Math.round((wPct / 100) * imgW);
-    const h = Math.round((hPct / 100) * imgH);
+    let x, y, w, h;
+    if (mode === 'pct') {
+        x = Math.round((xVal / 100) * imgW);
+        y = Math.round((yVal / 100) * imgH);
+        w = Math.round((wVal / 100) * imgW);
+        h = Math.round((hVal / 100) * imgH);
+    } else {
+        x = Math.round(xVal);
+        y = Math.round(yVal);
+        w = Math.round(wVal);
+        h = Math.round(hVal);
+    }
 
-    const strokeWidth = Math.max(3, Math.round(imgW * 0.003));
+    const strokeWidth = Math.max(4, Math.round(imgW * 0.004));
 
     let svgOverlay;
     if (shape === 'circle') {
@@ -51,7 +59,7 @@ async function annotate(inputPath, outputPath, xPct, yPct, wPct, hPct, shape = '
 
     const fs = require('fs');
     fs.renameSync(tmpPath, outputPath);
-    console.log(`Annotated: ${path.basename(outputPath)} (${shape} at ${xPct}%,${yPct}% ${wPct}x${hPct}%)`);
+    console.log(`Annotated: ${path.basename(outputPath)} (${shape} at ${x},${y} ${w}x${h}px)`);
 }
 
 // CLI
@@ -61,5 +69,5 @@ if (args.length < 6) {
     process.exit(1);
 }
 
-annotate(args[0], args[1], +args[2], +args[3], +args[4], +args[5], args[6] || 'rect')
+annotate(args[0], args[1], +args[2], +args[3], +args[4], +args[5], args[6] || 'rect', args[7] || 'px')
     .catch(console.error);
