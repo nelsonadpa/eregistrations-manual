@@ -1,0 +1,1474 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Manuals | OBFC Lesotho</title>
+    <meta name="description" content="Complete user manuals for all OBFC eRegistrations services in the Kingdom of Lesotho.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&amp;family=Roboto:wght@300;400;500;700&amp;display=swap" rel="stylesheet">
+    <style>/* ============================================================
+   eREGISTRATIONS — USER MANUAL
+   Shared design system for all country manuals
+   ============================================================ */
+
+/* --- Reset & Base --- */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    font-family: 'Roboto', -apple-system, system-ui, "Segoe UI", "Noto Sans", sans-serif;
+    font-size: 18px;
+    line-height: 1.7;
+    color: #555866;
+    background: #FFFFFF;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+a {
+    color: #4CAF74;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: #3d9461;
+    text-decoration: underline;
+}
+
+/* --- Typography --- */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif;
+    color: #1F2128;
+    line-height: 1.3;
+    margin-bottom: 0.5em;
+}
+
+h1 { font-size: 48px; font-weight: 700; }
+h2 { font-size: 36px; font-weight: 600; }
+h3 { font-size: 32px; font-weight: 600; }
+h4 { font-size: 24px; font-weight: 600; }
+h5 { font-size: 18px; font-weight: 600; }
+
+p { margin-bottom: 1em; }
+
+strong {
+    color: #1F2128;
+    font-weight: 600;
+}
+
+/* --- Layout --- */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+.site-header {
+    background: #2B2A65;
+    padding: 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.header-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 12px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+.header-logos {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-shrink: 0;
+}
+
+.header-logos img { height: 52px; width: auto; }
+.header-logos .coat-of-arms { height: 56px; }
+
+.header-divider {
+    width: 1px;
+    height: 40px;
+    background: rgba(255,255,255,0.25);
+    flex-shrink: 0;
+}
+
+.header-nav {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+.header-nav a {
+    color: #FFFFFF;
+    font-size: 15px;
+    font-weight: 400;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: opacity 0.2s ease;
+}
+
+.header-nav a:hover {
+    opacity: 0.85;
+    text-decoration: none;
+}
+
+.btn-login {
+    background: #4CAF74;
+    color: #FFFFFF !important;
+    padding: 8px 20px;
+    border-radius: 9999px;
+    font-weight: 500;
+    font-size: 14px;
+    display: inline-block;
+    transition: background 0.2s ease;
+}
+
+.btn-login:hover {
+    background: #3d9461;
+    text-decoration: none !important;
+}
+
+/* ============================================================
+   BREADCRUMB
+   ============================================================ */
+.breadcrumb {
+    background: #FFFFFF;
+    border-bottom: 1px solid #E5E7EB;
+    padding: 14px 0;
+}
+
+.breadcrumb-list {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: #888;
+    flex-wrap: wrap;
+}
+
+.breadcrumb-list li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.breadcrumb-list li + li::before {
+    content: "";
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-top: 1.5px solid #aaa;
+    border-right: 1.5px solid #aaa;
+    transform: rotate(45deg);
+    flex-shrink: 0;
+}
+
+.breadcrumb-list a { color: #4CAF74; font-weight: 400; }
+.breadcrumb-list .current { color: #555866; font-weight: 500; }
+
+/* ============================================================
+   HERO SECTION
+   ============================================================ */
+.hero {
+    background: linear-gradient(135deg, #2B2A65 0%, #3a3980 100%);
+    color: #FFFFFF;
+    padding: 64px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    top: 0; right: 0; bottom: 0;
+    width: 40%;
+    background: radial-gradient(ellipse at 70% 50%, rgba(76,175,116,0.1) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.hero-inner {
+    display: flex;
+    align-items: center;
+    gap: 48px;
+}
+
+.hero-content { flex: 1; min-width: 0; }
+
+.hero-label {
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #4CAF74;
+    margin-bottom: 12px;
+    display: block;
+}
+
+.hero h1 {
+    color: #FFFFFF;
+    font-size: 42px;
+    margin-bottom: 16px;
+    line-height: 1.2;
+}
+
+.hero-description {
+    font-size: 18px;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.85);
+    margin-bottom: 28px;
+    max-width: 560px;
+}
+
+.btn-primary {
+    background: #4CAF74;
+    color: #FFFFFF;
+    padding: 14px 32px;
+    border-radius: 9999px;
+    font-size: 16px;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    display: inline-block;
+    text-decoration: none;
+    transition: background 0.2s ease, transform 0.15s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    background: #3d9461;
+    color: #FFFFFF;
+    text-decoration: none;
+    transform: translateY(-1px);
+}
+
+.hero-image {
+    flex-shrink: 0;
+    width: 260px;
+    height: 260px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+}
+
+.hero-icon-circle {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: rgba(76,175,116,0.15);
+    border: 2px solid rgba(76,175,116,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-icon-circle svg {
+    width: 80px;
+    height: 80px;
+    fill: none;
+    stroke: #4CAF74;
+    stroke-width: 1.5;
+}
+
+/* ============================================================
+   TABLE OF CONTENTS
+   ============================================================ */
+.toc {
+    background: #F5F5F7;
+    padding: 48px 0;
+    border-bottom: 1px solid #E5E7EB;
+}
+
+.toc h2 { font-size: 28px; margin-bottom: 24px; }
+
+.toc-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 12px;
+}
+
+.toc-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 20px;
+    background: #FFFFFF;
+    border: 1px solid #E5E7EB;
+    border-radius: 10px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    text-decoration: none;
+    color: #1F2128;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.toc-item:hover {
+    border-color: #4CAF74;
+    box-shadow: 0 2px 8px rgba(76,175,116,0.12);
+    text-decoration: none;
+    color: #1F2128;
+}
+
+.toc-number {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #4CAF74;
+    color: #FFFFFF;
+    font-size: 14px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+.toc-label { flex: 1; line-height: 1.4; }
+
+/* ============================================================
+   MANUAL CONTENT
+   ============================================================ */
+.manual-content { padding: 56px 0 80px; }
+
+.section {
+    margin-bottom: 56px;
+    scroll-margin-top: 100px;
+}
+
+.section > h2 {
+    font-size: 32px;
+    font-weight: 600;
+    padding-left: 20px;
+    border-left: 4px solid #4CAF74;
+    margin-bottom: 24px;
+    line-height: 1.3;
+}
+
+.section > h3 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-top: 32px;
+    margin-bottom: 16px;
+}
+
+.section > h4 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-top: 24px;
+    margin-bottom: 12px;
+}
+
+.section > p, .section > ul, .section > ol { margin-bottom: 16px; }
+.section ul, .section ol { padding-left: 24px; }
+.section li { margin-bottom: 8px; }
+
+/* --- Steps (GOV.UK vertical line + USWDS progress) --- */
+.steps {
+    counter-reset: step-counter;
+    list-style: none;
+    padding: 0;
+    margin: 24px 0;
+    position: relative;
+}
+
+.step {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    margin-bottom: 0;
+    padding: 20px 20px 20px 20px;
+    background: #FFFFFF;
+    border: 1px solid #E5E7EB;
+    border-radius: 12px;
+    transition: box-shadow 0.2s ease;
+    position: relative;
+    margin-left: 20px;
+    border-left: 3px solid #E5E7EB;
+    border-radius: 0 12px 12px 0;
+    margin-bottom: 0;
+}
+
+.step:last-child { border-left-color: transparent; }
+
+.step:hover { box-shadow: 0 2px 12px rgba(0,0,0,0.05); }
+
+.step-number {
+    counter-increment: step-counter;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #4CAF74;
+    color: #FFFFFF;
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 2px;
+    position: relative;
+    margin-left: -41px;
+    z-index: 2;
+}
+
+.step-content { flex: 1; min-width: 0; }
+.step-content h4 { font-size: 18px; font-weight: 600; margin-bottom: 6px; color: #1F2128; }
+.step-content p { margin-bottom: 8px; font-size: 16px; }
+.step-content p:last-child { margin-bottom: 0; }
+
+/* --- Phase Headers (cognitive chunking) --- */
+.step-phase {
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #4CAF74;
+    margin: 32px 0 16px 20px;
+    padding: 8px 16px;
+    background: #E8F5E9;
+    border-radius: 6px;
+    display: inline-block;
+}
+
+.step-phase:first-child { margin-top: 0; }
+
+/* --- Reassurance Callout (BIT nudge) --- */
+.reassurance {
+    padding: 12px 20px;
+    background: #F0FFF4;
+    border: 1px solid #C6F6D5;
+    border-radius: 8px;
+    margin: 16px 0;
+    font-size: 14px;
+    color: #276749;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.reassurance svg { width: 20px; height: 20px; flex-shrink: 0; }
+
+/* --- Outcome Badge (Estonia pattern) --- */
+.outcome-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 20px 0;
+}
+
+.outcome-badge {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 16px;
+    background: #F5F5F7;
+    border: 1px solid #E5E7EB;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 500;
+    color: #1F2128;
+}
+
+.outcome-badge svg { width: 24px; height: 24px; stroke: #4CAF74; fill: none; flex-shrink: 0; }
+
+/* --- Meta Badges (time, difficulty) --- */
+.hero-meta {
+    display: flex;
+    gap: 16px;
+    margin-top: 16px;
+    flex-wrap: wrap;
+}
+
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 20px;
+    font-size: 14px;
+    color: rgba(255,255,255,0.9);
+    font-weight: 500;
+}
+
+.hero-badge svg { width: 16px; height: 16px; stroke: currentColor; fill: none; }
+
+/* --- Info / Warning / Note Boxes --- */
+.info-box, .warning-box, .note-box {
+    padding: 20px 24px;
+    border-radius: 10px;
+    margin: 24px 0;
+    font-size: 16px;
+    line-height: 1.6;
+    position: relative;
+}
+
+.info-box { background: #F5F5F7; border-left: 4px solid #4CAF74; }
+.warning-box { background: #FFF8F0; border-left: 4px solid #F5A623; }
+.note-box { background: #F0F6FF; border-left: 4px solid #4A90D9; }
+
+.info-box .box-label, .warning-box .box-label, .note-box .box-label {
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.info-box .box-label { color: #4CAF74; }
+.warning-box .box-label { color: #D4891A; }
+.note-box .box-label { color: #4A90D9; }
+
+.box-label svg { width: 18px; height: 18px; flex-shrink: 0; }
+
+/* --- Checklist --- */
+.checklist {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.checklist li {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 10px 0;
+    border-bottom: 1px solid #F0F0F2;
+    font-size: 16px;
+}
+
+.checklist li:last-child { border-bottom: none; }
+
+.checklist .check-icon {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.checklist .check-icon svg { width: 24px; height: 24px; }
+
+/* --- Field Table --- */
+.field-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin: 24px 0;
+    font-size: 15px;
+    border: 1px solid #E5E7EB;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.field-table thead { background: #2B2A65; color: #FFFFFF; }
+
+.field-table th {
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 14px 16px;
+    text-align: left;
+    white-space: nowrap;
+}
+
+.field-table td {
+    padding: 12px 16px;
+    border-bottom: 1px solid #F0F0F2;
+    vertical-align: top;
+}
+
+.field-table tbody tr:last-child td { border-bottom: none; }
+.field-table tbody tr:nth-child(even) { background: #FAFAFA; }
+.field-table tbody tr:hover { background: #F5F5F7; }
+.field-table .required-yes { color: #4CAF74; font-weight: 600; }
+.field-table .required-no { color: #999; }
+
+/* --- Cost Table --- */
+.cost-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin: 24px 0;
+    border: 1px solid #E5E7EB;
+    border-radius: 10px;
+    overflow: hidden;
+    font-size: 16px;
+}
+
+.cost-table thead { background: #2B2A65; color: #FFFFFF; }
+
+.cost-table th {
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 14px 16px;
+    text-align: left;
+}
+
+.cost-table td {
+    padding: 14px 16px;
+    border-bottom: 1px solid #F0F0F2;
+}
+
+.cost-table tbody tr:last-child td { border-bottom: none; }
+.cost-table tbody tr:nth-child(even) { background: #FAFAFA; }
+.cost-table .amount { font-weight: 700; color: #1F2128; font-family: 'Poppins', sans-serif; }
+.cost-table .total-row { background: #F5F5F7 !important; font-weight: 700; }
+.cost-table .total-row td { border-top: 2px solid #2B2A65; color: #1F2128; font-family: 'Poppins', sans-serif; }
+
+/* --- Screenshot Placeholder --- */
+.screenshot-placeholder {
+    border: 2px dashed #D0D0D8;
+    border-radius: 10px;
+    background: #FAFAFA;
+    padding: 48px 24px;
+    text-align: center;
+    margin: 24px 0;
+    color: #999;
+    font-size: 14px;
+}
+
+.screenshot-placeholder svg { width: 40px; height: 40px; stroke: #CCC; margin-bottom: 12px; }
+.screenshot-placeholder p { margin: 0; }
+.screenshot-placeholder img { margin: 0 auto; border-radius: 6px; }
+
+/* --- Tab Group --- */
+.tab-group {
+    margin: 28px 0;
+    border: 1px solid #E5E7EB;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.tab-nav {
+    display: flex;
+    background: #F5F5F7;
+    border-bottom: 1px solid #E5E7EB;
+    overflow-x: auto;
+    gap: 0;
+}
+
+.tab-btn {
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 14px 24px;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    border-bottom: 3px solid transparent;
+    color: #555866;
+    white-space: nowrap;
+    transition: all 0.2s ease;
+}
+
+.tab-btn:hover { color: #1F2128; background: rgba(255,255,255,0.5); }
+
+.tab-btn.active {
+    color: #4CAF74;
+    border-bottom-color: #4CAF74;
+    background: #FFFFFF;
+    font-weight: 600;
+}
+
+.tab-panel { display: none; padding: 24px; }
+.tab-panel.active { display: block; }
+
+/* --- Timeline --- */
+.timeline {
+    position: relative;
+    margin: 32px 0;
+    padding-left: 40px;
+}
+
+.timeline::before {
+    content: "";
+    position: absolute;
+    left: 15px; top: 0; bottom: 0;
+    width: 3px;
+    background: #E5E7EB;
+    border-radius: 2px;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 32px;
+    padding-left: 24px;
+}
+
+.timeline-item:last-child { margin-bottom: 0; }
+
+.timeline-item::before {
+    content: "";
+    position: absolute;
+    left: -28px; top: 4px;
+    width: 16px; height: 16px;
+    border-radius: 50%;
+    background: #4CAF74;
+    border: 3px solid #FFFFFF;
+    box-shadow: 0 0 0 3px #4CAF74;
+    z-index: 1;
+}
+
+.timeline-item.pending::before {
+    background: #FFFFFF;
+    box-shadow: 0 0 0 3px #D0D0D8;
+}
+
+.timeline-item h4 { font-size: 17px; font-weight: 600; margin-bottom: 4px; color: #1F2128; }
+.timeline-item p { font-size: 15px; color: #555866; margin-bottom: 0; }
+.timeline-item .timeline-meta { font-size: 13px; color: #999; margin-top: 4px; }
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.site-footer {
+    background: #2B2A65;
+    color: rgba(255,255,255,0.8);
+    padding: 56px 0 0;
+    font-size: 15px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr 1fr 1fr;
+    gap: 40px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+}
+
+.footer-col h5 {
+    font-family: 'Poppins', sans-serif;
+    color: #FFFFFF;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 18px;
+}
+
+.footer-logo { margin-bottom: 16px; }
+.footer-logo img { height: 50px; width: auto; }
+.footer-col p { margin-bottom: 10px; font-size: 14px; line-height: 1.6; }
+
+.footer-col a { color: rgba(255,255,255,0.8); transition: color 0.2s ease; }
+.footer-col a:hover { color: #4CAF74; text-decoration: none; }
+
+.footer-links { list-style: none; padding: 0; }
+.footer-links li { margin-bottom: 10px; }
+.footer-links a { font-size: 14px; }
+
+.footer-contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 12px;
+    font-size: 14px;
+}
+
+.footer-contact-item svg {
+    width: 18px; height: 18px;
+    flex-shrink: 0;
+    stroke: #4CAF74;
+    fill: none;
+    margin-top: 2px;
+}
+
+.footer-social { display: flex; gap: 12px; margin-top: 8px; }
+
+.footer-social a {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s ease;
+}
+
+.footer-social a:hover { background: #4CAF74; }
+.footer-social svg { width: 18px; height: 18px; fill: #FFFFFF; }
+
+.footer-implemented {
+    padding: 28px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+    flex-wrap: wrap;
+}
+
+.footer-implemented span {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: rgba(255,255,255,0.5);
+    font-weight: 500;
+}
+
+.footer-implemented img { height: 36px; width: auto; opacity: 0.85; transition: opacity 0.2s ease; }
+.footer-implemented img:hover { opacity: 1; }
+
+.footer-copyright {
+    text-align: center;
+    padding: 20px 0;
+    font-size: 13px;
+    color: rgba(255,255,255,0.45);
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 1024px) {
+    .hero h1 { font-size: 34px; }
+    .hero-inner { flex-direction: column; text-align: center; }
+    .hero-description { max-width: 100%; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    .toc-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 768px) {
+    body { font-size: 16px; }
+    h1 { font-size: 32px; }
+    h2, .section > h2 { font-size: 26px; }
+    h3 { font-size: 22px; }
+    .header-inner { flex-direction: column; gap: 12px; padding: 10px 16px; }
+    .header-nav { gap: 16px; flex-wrap: wrap; justify-content: center; }
+    .hero { padding: 40px 0; }
+    .hero-image { display: none; }
+    .hero h1 { font-size: 28px; }
+    .step { flex-direction: column; gap: 12px; }
+    .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+    .container { padding: 0 16px; }
+    .field-table, .cost-table { font-size: 14px; }
+    .field-table th, .field-table td, .cost-table th, .cost-table td { padding: 10px 12px; }
+    .tab-btn { padding: 12px 16px; font-size: 13px; }
+}
+
+@media (max-width: 480px) {
+    .header-logos img { height: 36px; }
+    .header-logos .coat-of-arms { height: 40px; }
+    .hero h1 { font-size: 24px; }
+    .footer-implemented { flex-direction: column; gap: 16px; }
+}
+
+/* ============================================================
+   PRINT STYLES
+   ============================================================ */
+@media print {
+    @page { margin: 2cm 1.5cm; size: A4; }
+    body { font-size: 11pt; line-height: 1.5; color: #000; background: #FFF; }
+    .site-header { position: static; box-shadow: none; background: #2B2A65 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .header-nav .btn-login { display: none; }
+    .hero { background: #2B2A65 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; padding: 32px 0; page-break-after: always; }
+    .hero h1 { font-size: 28pt; }
+    .btn-primary { display: none; }
+    .hero-image { display: none; }
+    .toc { page-break-after: always; background: #F5F5F7 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .toc-item { break-inside: avoid; }
+    .section { page-break-inside: avoid; }
+    .section > h2 { page-break-after: avoid; border-left-color: #4CAF74 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .step { page-break-inside: avoid; box-shadow: none; border: 1px solid #ddd; }
+    .step-number { background: #4CAF74 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .info-box, .warning-box, .note-box { page-break-inside: avoid; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .field-table, .cost-table { page-break-inside: avoid; font-size: 9pt; }
+    .field-table thead, .cost-table thead { background: #2B2A65 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .tab-group { page-break-inside: avoid; }
+    .tab-nav { display: none; }
+    .tab-panel { display: block !important; border-top: 1px solid #ddd; padding-top: 12px; margin-top: 8px; }
+    .tab-panel::before { content: attr(data-tab-label); font-weight: 700; font-size: 13pt; display: block; margin-bottom: 8px; }
+    .timeline::before { background: #ccc !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .timeline-item::before { background: #4CAF74 !important; box-shadow: 0 0 0 3px #4CAF74 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .screenshot-placeholder { border-color: #ccc; page-break-inside: avoid; }
+    .site-footer { background: #2B2A65 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; page-break-before: always; }
+    .footer-social { display: none; }
+    a { color: #000; text-decoration: underline; }
+    a[href]::after { content: none; }
+}
+
+/* --- Password Gate --- */
+.processing-locked { display: none; }
+.processing-unlocked { display: block; }
+.password-gate {
+    text-align: center;
+    padding: 40px 24px;
+    background: #F5F5F7;
+    border-radius: 12px;
+    margin: 24px 0;
+}
+.password-gate input {
+    padding: 10px 16px;
+    border: 1px solid #E5E7EB;
+    border-radius: 8px;
+    font-size: 16px;
+    margin-right: 8px;
+}
+.password-gate button {
+    padding: 10px 20px;
+    background: #4CAF74;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+}
+.password-gate .error { color: #D4891A; margin-top: 8px; font-size: 14px; }
+
+/* --- Prerequisite Box --- */
+.prerequisite-box {
+    padding: 20px 24px;
+    border-radius: 10px;
+    margin: 0 0 40px;
+    background: #F0F6FF;
+    border-left: 4px solid #4A90D9;
+    font-size: 16px;
+}
+.prerequisite-box a { font-weight: 600; }
+</style>
+    <script>window.MANUAL_CONFIG = {
+    country: "Lesotho",
+    orgName: "One Business Facilitation Centre (OBFC)",
+    orgShort: "OBFC",
+    platformUrl: "https://services.businessregistrations.gov.ls/",
+    aboutUrl: "https://lesotho.eregistrations.dev/about/",
+    helpUrl: "https://lesotho.eregistrations.dev/help/",
+    homeUrl: "https://lesotho.eregistrations.dev/",
+    primaryColor: "#4CAF74",
+    headerBg: "#2B2A65",
+    logoUrl: "https://lesotho.eregistrations.dev/_assets/v11/83b89d968e865c9d23a548390d2f71bd27ec2ecd.png",
+    coatOfArmsUrl: "https://lesotho.eregistrations.dev/_assets/v11/62e7e38d29393d9e912a3aa2888bec679106a457.png",
+    processingPassword: "lesotho",
+    contactEmail: "info@obfc.gov.ls",
+    contactPhone: "+266 2232 7594",
+    lastUpdated: "2026-03-18"
+};
+</script>
+    <style>
+        /* ============================================================
+           INDEX PAGE — CATALOG-SPECIFIC STYLES
+           ============================================================ */
+
+        /* --- Getting Started Card (prominent, full-width) --- */
+        .getting-started-card {
+            background: #E8F5E9;
+            border: 1px solid #C8E6C9;
+            border-radius: 16px;
+            padding: 36px 32px;
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            margin-bottom: 48px;
+            transition: box-shadow 0.25s ease, transform 0.2s ease;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .getting-started-card:hover {
+            box-shadow: 0 10px 32px rgba(46,125,50,0.15);
+            transform: translateY(-2px);
+            text-decoration: none;
+        }
+
+        .getting-started-icon {
+            width: 72px;
+            height: 72px;
+            border-radius: 16px;
+            background: rgba(76,175,116,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+            flex-shrink: 0;
+        }
+
+        .getting-started-body {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .getting-started-label {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #2E7D32;
+            margin-bottom: 8px;
+        }
+
+        .getting-started-card h3 {
+            font-size: 24px;
+            font-weight: 600;
+            color: #1B5E20;
+            margin-bottom: 8px;
+        }
+
+        .getting-started-card p {
+            font-size: 16px;
+            color: #388E3C;
+            margin-bottom: 0;
+            line-height: 1.6;
+        }
+
+        .getting-started-arrow {
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: #4CAF74;
+            color: #FFFFFF;
+            font-size: 22px;
+            transition: background 0.2s ease;
+        }
+
+        .getting-started-card:hover .getting-started-arrow {
+            background: #2E7D32;
+        }
+
+        /* --- Catalog Section --- */
+        .catalog-section {
+            padding: 48px 0 72px;
+        }
+
+        .section-title {
+            font-size: 26px;
+            font-weight: 600;
+            color: #1F2128;
+            margin-bottom: 6px;
+        }
+
+        .section-subtitle {
+            font-size: 15px;
+            color: #888;
+            margin-bottom: 28px;
+        }
+
+        /* --- Service Grid --- */
+        .toc-grid.service-grid {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        /* --- Service Card (link variant) --- */
+        a.toc-item {
+            text-decoration: none;
+        }
+
+        a.toc-item:hover {
+            text-decoration: none;
+        }
+
+        .toc-item .card-top {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 8px;
+            margin-bottom: 10px;
+        }
+
+        .toc-item .card-name {
+            font-family: 'Poppins', sans-serif;
+            font-size: 15px;
+            font-weight: 600;
+            color: #1F2128;
+            line-height: 1.4;
+            flex: 1;
+        }
+
+        /* Coming Soon state */
+        .toc-item.coming-soon {
+            opacity: 0.5;
+            pointer-events: none;
+            cursor: default;
+        }
+
+        .toc-item.coming-soon .card-name {
+            color: #999;
+        }
+
+        /* Badges */
+        .badge {
+            font-size: 11px;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            white-space: nowrap;
+            flex-shrink: 0;
+            align-self: flex-start;
+        }
+
+        .badge-active {
+            background: #E8F5E9;
+            color: #2E7D32;
+        }
+
+        .badge-soon {
+            background: #F5F5F5;
+            color: #999;
+        }
+
+        /* --- Responsive --- */
+        @media (max-width: 1024px) {
+            .toc-grid.service-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 640px) {
+            .getting-started-card {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 20px;
+                padding: 28px 24px;
+            }
+
+            .getting-started-arrow {
+                display: none;
+            }
+
+            .toc-grid.service-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ============================================================
+         HEADER
+         ============================================================ -->
+    <header class="site-header">
+        <div class="header-inner">
+            <div class="header-logos">
+                <a href="https://lesotho.eregistrations.dev/" title="OBFC Lesotho">
+                    <img src="https://lesotho.eregistrations.dev/_assets/v11/83b89d968e865c9d23a548390d2f71bd27ec2ecd.png" alt="OBFC Logo">
+                </a>
+                <div class="header-divider"></div>
+                <a href="https://lesotho.eregistrations.dev/" title="Kingdom of Lesotho">
+                    <img src="https://lesotho.eregistrations.dev/_assets/v11/62e7e38d29393d9e912a3aa2888bec679106a457.png" alt="MTI One-Stop Business Facilitation Centre" class="coat-of-arms">
+                </a>
+            </div>
+            <nav class="header-nav">
+                <a href="https://lesotho.eregistrations.dev/about/">About</a>
+                <a href="https://lesotho.eregistrations.dev/help/">Help &amp; Support</a>
+                <a href="https://services.businessregistrations.gov.ls/" class="btn-login">Login | Register</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ============================================================
+         HERO SECTION
+         ============================================================ -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-inner">
+                <div class="hero-content">
+                    <span class="hero-label">OBFC Lesotho</span>
+                    <h1>Service Manuals</h1>
+                    <p class="hero-description">Complete guides for all OBFC eRegistrations services. Step-by-step instructions to help you navigate business registration, licensing, and compliance in Lesotho.</p>
+                </div>
+                <div class="hero-image">
+                    <div class="hero-icon-circle">
+                        <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="8" y="4" width="34" height="46" rx="3" stroke-linecap="round" stroke-linejoin="round"></rect>
+                            <rect x="22" y="14" width="34" height="46" rx="3" stroke-linecap="round" stroke-linejoin="round"></rect>
+                            <line x1="30" y1="28" x2="48" y2="28" stroke-linecap="round"></line>
+                            <line x1="30" y1="36" x2="48" y2="36" stroke-linecap="round"></line>
+                            <line x1="30" y1="44" x2="42" y2="44" stroke-linecap="round"></line>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         CATALOG
+         ============================================================ -->
+    <section class="catalog-section">
+        <div class="container">
+
+            <!-- ---- Getting Started (prominent card) ---- -->
+            <a href="getting-started.html" class="getting-started-card">
+                <div class="getting-started-icon">👤</div>
+                <div class="getting-started-body">
+                    <span class="getting-started-label">Start here</span>
+                    <h3>Getting Started</h3>
+                    <p>Create your account and verify your identity — required before using any service.</p>
+                </div>
+                <div class="getting-started-arrow">→</div>
+            </a>
+
+            <!-- ---- Service Manuals Grid ---- -->
+            <h2 class="section-title">Service Manuals</h2>
+            <p class="section-subtitle">Select a service to view its complete step-by-step user manual.</p>
+
+            <div class="toc-grid service-grid">
+
+                <!-- Active: Register a Sole Proprietorship -->
+                <a href="register-sole-proprietor.html" class="toc-item">
+                    <div class="card-top">
+                        <span class="card-name">Register a Sole Proprietorship</span>
+                        <span class="badge badge-active">Active</span>
+                    </div>
+                </a>
+
+                <!-- Coming Soon: Register a Company -->
+                <div class="toc-item coming-soon">
+                    <div class="card-top">
+                        <span class="card-name">Register a Company</span>
+                        <span class="badge badge-soon">Coming Soon</span>
+                    </div>
+                </div>
+
+                <!-- Coming Soon: Register an External Company -->
+                <div class="toc-item coming-soon">
+                    <div class="card-top">
+                        <span class="card-name">Register an External Company</span>
+                        <span class="badge badge-soon">Coming Soon</span>
+                    </div>
+                </div>
+
+                <!-- Coming Soon: Name Reservation -->
+                <div class="toc-item coming-soon">
+                    <div class="card-top">
+                        <span class="card-name">Name Reservation</span>
+                        <span class="badge badge-soon">Coming Soon</span>
+                    </div>
+                </div>
+
+                <!-- Coming Soon: Annual Filing -->
+                <div class="toc-item coming-soon">
+                    <div class="card-top">
+                        <span class="card-name">Annual Filing</span>
+                        <span class="badge badge-soon">Coming Soon</span>
+                    </div>
+                </div>
+
+                <!-- Coming Soon: Renew / Close Business -->
+                <div class="toc-item coming-soon">
+                    <div class="card-top">
+                        <span class="card-name">Renew / Close Business</span>
+                        <span class="badge badge-soon">Coming Soon</span>
+                    </div>
+                </div>
+
+                <!-- Coming Soon: Renew / Close Licence -->
+                <div class="toc-item coming-soon">
+                    <div class="card-top">
+                        <span class="card-name">Renew / Close Licence</span>
+                        <span class="badge badge-soon">Coming Soon</span>
+                    </div>
+                </div>
+
+                <!-- Coming Soon: Change Financial Year -->
+                <div class="toc-item coming-soon">
+                    <div class="card-top">
+                        <span class="card-name">Change Financial Year</span>
+                        <span class="badge badge-soon">Coming Soon</span>
+                    </div>
+                </div>
+
+                <!-- Coming Soon: Delegate User Rights -->
+                <div class="toc-item coming-soon">
+                    <div class="card-top">
+                        <span class="card-name">Delegate User Rights</span>
+                        <span class="badge badge-soon">Coming Soon</span>
+                    </div>
+                </div>
+
+                <!-- Coming Soon: Update Business Data -->
+                <div class="toc-item coming-soon">
+                    <div class="card-top">
+                        <span class="card-name">Update Business Data</span>
+                        <span class="badge badge-soon">Coming Soon</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         FOOTER
+         ============================================================ -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+
+                <!-- Column 1: Logo & About -->
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <img src="https://lesotho.eregistrations.dev/_assets/v11/e8f8e0f4875113e3103aae78a6e2c99f11345f18.png" alt="OBFC Logo">
+                    </div>
+                    <p>One Business Facilitation Centre (OBFC) provides a single window for business registration and licensing services in the Kingdom of Lesotho.</p>
+                </div>
+
+                <!-- Column 2: Contact Details -->
+                <div class="footer-col">
+                    <h5>Contact Details</h5>
+                    <div class="footer-contact-item">
+                        <svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 1 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                        <span>LNDC Centre, Block A<br>Kingsway Road, Maseru</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92V21a2 2 0 0 1-2.18 2A19.86 19.86 0 0 1 3 5.18 2 2 0 0 1 5 3h4.09a1 1 0 0 1 1 .75l.72 3.59a1 1 0 0 1-.26.95L8.09 10.7a16 16 0 0 0 5.21 5.21l2.41-2.41a1 1 0 0 1 .95-.26l3.59.72a1 1 0 0 1 .75 1z"></path></svg>
+                        <span>+266 2231 7454</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                        <span>info@obfc.org.ls</span>
+                    </div>
+                </div>
+
+                <!-- Column 3: Social Channels -->
+                <div class="footer-col">
+                    <h5>Follow Us</h5>
+                    <p>Stay connected with OBFC for the latest updates on business services.</p>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Facebook">
+                            <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                        </a>
+                        <a href="#" aria-label="Twitter / X">
+                            <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg>
+                        </a>
+                        <a href="#" aria-label="LinkedIn">
+                            <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2zM4 2a2 2 0 1 1 0 4 2 2 0 0 1 0-4z"></path></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Column 4: Quick Links -->
+                <div class="footer-col">
+                    <h5>Quick Links</h5>
+                    <ul class="footer-links">
+                        <li><a href="https://lesotho.eregistrations.dev/">Home</a></li>
+                        <li><a href="https://lesotho.eregistrations.dev/about/">About OBFC</a></li>
+                        <li><a href="https://lesotho.eregistrations.dev/help/">Help &amp; Support</a></li>
+                        <li><a href="https://services.businessregistrations.gov.ls/">Login / Register</a></li>
+                        <li><a href="https://lesotho.eregistrations.dev/privacy/">Privacy Policy</a></li>
+                        <li><a href="https://lesotho.eregistrations.dev/terms/">Terms of Service</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- Implemented by -->
+            <div class="footer-implemented">
+                <span>Implemented by</span>
+                <a href="https://www.worldbank.org/" target="_blank" rel="noopener noreferrer">
+                    <img src="https://lesotho.eregistrations.dev/_assets/v11/742ddaa6ec00aadee1b93dffeefc513e3c77473c.png" alt="World Bank">
+                </a>
+                <a href="https://unctad.org/" target="_blank" rel="noopener noreferrer">
+                    <img src="https://lesotho.eregistrations.dev/_assets/v11/fd2d79a17613c98a31e05becdb641ca8c82159b4.png" alt="UNCTAD">
+                </a>
+            </div>
+
+            <!-- Copyright -->
+            <div class="footer-copyright">
+                © 2025 One Business Facilitation Centre (OBFC), Kingdom of Lesotho. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>// === TAB SWITCHING ===
+function switchTab(event, tabId) {
+    const group = event.target.closest('.tab-group');
+    group.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+    group.querySelectorAll('.tab-panel').forEach(panel => {
+        panel.classList.remove('active');
+        panel.style.display = 'none';
+    });
+    event.target.classList.add('active');
+    const panel = document.getElementById(tabId);
+    panel.classList.add('active');
+    panel.style.display = 'block';
+}
+
+// === PASSWORD GATE ===
+function initPasswordGate() {
+    const gate = document.getElementById('processing-gate');
+    if (!gate) return;
+    const config = window.MANUAL_CONFIG || {};
+    const password = (config.processingPassword || '').toLowerCase();
+    gate.querySelector('.gate-submit').addEventListener('click', function() {
+        const input = gate.querySelector('.gate-input').value.toLowerCase().trim();
+        const error = gate.querySelector('.error');
+        if (input === password) {
+            gate.style.display = 'none';
+            document.getElementById('processing-content').style.display = 'block';
+            const tocItem = document.querySelector('.toc-processing');
+            if (tocItem) tocItem.style.display = 'flex';
+        } else {
+            error.textContent = 'Incorrect password. Please try again.';
+            error.style.display = 'block';
+        }
+    });
+    gate.querySelector('.gate-input').addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') gate.querySelector('.gate-submit').click();
+    });
+}
+
+// === SMOOTH SCROLL TOC ===
+function initTOC() {
+    document.querySelectorAll('.toc-item').forEach(item => {
+        item.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            if (href && href.startsWith('#')) {
+                e.preventDefault();
+                const target = document.querySelector(href);
+                if (target) target.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    });
+}
+
+// === INIT ===
+document.addEventListener('DOMContentLoaded', function() {
+    initPasswordGate();
+    initTOC();
+});
+</script>
+
+
+
+</body></html>
